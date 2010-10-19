@@ -1,0 +1,484 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Concepts</title>
+<link rel="stylesheet" href="../boostbook.css" type="text/css">
+<meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1-RC2">
+<link rel="home" href="../index.html" title="Chapter&#160;1.&#160;Oven 1.00.1">
+<link rel="up" href="../index.html" title="Chapter&#160;1.&#160;Oven 1.00.1">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table cellpadding="2" width="100%"><tr><td valign="top"><img alt="pstade" width="200" height="164" src="../../../../../doc/logo.png"></td></tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="u" href="../index.html"><img src="../images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../images/home.png" alt="Home"></a>
+</div>
+<div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="oven.concepts"></a><a class="link" href="concepts.html" title="Concepts">Concepts</a>
+</h2></div></div></div>
+    
+    <div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="oven.concepts.pipable_adaptor"></a><a class="link" href="concepts.html#oven.concepts.pipable_adaptor" title="Pipable Adaptor">Pipable Adaptor</a>
+</h3></div></div></div>
+      
+      <a name="oven.concepts.pipable_adaptor.description"></a>
+      <h5>
+<a name="id910718"></a>
+        <a class="link" href="concepts.html#oven.concepts.pipable_adaptor.description">Description</a>
+      </h5>
+      <p>
+        <a class="link" href="concepts.html#oven.concepts.pipable_adaptor" title="Pipable Adaptor">Pipable Adaptor</a> &#12399;&#12289;&#38306;&#36899;&#12377;&#12427;
+        <a class="ulink" href="http://p-stade.sourceforge.net/egg/doc/html/egg/concepts.html#egg.concepts.static_function_object" target="_top">Static
+        Function Object</a> &#12398;&#20351;&#29992;&#12377;&#12427; <code class="computeroutput"><span class="identifier">make_</span></code>
+        &#12503;&#12524;&#12501;&#12451;&#12483;&#12463;&#12473;&#12434;&#25345;&#12388; <a class="ulink" href="http://p-stade.sourceforge.net/egg/doc/html/egg/concepts.html#egg.concepts.pipable_function_object" target="_top">Pipable
+        Function Object</a> &#12391;&#12354;&#12427;&#12290;
+      </p>
+      <a name="oven.concepts.pipable_adaptor.refinement_of"></a>
+      <h5>
+<a name="id910778"></a>
+        <a class="link" href="concepts.html#oven.concepts.pipable_adaptor.refinement_of">Refinement of</a>
+      </h5>
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+          <a class="ulink" href="http://p-stade.sourceforge.net/egg/doc/html/egg/concepts.html#egg.concepts.pipable_function_object" target="_top">Pipable
+          Function Object</a>
+        </li></ul></div>
+      <a name="oven.concepts.pipable_adaptor.requirements"></a>
+      <h5>
+<a name="id910814"></a>
+        <a class="link" href="concepts.html#oven.concepts.pipable_adaptor.requirements">Requirements</a>
+      </h5>
+      <p>
+        refinements &#12395;&#12362;&#12356;&#12390;&#23450;&#12417;&#12425;&#12428;&#12427;&#35201;&#20214;&#12395;&#21152;&#12360;&#12390;&#12289;&#20219;&#24847;&#12398; <a class="link" href="concepts.html#oven.concepts.pipable_adaptor" title="Pipable Adaptor">Pipable Adaptor</a> <code class="computeroutput"><span class="identifier">p</span></code> &#12399;&#20197;&#19979;&#12434;&#28288;&#12383;&#12373;&#12394;&#12369;&#12428;&#12400;&#12394;&#12425;&#12394;&#12356;:
+      </p>
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">_typeof</span><span class="special">(</span><span class="identifier">p</span><span class="special">)</span></code> &#12399;
+          <span class="emphasis"><em>POD</em></span> &#22411;&#12391;&#12354;&#12426;&#12289; <code class="computeroutput"><span class="identifier">p</span></code>
+          &#12399;&#38745;&#30340;&#21021;&#26399;&#21270;( <span class="emphasis"><em>statically initialized</em></span> )&#12373;&#12428;&#12427;&#12290;
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">make_</span><span class="special">++</span><span class="identifier">p</span><span class="special">(</span><span class="identifier">x</span><span class="special">,</span> <span class="identifier">x1</span><span class="special">,...,</span><span class="identifier">xN</span><span class="special">)</span></code> &#12364;&#26377;&#21177;&#12394;&#24335;&#12391;&#12354;&#12427;&#22580;&#21512;&#12289; <code class="computeroutput"><span class="identifier">x</span><span class="special">|</span><span class="identifier">p</span><span class="special">(</span><span class="identifier">x1</span><span class="special">,...,</span><span class="identifier">xN</span><span class="special">)</span></code> &#12418;&#12414;&#12383;&#26377;&#21177;&#12394;&#24335;&#12391;&#12354;&#12427;&#12290;
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">x</span><span class="special">|</span><span class="identifier">p</span><span class="special">(</span><span class="identifier">x1</span><span class="special">,...,</span><span class="identifier">xN</span><span class="special">)</span></code> &#12392; <code class="computeroutput"><span class="identifier">make_</span><span class="special">++</span><span class="identifier">p</span><span class="special">(</span><span class="identifier">x</span><span class="special">,</span> <span class="identifier">x1</span><span class="special">,...,</span><span class="identifier">xN</span><span class="special">)</span></code> &#12399;&#21516;&#12376;&#21177;&#26524;&#12434;&#25345;&#12388;&#12290;
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">make_</span><span class="special">++</span><span class="identifier">p</span></code> &#12399; <a class="ulink" href="http://p-stade.sourceforge.net/egg/doc/html/egg/concepts.html#egg.concepts.static_function_object" target="_top">Static
+          Function Object</a> &#12391;&#12354;&#12427;&#12290;
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">N</span></code> &#12364; <code class="computeroutput"><span class="number">0</span></code>
+          &#12391;&#12354;&#12427;&#22580;&#21512;&#12289; <code class="computeroutput"><span class="identifier">x</span><span class="special">|</span><span class="identifier">p</span></code> &#12392; <code class="computeroutput"><span class="identifier">make_</span><span class="special">++</span><span class="identifier">p</span><span class="special">(</span><span class="identifier">x</span><span class="special">)</span></code> &#12399;&#21516;&#12376;&#21177;&#26524;&#12434;&#25345;&#12388;&#26377;&#21177;&#12394;&#24335;&#12391;&#12354;&#12427;&#12290;
+        </li>
+</ul></div>
+      <a name="oven.concepts.pipable_adaptor.models"></a>
+      <h5>
+<a name="id911244"></a>
+        <a class="link" href="concepts.html#oven.concepts.pipable_adaptor.models">Models</a>
+      </h5>
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem">
+          <a class="link" href="range_adaptors.html#oven.range_adaptors.filtered" title="filtered">filtered</a>
+        </li>
+<li class="listitem">
+          <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.transformer" title="transformer">transformer</a>
+        </li>
+</ul></div>
+    </div>
+    <div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="oven.concepts.resettable_object"></a><a class="link" href="concepts.html#oven.concepts.resettable_object" title="Resettable Object">Resettable Object</a>
+</h3></div></div></div>
+      
+      <a name="oven.concepts.resettable_object.description"></a>
+      <h5>
+<a name="id911305"></a>
+        <a class="link" href="concepts.html#oven.concepts.resettable_object.description">Description</a>
+      </h5>
+      <p>
+        A <a class="link" href="concepts.html#oven.concepts.resettable_object" title="Resettable Object">Resettable Object</a>
+        is an object which is modifiable after its construction.
+      </p>
+      <a name="oven.concepts.resettable_object.refinement_of"></a>
+      <h5>
+<a name="id911336"></a>
+        <a class="link" href="concepts.html#oven.concepts.resettable_object.refinement_of">Refinement
+        of</a>
+      </h5>
+      <a name="oven.concepts.resettable_object.notation"></a>
+      <h5>
+<a name="id911356"></a>
+        <a class="link" href="concepts.html#oven.concepts.resettable_object.notation">Notation</a>
+      </h5>
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">r</span></code> is a <a class="link" href="concepts.html#oven.concepts.resettable_object" title="Resettable Object">Resettable
+          Object</a>.
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">R</span></code> is <code class="computeroutput"><span class="identifier">_typeof</span><span class="special">(</span><span class="identifier">r</span><span class="special">)</span></code>.
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">s</span></code> is an object whose type
+          is <code class="computeroutput"><span class="identifier">R</span></code>.
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">aI</span></code> is an object.
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">bI</span></code> is an object whose type
+          is <code class="computeroutput"><span class="identifier">_typeof</span><span class="special">(</span><span class="identifier">aI</span><span class="special">)</span></code>.
+        </li>
+</ul></div>
+      <a name="oven.concepts.resettable_object.requirements"></a>
+      <h5>
+<a name="id911522"></a>
+        <a class="link" href="concepts.html#oven.concepts.resettable_object.requirements">Requirements</a>
+      </h5>
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">R</span> <span class="identifier">r</span><span class="special">(</span><span class="identifier">a0</span><span class="special">);</span></code>
+          is a valid expression if and only if <code class="computeroutput"><span class="identifier">s</span>
+          <span class="special">=</span> <span class="identifier">b0</span><span class="special">;</span></code> is a valid expression.
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">R</span> <span class="identifier">r</span><span class="special">(</span><span class="identifier">a1</span><span class="special">,...,</span><span class="identifier">aN</span><span class="special">);</span></code>
+          is a valid expression if and only if <code class="computeroutput"><span class="identifier">s</span><span class="special">.</span><span class="identifier">reset</span><span class="special">(</span><span class="identifier">b1</span><span class="special">,...</span><span class="identifier">bN</span><span class="special">);</span></code>
+          is a valid expression.
+        </li>
+<li class="listitem">
+          After the two equivalent expressions above are evaluated, <code class="computeroutput"><span class="identifier">s</span></code> and <code class="computeroutput"><span class="identifier">r</span></code>
+          shall have the same states if all the arguments have the same states.
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">R</span> <span class="identifier">r</span><span class="special">;</span></code> is a valid expression if and only if
+          <code class="computeroutput"><span class="identifier">R</span> <span class="identifier">s</span>
+          <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">none</span><span class="special">;</span></code> is a valid expression.
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">R</span> <span class="identifier">r</span><span class="special">;</span></code> is a valid expression if and only if
+          <code class="computeroutput"><span class="identifier">s</span><span class="special">.</span><span class="identifier">reset</span><span class="special">();</span></code>
+          is a valid expression.
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">R</span> <span class="identifier">r</span><span class="special">;</span></code> is a valid expression if and only if
+          <code class="computeroutput"><span class="identifier">s</span> <span class="special">=</span>
+          <span class="identifier">boost</span><span class="special">::</span><span class="identifier">none</span><span class="special">;</span></code>
+          is a valid expression.
+        </li>
+<li class="listitem">
+          After the three equivalent expressions above are evaluated, <code class="computeroutput"><span class="identifier">s</span></code> and <code class="computeroutput"><span class="identifier">r</span></code>
+          shall have the same states.
+        </li>
+</ul></div>
+      <a name="oven.concepts.resettable_object.example"></a>
+      <h5>
+<a name="id911953"></a>
+        <a class="link" href="concepts.html#oven.concepts.resettable_object.example">Example</a>
+      </h5>
+      <a name="oven.concepts.resettable_object.models"></a>
+      <h5>
+<a name="id911970"></a>
+        <a class="link" href="concepts.html#oven.concepts.resettable_object.models">Models</a>
+      </h5>
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem">
+          <a class="link" href="ranges.html#oven.ranges.any_range" title="any_range">any_range</a>
+        </li>
+<li class="listitem">
+          <a class="link" href="ranges.html#oven.ranges.any_indexed" title="any_indexed">any_indexed</a>
+        </li>
+<li class="listitem">
+          <a class="link" href="output_iterators.html#oven.output_iterators.any_output_iterator" title="any_output_iterator">any_output_iterator</a>
+        </li>
+</ul></div>
+      <a name="oven.concepts.resettable_object.see_also"></a>
+      <h5>
+<a name="id912028"></a>
+        <a class="link" href="concepts.html#oven.concepts.resettable_object.see_also">See also</a>
+      </h5>
+    </div>
+    <div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="oven.concepts.stoppable_generator"></a><a class="link" href="concepts.html#oven.concepts.stoppable_generator" title="Stoppable Generator">Stoppable Generator</a>
+</h3></div></div></div>
+      
+      <a name="oven.concepts.stoppable_generator.description"></a>
+      <h5>
+<a name="id912061"></a>
+        <a class="link" href="concepts.html#oven.concepts.stoppable_generator.description">Description</a>
+      </h5>
+      <p>
+        A <a class="link" href="concepts.html#oven.concepts.stoppable_generator" title="Stoppable Generator">Stoppable Generator</a>
+        is a <a class="ulink" href="http://spirit.sourceforge.net/dl_more/fusion_v2/libs/fusion/doc/html/fusion/functional/concepts/poly.html" target="_top">Polymorphic
+        Function Object</a> which can specify the stop of generating using <a class="ulink" href="http://boost.org/libs/optional/doc/optional.html" target="_top">Boost.Optional</a>.
+      </p>
+      <a name="oven.concepts.stoppable_generator.refinement_of"></a>
+      <h5>
+<a name="id912109"></a>
+        <a class="link" href="concepts.html#oven.concepts.stoppable_generator.refinement_of">Refinement
+        of</a>
+      </h5>
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+          <a class="ulink" href="http://spirit.sourceforge.net/dl_more/fusion_v2/libs/fusion/doc/html/fusion/functional/concepts/poly.html" target="_top">Polymorphic
+          Function Object</a>
+        </li></ul></div>
+      <a name="oven.concepts.stoppable_generator.requirements"></a>
+      <h5>
+<a name="id912146"></a>
+        <a class="link" href="concepts.html#oven.concepts.stoppable_generator.requirements">Requirements</a>
+      </h5>
+      <p>
+        In addition to the requirements defined in the refinements, for any <a class="link" href="concepts.html#oven.concepts.stoppable_generator" title="Stoppable Generator">Stoppable Generator</a> <code class="computeroutput"><span class="identifier">g</span></code> the following must be met:
+      </p>
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">_typeof</span><span class="special">(</span><span class="identifier">g</span><span class="special">(...))</span></code>
+          is a <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">optional</span></code>.
+        </li>
+<li class="listitem">
+          An <span class="emphasis"><em>uninitialized</em></span> result is considered as the stop
+          of generating.
+        </li>
+</ul></div>
+      <a name="oven.concepts.stoppable_generator.models"></a>
+      <h5>
+<a name="id912251"></a>
+        <a class="link" href="concepts.html#oven.concepts.stoppable_generator.models">Models</a>
+      </h5>
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+          Any <a class="ulink" href="http://spirit.sourceforge.net/dl_more/fusion_v2/libs/fusion/doc/html/fusion/functional/concepts/poly.html" target="_top">Polymorphic
+          Function Object</a> which <a class="link" href="utilities.html#oven.utilities.nonstop" title="nonstop">nonstop</a>
+          returns.
+        </li></ul></div>
+    </div>
+    <div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="oven.concepts.iteration_block"></a><a class="link" href="concepts.html#oven.concepts.iteration_block" title="Iteration Block">Iteration Block</a>
+</h3></div></div></div>
+      
+      <a name="oven.concepts.iteration_block.description"></a>
+      <h5>
+<a name="id912313"></a>
+        <a class="link" href="concepts.html#oven.concepts.iteration_block.description">Description</a>
+      </h5>
+      <p>
+        An <a class="link" href="concepts.html#oven.concepts.iteration_block" title="Iteration Block">Iteration Block</a> is
+        a unary <a class="ulink" href="http://www.sgi.com/tech/stl/functors.html" target="_top">Function Object</a>
+        that yields an ordered sequence of values.
+      </p>
+      <a name="oven.concepts.iteration_block.refinement_of"></a>
+      <h5>
+<a name="id912352"></a>
+        <a class="link" href="concepts.html#oven.concepts.iteration_block.refinement_of">Refinement of</a>
+      </h5>
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+          <a class="ulink" href="http://www.sgi.com/tech/stl/functors.html" target="_top">Function Object</a>
+        </li></ul></div>
+      <a name="oven.concepts.iteration_block.requirements"></a>
+      <h5>
+<a name="id912388"></a>
+        <a class="link" href="concepts.html#oven.concepts.iteration_block.requirements">Requirements</a>
+      </h5>
+      <p>
+        In addition to the requirements defined in <a class="ulink" href="http://www.sgi.com/tech/stl/functors.html" target="_top">Function
+        Object</a>, for any <a class="link" href="concepts.html#oven.concepts.iteration_block" title="Iteration Block">Iteration
+        Block</a> <code class="computeroutput"><span class="identifier">b</span></code> the following
+        must be met:
+      </p>
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem">
+          For an unspecified unary <a class="ulink" href="http://www.sgi.com/tech/stl/functors.html" target="_top">Function
+          Object</a> <code class="computeroutput"><span class="identifier">y</span></code>, <code class="computeroutput"><span class="identifier">b</span><span class="special">(</span><span class="identifier">y</span><span class="special">)</span></code> is a valid expression.
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">_typeof</span><span class="special">(</span><span class="identifier">b</span><span class="special">)::</span><span class="identifier">yield_type</span></code> is a type of object passed
+          to <code class="computeroutput"><span class="identifier">y</span></code>.
+        </li>
+</ul></div>
+      <a name="oven.concepts.iteration_block.models"></a>
+      <h5>
+<a name="id912534"></a>
+        <a class="link" href="concepts.html#oven.concepts.iteration_block.models">Models</a>
+      </h5>
+    </div>
+    <div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="oven.concepts.constant_range"></a><a class="link" href="concepts.html#oven.concepts.constant_range" title="Constant Range">Constant Range</a>
+</h3></div></div></div>
+      
+      <a name="oven.concepts.constant_range.description"></a>
+      <h5>
+<a name="id912568"></a>
+        <a class="link" href="concepts.html#oven.concepts.constant_range.description">Description</a>
+      </h5>
+      <p>
+        A <a class="link" href="concepts.html#oven.concepts.constant_range" title="Constant Range">Constant</a> <a class="ulink" href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
+        is a <a class="ulink" href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
+        whose elements are not modifiable.
+      </p>
+      <a name="oven.concepts.constant_range.refinement_of"></a>
+      <h5>
+<a name="id912614"></a>
+        <a class="link" href="concepts.html#oven.concepts.constant_range.refinement_of">Refinement of</a>
+      </h5>
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+          <a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#single-pass-iterators-lib-single-pass-iterators" target="_top">Single
+          Pass</a> <a class="ulink" href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
+        </li></ul></div>
+      <a name="oven.concepts.constant_range.requirements"></a>
+      <h5>
+<a name="id912658"></a>
+        <a class="link" href="concepts.html#oven.concepts.constant_range.requirements">Requirements</a>
+      </h5>
+      <p>
+        In addition to the requirements defined in the refinements, for any <a class="link" href="concepts.html#oven.concepts.constant_range" title="Constant Range">Constant</a> <a class="ulink" href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
+        <code class="computeroutput"><span class="identifier">r</span></code> the following must be met:
+      </p>
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">implicit_cast</span><span class="special">&lt;</span><span class="identifier">_value_of</span><span class="special">&lt;</span><span class="identifier">_typeof</span><span class="special">(</span><span class="identifier">r</span><span class="special">)&gt;::</span><span class="identifier">type</span><span class="special">&amp;&gt;(*</span><span class="identifier">_begin</span><span class="special">(</span><span class="identifier">_r</span><span class="special">))</span></code>
+          is ill-formed.
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">r</span></code> is neither <a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#writable-iterators-lib-writable-iterators" target="_top">Writable</a>
+          nor <a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#swappable-iterators-lib-swappable-iterators" target="_top">Swappable</a>.
+        </li>
+</ul></div>
+      <a name="oven.concepts.constant_range.models"></a>
+      <h5>
+<a name="id912837"></a>
+        <a class="link" href="concepts.html#oven.concepts.constant_range.models">Models</a>
+      </h5>
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">list</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span> <span class="keyword">const</span></code>
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="keyword">int</span> <span class="keyword">const</span><span class="special">[</span><span class="number">10</span><span class="special">]</span></code>
+        </li>
+</ul></div>
+    </div>
+    <div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="oven.concepts.contiguous_range"></a><a class="link" href="concepts.html#oven.concepts.contiguous_range" title="Contiguous Range">Contiguous Range</a>
+</h3></div></div></div>
+      
+      <a name="oven.concepts.contiguous_range.description"></a>
+      <h5>
+<a name="id912958"></a>
+        <a class="link" href="concepts.html#oven.concepts.contiguous_range.description">Description</a>
+      </h5>
+      <p>
+        A <a class="link" href="concepts.html#oven.concepts.contiguous_range" title="Contiguous Range">Contiguous</a> <a class="ulink" href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a> is a
+        <a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#random-access-traversal-iterators-lib-random-access-traversal-iterators" target="_top">Random
+        Access</a> <a class="ulink" href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
+        whose elements are stored contiguously.
+      </p>
+      <a name="oven.concepts.contiguous_range.refinement_of"></a>
+      <h5>
+<a name="id913012"></a>
+        <a class="link" href="concepts.html#oven.concepts.contiguous_range.refinement_of">Refinement of</a>
+      </h5>
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem">
+          <a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#random-access-traversal-iterators-lib-random-access-traversal-iterators" target="_top">Random
+          Access</a> <a class="ulink" href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
+        </li>
+<li class="listitem">
+          <a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#lvalue-iterators-lib-lvalue-iterators" target="_top">Lvalue</a>
+          <a class="ulink" href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
+        </li>
+</ul></div>
+      <a name="oven.concepts.contiguous_range.requirements"></a>
+      <h5>
+<a name="id913077"></a>
+        <a class="link" href="concepts.html#oven.concepts.contiguous_range.requirements">Requirements</a>
+      </h5>
+      <p>
+        In addition to the requirements defined in the refinements, for any <a class="link" href="concepts.html#oven.concepts.contiguous_range" title="Contiguous Range">Contiguous</a> <a class="ulink" href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
+        <code class="computeroutput"><span class="identifier">r</span></code> the following must be met:
+      </p>
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+          <code class="computeroutput"><span class="special">&amp;*(</span><span class="identifier">_begin</span><span class="special">(</span><span class="identifier">r</span><span class="special">)</span>
+          <span class="special">+</span> <span class="identifier">n</span><span class="special">)</span> <span class="special">==</span> <span class="special">&amp;*(</span><span class="identifier">_begin</span><span class="special">(</span><span class="identifier">r</span><span class="special">))</span> <span class="special">+</span> <span class="identifier">n</span></code> for
+          all <code class="computeroutput"><span class="identifier">n</span></code> such that <code class="computeroutput"><span class="number">0</span> <span class="special">&lt;=</span> <span class="identifier">n</span> <span class="special">&amp;&amp;</span>
+          <span class="identifier">n</span> <span class="special">&lt;</span>
+          <span class="identifier">_end</span><span class="special">(</span><span class="identifier">r</span><span class="special">)</span> <span class="special">-</span>
+          <span class="identifier">_begin</span><span class="special">(</span><span class="identifier">r</span><span class="special">)</span></code>.
+        </li></ul></div>
+      <a name="oven.concepts.contiguous_range.models"></a>
+      <h5>
+<a name="id913337"></a>
+        <a class="link" href="concepts.html#oven.concepts.contiguous_range.models">Models</a>
+      </h5>
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span></code>
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">array</span><span class="special">&lt;</span><span class="keyword">char</span><span class="special">,</span> <span class="number">50</span><span class="special">&gt;</span></code>
+        </li>
+</ul></div>
+    </div>
+    <div class="section">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="oven.concepts.parallel_safe"></a><a class="link" href="concepts.html#oven.concepts.parallel_safe" title="Parallel Safe">Parallel Safe</a>
+</h3></div></div></div>
+      
+      <a name="oven.concepts.parallel_safe.description"></a>
+      <h5>
+<a name="id913468"></a>
+        <a class="link" href="concepts.html#oven.concepts.parallel_safe.description">Description</a>
+      </h5>
+      <p>
+        A <a class="link" href="concepts.html#oven.concepts.parallel_safe" title="Parallel Safe">Parallel Safe</a> type offers
+        the same level of thread safety as built-in types.
+      </p>
+      <a name="oven.concepts.parallel_safe.refinement_of"></a>
+      <h5>
+<a name="id913499"></a>
+        <a class="link" href="concepts.html#oven.concepts.parallel_safe.refinement_of">Refinement of</a>
+      </h5>
+      <a name="oven.concepts.parallel_safe.requirements"></a>
+      <h5>
+<a name="id913518"></a>
+        <a class="link" href="concepts.html#oven.concepts.parallel_safe.requirements">Requirements</a>
+      </h5>
+      <p>
+        For any <a class="link" href="concepts.html#oven.concepts.parallel_safe" title="Parallel Safe">Parallel Safe</a>
+        type <code class="computeroutput"><span class="identifier">t</span></code> the following must
+        be met:
+      </p>
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+          Different instances of <code class="computeroutput"><span class="identifier">t</span></code>
+          can be accessed simultaneosly by multiple threads (even when these instances
+          are copies).
+        </li></ul></div>
+      <a name="oven.concepts.parallel_safe.models"></a>
+      <h5>
+<a name="id913581"></a>
+        <a class="link" href="concepts.html#oven.concepts.parallel_safe.models">Models</a>
+      </h5>
+      <div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem">
+          <code class="computeroutput"><span class="keyword">int</span></code>
+        </li>
+<li class="listitem">
+          <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">shared_ptr</span><span class="special">&lt;</span><span class="keyword">int</span><span class="special">&gt;</span></code>
+        </li>
+</ul></div>
+    </div>
+  </div>
+<table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
+<td align="left"></td>
+<td align="right"><div class="copyright-footer"></div></td>
+</tr></table>
+<hr>
+<div class="spirit-nav">
+<a accesskey="u" href="../index.html"><img src="../images/up.png" alt="Up"></a><a accesskey="h" href="../index.html"><img src="../images/home.png" alt="Home"></a>
+</div>
+</body>
+</html>
