@@ -139,6 +139,8 @@ test-suite "oven" :
     [ run recursion.cpp : : : <define>PSTADE_POLY_MIN_STORAGE_SIZE=2 : recursion_heap ]
     [ run regex.cpp ]
     [ run regular.cpp ]
+    [ run regular_with_decltype.cpp ]
+    [ run removed.cpp ]
     [ run reversed.cpp ]
     [ run rotated.cpp ]
     [ run rvalues.cpp ]
@@ -196,6 +198,7 @@ test-suite "oven" :
     [ run xxx_chars.cpp ]
     [ run zipped.cpp ]
     [ run zipped_with.cpp ]
+    [ run zipped_with_index.cpp ]
     [ link multiple_defs1.cpp multiple_defs2.cpp : : multiple_defs ]
     ;
 
