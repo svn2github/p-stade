@@ -32,25 +32,25 @@ refinements において定められる要件に加えて、任意の _pipable_a
 [section Resettable Object]
 
 [heading Description]
-A _resettable_object_ is an object which is modifiable after its construction.
+_resettable_object_は、構築後に変更可能なオブジェクトである。
 
 [heading Refinement of]
 
 [heading Notation]
-* `r` is a _resettable_object_.
-* `R` is `_typeof(r)`.
-* `s` is an object whose type is `R`.
-* `aI` is an object.
-* `bI` is an object whose type is `_typeof(aI)`.
+* `r` : _resettable_object_
+* `R` : `_typeof(r)`
+* `s` : `R` 型のオブジェクト
+* `aI` : オブジェクト
+* `bI` : `_typeof(aI)` 型のオブジェクト
 
 [heading Requirements]
-* `R r(a0);` is a valid expression if and only if `s = b0;` is a valid expression.
-* `R r(a1,...,aN);` is a valid expression if and only if `s.reset(b1,...bN);` is a valid expression.
-* After the two equivalent expressions above are evaluated, `s` and `r` shall have the same states if all the arguments have the same states.
-* `R r;` is a valid expression if and only if `R s = boost::none;` is a valid expression.
-* `R r;` is a valid expression if and only if `s.reset();` is a valid expression.
-* `R r;` is a valid expression if and only if `s = boost::none;` is a valid expression.
-* After the three equivalent expressions above are evaluated, `s` and `r` shall have the same states.
+* `s = b0;` が有効な式である場合、 `R r(a0);` は有効な式である。
+* `s.reset(b1,...bN);` が有効な式である場合、`R r(a1,...,aN);` は有効な式である。
+* 上記の2つの等式が評価された後、すべての引数が同じ状態持つならば、 `s` と `r` は同じ状態を持つ。
+* `R s = boost::none;` が有効な式である場合、 `R r;` は有効な式である。
+* `s.reset();` が有効な式である場合、 `R r;` は有効な式である。
+* `s = boost::none;` が有効な式である場合、 `R r;` は有効な式である。
+* 上記の3つの等式が評価された後、 `s` と `r` は同じ状態を持つ。
 
 [heading Example]
 
@@ -69,20 +69,19 @@ A _resettable_object_ is an object which is modifiable after its construction.
 [section Stoppable Generator]
 
 [heading Description]
-A _stoppable_generator_ is a _polymorphic_function_object_ which can specify the stop of generating using _boost_optional_.
+_stoppable_generator_ は _boost_optional_ を使用することで生成の停止を指定することができる _polymorphic_function_object_ である。
 
 [heading Refinement of]
 * _polymorphic_function_object_
 
 [heading Requirements]
-In addition to the requirements defined in the refinements,
-for any _stoppable_generator_ `g` the following must be met:
+任意の _stoppable_generator_ `g` は、refinementsによって定義された要件に加えて、以下も満たさなければならない:
 
-* `_typeof(g(...))` is a `boost::optional`.
-* An /uninitialized/ result is considered as the stop of generating.
+* `_typeof(g(...))` は `boost::optional` である。
+* 未初期化の結果は生成停止と見なされる。
 
 [heading Models]
-* Any _polymorphic_function_object_ which _oven_nonstop_ returns.
+* あらゆる _polymorphic_function_object_ に対して _oven_nonstop_ を返す。
 
 [endsect]
 
@@ -92,17 +91,16 @@ for any _stoppable_generator_ `g` the following must be met:
 [section Iteration Block]
 
 [heading Description]
-An _iteration_block_ is a unary _function_object_ that yields an ordered sequence of values.
+_iteration_block_ は値の順序付けされたシーケンスを産出(yield)する単項の _function_object_ である。
 
 [heading Refinement of]
 * _function_object_
 
 [heading Requirements]
-In addition to the requirements defined in _function_object_,
-for any _iteration_block_ `b` the following must be met:
+任意の _iteration_block_ `b` は、 _function_object_ で定義された要件に加えて、以下も満たさなければならない:
 
-* For an unspecified unary _function_object_ _s_ `y`, `b(y)` is a valid expression.
-* `_typeof(b)::yield_type` is a type of object passed to `y`.
+* 未規定の単項 _function_object_ `y` において、 `b(y)` は有効な式である。
+* `_typeof(b)::yield_type` は、 `y` に渡されたオブジェクトの型である。
 
 [heading Models]
 
@@ -114,17 +112,16 @@ for any _iteration_block_ `b` the following must be met:
 [section Constant Range]
 
 [heading Description]
-A _constant_ _range_ is a _range_ whose elements are not modifiable.
+_constant_ _range_ は、その要素が変更可能ではない _range_ である。
 
 [heading Refinement of]
 * _single_pass_ _s_ _range_
 
 [heading Requirements]
-In addition to the requirements defined in the refinements,
-for any _constant_ _range_ `r` the following must be met:
+任意の _constant_ _range_ `r` は、refinementsによって定義された要件に加えて、以下も満たさなければならない:
 
-* `boost::implicit_cast<_value_of<_typeof(r)>::type&>(*_begin(_r))` is ill-formed.
-* `r` is neither _writable_ nor _swappable_.
+* `boost::implicit_cast<_value_of<_typeof(r)>::type&>(*_begin(_r))` は不適格である。
+* `r` は _writable_ でも _swappable_ でもない。
 
 [heading Models]
 * `std::list<int> const`
@@ -138,17 +135,16 @@ for any _constant_ _range_ `r` the following must be met:
 [section Contiguous Range]
 
 [heading Description]
-A _contiguous_ _range_ is a _random_access_ _range_ whose elements are stored contiguously.
+_contiguous_ _range_ は、要素が連続して格納される _random_access_ _range_ である。
 
 [heading Refinement of]
 * _random_access_ _s_ _range_
 * _lvalue_ _s_ _range_
 
 [heading Requirements]
-In addition to the requirements defined in the refinements,
-for any _contiguous_ _range_ `r` the following must be met:
+任意の _contiguous_ _range_ `r` は、refinementsによって定義された要件に加えて、以下も満たさなければならない:
 
-* `&*(_begin(r) + n) == &*(_begin(r)) + n` for all `n` such that `0 <= n &&  n < _end(r) - _begin(r)`.
+* 全ての `n` について、 `&*(_begin(r) + n) == &*(_begin(r)) + n` は `0 <= n &&  n < _end(r) - _begin(r)` である。
 
 [heading Models]
 * `std::vector<int>`
@@ -162,14 +158,14 @@ for any _contiguous_ _range_ `r` the following must be met:
 [section Parallel Safe]
 
 [heading Description]
-A _parallel_safe_ type offers the same level of thread safety as built-in types.
+_parallel_safe_ 型は、組み込み型としてスレッド安全性と同じレベルを提供する。
 
 [heading Refinement of]
 
 [heading Requirements]
-For any _parallel_safe_ type `t` the following must be met:
+任意の _parallel_safe_ 型 `t` は、以下を満たさなければならない:
 
-* Different instances of `t` can be accessed simultaneosly by multiple threads (even when these instances are copies).
+* `t` の異なるインスタンスは、複数のスレッドから(これらのインスタンスがコピーである場合でも)同時にアクセスできる。
 
 [heading Models]
 * `int`
