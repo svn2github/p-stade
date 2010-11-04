@@ -170,7 +170,7 @@ A _parallel_safe_ type offers the same level of thread safety as built-in types.
 [heading Requirements]
 For any _parallel_safe_ type `t` the following must be met:
 
-* Different instances of `t` can be accessed simultaneosly by multiple threads (even when these instances are copies).
+* Different instances of `t` can be accessed simultaneously by multiple threads (even when these instances are copies).
 
 [heading Models]
 * `int`
