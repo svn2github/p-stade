@@ -10,20 +10,7 @@
 // http://www.boost.org/LICENSE_1_0.txt)
 
 
-#include <boost/mpl/identity.hpp>
-
-
-namespace pstade { namespace egg {
-
-
-    template<class T> inline
-    T &&std_forward(typename boost::mpl::identity<T>::type &&a)
-    {
-        return a;
-    }
-
-
-} } // namespace pstade::egg
+#include <utility> // std::forward
 
 
 #endif

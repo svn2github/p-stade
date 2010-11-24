@@ -19,6 +19,23 @@
 namespace pstade { namespace egg {
 
 
+    template<class T>
+    struct rvalue_to_const // rvalue
+    {
+        typedef T const type;
+        template<class U>
+        U const &forward(U &x) const { return x; }
+    };
+
+    template<class T>
+    struct rvalue_to_const<T &> // lvalue
+    {
+        typedef T type;
+        template<class U>
+        U &forward(U &x) const { return x; }
+    };
+
+
     template<class Little>
     struct function<Little, PSTADE_stg>
     {
@@ -26,14 +43,16 @@ namespace pstade { namespace egg {
 
         Little m_little;
 
-        Little const &little() const 
+        Little const &little() const
         {
             return m_little;
         }
 
     // 0ary-
-        #define  PSTADE_PP_ARRAY_ITERATION_PARAMS (PSTADE_arities, <pstade/egg/detail/native_perfect_strategy_include.hpp>)
+    #define PSTADE_forward(Z, N, _) rvalue_to_const<BOOST_PP_CAT(A, N)>().forward(BOOST_PP_CAT(a, N))
+        #define  PSTADE_PP_ARRAY_ITERATION_PARAMS (PSTADE_arities, <pstade/egg/detail/rr_perfect_strategy_include.hpp>)
         #include PSTADE_PP_ARRAY_ITERATE()
+    #undef  PSTADE_forward
     };
 
 
@@ -52,12 +71,11 @@ namespace pstade { namespace egg {
     PSTADE_EGG_PP_ENUM_TEMPLATE_PARAMS(n, class A)
     typename apply_little<
         Little const
-        BOOST_PP_ENUM_TRAILING_BINARY_PARAMS(n, typename boost::remove_reference<A, >::type BOOST_PP_INTERCEPT)
+        BOOST_PP_ENUM_TRAILING_BINARY_PARAMS(n, typename rvalue_to_const<A, >::type BOOST_PP_INTERCEPT)
     >::type
     operator()(BOOST_PP_ENUM_BINARY_PARAMS(n, A, &&a)) const
     {
-        // Neither egg::forward nor std::forward is used so that LittleFunction can take lvalues.
-        return call_little(m_little BOOST_PP_ENUM_TRAILING_PARAMS(n, a));
+        return call_little(m_little BOOST_PP_ENUM_TRAILING(n, PSTADE_forward, _));
     }
 
 

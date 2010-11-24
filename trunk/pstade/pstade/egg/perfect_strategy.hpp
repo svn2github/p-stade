@@ -24,11 +24,9 @@
 #if defined(PSTADE_EGG_HAS_RVALUE_REFS)
 
     #include <boost/preprocessor/facilities/intercept.hpp>
-    #include <boost/preprocessor/punctuation/comma_if.hpp>
     #include <boost/preprocessor/repetition/enum_binary_params.hpp>
+    #include <boost/preprocessor/repetition/enum_trailing.hpp>
     #include <boost/preprocessor/repetition/enum_trailing_binary_params.hpp>
-    #include <boost/preprocessor/repetition/enum_trailing_params.hpp>
-    #include <boost/type_traits/remove_reference.hpp>
     #include "./detail/pp_enum_template_params.hpp"
 
     #define PSTADE_EGG_PERFECT_STRATEGY() <pstade/egg/detail/rr_perfect_strategy_include.hpp>
