@@ -8,29 +8,29 @@ Pending section...
 [section Concept-like extension]
 
 [heading Description]
-Oven emulates a Concept-like extension way for _boost_range_.
+Ovenは、 _boost_range_ のConceptライク拡張をエミュレートする。
 
 [heading Header]
 * `<pstade/oven/extension.hpp>`
 
 [heading Notation]
-* `X` is a type extending _boost_range_.
-* `x` is an object of (possibly const-qualified) `X`.
-* `ER` is `::pstade_oven_extension::Range<X>`.
-* `XS` is a _boost_preprocessor_ Sequence of typename `X`.
-* `N` is the number of template arguments of `X`, only valid if all template arguments are typenames.
-* `S` is a sequence of template arguments of `X`.
+* `X` は、 _boost_range_ を拡張する型である。
+* `x` は、(const-qualifiedされた) `X` のオブジェクトである。
+* `ER` は、 `::pstade_oven_extension::Range<X>` である。
+* `XS` は、 typename `X` の _boost_preprocessor_ シーケンスである。
+* `N` は、全てのテンプレート引数が typename である場合のみ有効な、 `X` のテンプレート引数の数である。
+* `S` は、 `X` のテンプレート引数のシーケンスである。
 
 [heading Effects]
-* `X` becomes a model of _range_.
+* `X` は、 _range_ のモデルとなる。
 
 [heading Preconditions]
-* `ER::associate<X>::mutable_iterator` is the mutable iterator type of `X`.
-* `ER::associate<X>::constant_iterator` is the constant iterator type of `X`.
-* `ER::begin<_iter_of<typeof(x)>::type>(x)` is a valid expression which returns the begin iterator.
-* `ER::end<_iter_of<typeof(x)>::type>(x)` is a valid expression which returns the end iterator.
-* If `X` is a type, `PSTADE_OVEN_EXTENSION_OF_TYPE(X)` is placed in the global namespace.
-* If `X` is a template, `PSTADE_OVEN_EXTENSION_OF_TEMPLATE(XS, N)` or `PSTADE_OVEN_EXTENSION_OF_TEMPLATE(XS, S)` is placed in the global namespace.
+* `ER::associate<X>::mutable_iterator` は、 `X` の mutable iterator 型である。
+* `ER::associate<X>::constant_iterator` は、 `X` の constant iterator 型である。
+* `ER::begin<_iter_of<typeof(x)>::type>(x)` は、 begin iterator を返す有効な式である。
+* `ER::end<_iter_of<typeof(x)>::type>(x)` は、 end iterator を返す有効な式である。
+* `X` が型である場合、 `PSTADE_OVEN_EXTENSION_OF_TYPE(X)` はグローバル名前空間に置かれる。
+* `X` がテンプレートである場合、 `PSTADE_OVEN_EXTENSION_OF_TEMPLATE(XS, N)` もしくは `PSTADE_OVEN_EXTENSION_OF_TEMPLATE(XS, S)` はグローバル名前空間に置かれる。
 
 [heading Example]
     namespace Foo {
