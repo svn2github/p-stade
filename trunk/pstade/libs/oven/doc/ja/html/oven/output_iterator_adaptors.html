@@ -19,9 +19,11 @@
 </h2></div></div></div>
     
     <p>
-      Output Iterator Adaptors adapt the behavior of the underlying <a class="ulink" href="http://boost.org/doc/html/OutputIterator.html" target="_top">Output
-      Iterator</a>. An Output Iterator Adaptor is a <a class="ulink" href="http://p-stade.sourceforge.net/egg/doc/html/egg/concepts.html#egg.concepts.pipable_function_object" target="_top">Pipable
-      Function Object</a>, so that, by using <code class="computeroutput"><span class="keyword">operator</span><span class="special">|=</span></code>, you can "chain" multiple adaptors:
+      Output Iterator Adaptors &#12399;&#12289;<a class="ulink" href="http://boost.org/doc/html/OutputIterator.html" target="_top">Output
+      Iterator</a> &#12398;&#22522;&#26412;&#30340;&#12394;&#25391;&#12427;&#33310;&#12356;&#12434;&#12450;&#12480;&#12503;&#12488;&#12377;&#12427;&#12290; Output
+      Iterator Adaptor &#12399;&#12289; <code class="computeroutput"><span class="keyword">operator</span><span class="special">|=</span></code> &#12434;&#20351;&#29992;&#12377;&#12427;&#12371;&#12392;&#12395;&#12424;&#12387;&#12390;&#35079;&#25968;&#12398;&#12450;&#12480;&#12503;&#12479;&#12434;&#12300;&#32331;&#12370;&#12427;&#12301;&#12371;&#12392;&#12364;&#12391;&#12365;&#12427;
+      <a class="ulink" href="http://p-stade.sourceforge.net/egg/doc/html/egg/concepts.html#egg.concepts.pipable_function_object" target="_top">Pipable
+      Function Object</a> &#12391;&#12354;&#12427;&#65306;
     </p>
     
 <pre class="programlisting"><span class="keyword">int</span> <span class="keyword">const</span> <span class="identifier">in</span><span class="special">[]</span> <span class="special">=</span> <span class="special">{</span> <span class="number">1</span><span class="special">,</span><span class="number">2</span><span class="special">,</span><span class="number">3</span><span class="special">,</span><span class="number">4</span><span class="special">,</span><span class="number">5</span><span class="special">,</span><span class="number">6</span><span class="special">,</span><span class="number">7</span><span class="special">,</span><span class="number">8</span><span class="special">,</span><span class="number">9</span><span class="special">,</span><span class="number">10</span> <span class="special">};</span>
@@ -38,16 +40,15 @@
       
       <a name="oven.output_iterator_adaptors.converter.description"></a>
       <h5>
-<a name="id1007534"></a>
+<a name="id1007576"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.converter.description">Description</a>
       </h5>
       <p>
-        <code class="computeroutput"><span class="identifier">converter</span></code> changes an output
-        into specified type.
+        <code class="computeroutput"><span class="identifier">converter</span></code> &#12399;&#12289;&#20986;&#21147;&#12434;&#25351;&#23450;&#12373;&#12428;&#12383;&#22411;&#12395;&#22793;&#25563;&#12377;&#12427;&#12290;
       </p>
       <a name="oven.output_iterator_adaptors.converter.header"></a>
       <h5>
-<a name="id1007568"></a>
+<a name="id1007611"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.converter.header">Header</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -55,7 +56,7 @@
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.converter.model_of"></a>
       <h5>
-<a name="id1007650"></a>
+<a name="id1007693"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.converter.model_of">Model of</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -63,17 +64,16 @@
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.converter.notation"></a>
       <h5>
-<a name="id1007679"></a>
+<a name="id1007721"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.converter.notation">Notation</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-          <code class="computeroutput"><span class="identifier">f_</span></code> is an imaginary <a class="ulink" href="http://www.sgi.com/tech/stl/functors.html" target="_top">Function Object</a>
-          which behaves as if it were <code class="computeroutput"><span class="identifier">v</span>
-          <span class="special">-&gt;</span> <span class="special">*</span><span class="identifier">_outit</span><span class="special">++</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">implicit_cast</span><span class="special">&lt;</span><span class="identifier">To</span><span class="special">&gt;(</span><span class="identifier">v</span><span class="special">)</span></code>.
+          <code class="computeroutput"><span class="identifier">f_</span></code> &#12399;&#12289; <code class="computeroutput"><span class="identifier">v</span> <span class="special">-&gt;</span> <span class="special">*</span><span class="identifier">_outit</span><span class="special">++</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">implicit_cast</span><span class="special">&lt;</span><span class="identifier">To</span><span class="special">&gt;(</span><span class="identifier">v</span><span class="special">)</span></code> &#12398;&#12424;&#12358;&#12395;&#25391;&#33310;&#12358; <a class="ulink" href="http://www.sgi.com/tech/stl/functors.html" target="_top">Function
+          Object</a> &#12391;&#12354;&#12427;&#12290;
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.converter.valid_expressions"></a>
       <h5>
-<a name="id1007808"></a>
+<a name="id1007851"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.converter.valid_expressions">Valid
         expressions</a>
       </h5>
@@ -164,20 +164,20 @@
       </div>
       <a name="oven.output_iterator_adaptors.converter.preconditions"></a>
       <h5>
-<a name="id1008281"></a>
+<a name="id1008323"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.converter.preconditions">Preconditions</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-          The corresponding semantics is a valid expression.
+          &#23550;&#24540;&#12377;&#12427;&#12475;&#12510;&#12531;&#12486;&#12451;&#12463;&#12473;&#12399;&#26377;&#21177;&#12394;&#24335;&#12391;&#12354;&#12427;&#12290;
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.converter.example"></a>
       <h5>
-<a name="id1008311"></a>
+<a name="id1008353"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.converter.example">Example</a>
       </h5>
       <a name="oven.output_iterator_adaptors.converter.see_also"></a>
       <h5>
-<a name="id1008330"></a>
+<a name="id1008372"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.converter.see_also">See also</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc">
@@ -199,16 +199,16 @@
       
       <a name="oven.output_iterator_adaptors.copier.description"></a>
       <h5>
-<a name="id1008403"></a>
+<a name="id1008445"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.copier.description">Description</a>
       </h5>
       <p>
-        <code class="computeroutput"><span class="identifier">copier</span></code> outputs to another
-        output iterator.
+        <code class="computeroutput"><span class="identifier">copier</span></code> &#12399;&#12289;&#20182;&#12398; output
+        iterator &#12408;&#20986;&#21147;&#12377;&#12427;&#12290;
       </p>
       <a name="oven.output_iterator_adaptors.copier.header"></a>
       <h5>
-<a name="id1008437"></a>
+<a name="id1008480"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.copier.header">Header</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -216,7 +216,7 @@
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.copier.model_of"></a>
       <h5>
-<a name="id1008517"></a>
+<a name="id1008560"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.copier.model_of">Model of</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -224,18 +224,17 @@
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.copier.notation"></a>
       <h5>
-<a name="id1008552"></a>
+<a name="id1008595"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.copier.notation">Notation</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-          <code class="computeroutput"><span class="identifier">f_</span></code> is an imaginary <a class="ulink" href="http://www.sgi.com/tech/stl/functors.html" target="_top">Function Object</a>
-          which behaves as if it were <code class="computeroutput"><span class="identifier">v</span>
-          <span class="special">-&gt;</span> <span class="special">*</span><span class="identifier">_outit0</span><span class="special">++</span> <span class="special">=</span> <span class="identifier">v</span><span class="special">;</span>
-          <span class="special">*</span><span class="identifier">_outit</span><span class="special">++</span> <span class="special">=</span> <span class="identifier">v</span></code>.
+          <code class="computeroutput"><span class="identifier">f_</span></code> &#12399;&#12289; <code class="computeroutput"><span class="identifier">v</span> <span class="special">-&gt;</span> <span class="special">*</span><span class="identifier">_outit0</span><span class="special">++</span> <span class="special">=</span> <span class="identifier">v</span><span class="special">;</span> <span class="special">*</span><span class="identifier">_outit</span><span class="special">++</span> <span class="special">=</span> <span class="identifier">v</span></code>
+          &#12398;&#12424;&#12358;&#12395;&#25391;&#33310;&#12358; <a class="ulink" href="http://www.sgi.com/tech/stl/functors.html" target="_top">Function
+          Object</a> &#12391;&#12354;&#12427;&#12290;
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.copier.valid_expressions"></a>
       <h5>
-<a name="id1008681"></a>
+<a name="id1008724"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.copier.valid_expressions">Valid
         expressions</a>
       </h5>
@@ -274,15 +273,15 @@
       </div>
       <a name="oven.output_iterator_adaptors.copier.preconditions"></a>
       <h5>
-<a name="id1008847"></a>
+<a name="id1008889"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.copier.preconditions">Preconditions</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-          The corresponding semantics is a valid expression.
+          &#23550;&#24540;&#12377;&#12427;&#12475;&#12510;&#12531;&#12486;&#12451;&#12463;&#12473;&#12399;&#26377;&#21177;&#12394;&#24335;&#12391;&#12354;&#12427;&#12290;
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.copier.example"></a>
       <h5>
-<a name="id1008877"></a>
+<a name="id1008919"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.copier.example">Example</a>
       </h5>
       
@@ -295,7 +294,7 @@
 </pre>
       <a name="oven.output_iterator_adaptors.copier.see_also"></a>
       <h5>
-<a name="id1009250"></a>
+<a name="id1009293"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.copier.see_also">See also</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc">
@@ -318,16 +317,15 @@
       
       <a name="oven.output_iterator_adaptors.filterer.description"></a>
       <h5>
-<a name="id1009323"></a>
+<a name="id1009365"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.filterer.description">Description</a>
       </h5>
       <p>
-        <code class="computeroutput"><span class="identifier">filterer</span></code> skips an input which
-        doesn't satify a predicate.
+        <code class="computeroutput"><span class="identifier">filterer</span></code> &#12399;&#12289;&#36848;&#35486;&#12434;&#28288;&#12383;&#12373;&#12394;&#12356;&#20837;&#21147;&#12434;&#35501;&#12415;&#39131;&#12400;&#12377;&#12290;
       </p>
       <a name="oven.output_iterator_adaptors.filterer.header"></a>
       <h5>
-<a name="id1009359"></a>
+<a name="id1009401"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.filterer.header">Header</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -335,7 +333,7 @@
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.filterer.model_of"></a>
       <h5>
-<a name="id1009439"></a>
+<a name="id1009481"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.filterer.model_of">Model of</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -343,18 +341,17 @@
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.filterer.notation"></a>
       <h5>
-<a name="id1009474"></a>
+<a name="id1009516"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.filterer.notation">Notation</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-          <code class="computeroutput"><span class="identifier">f_</span></code> is an imaginary <a class="ulink" href="http://www.sgi.com/tech/stl/functors.html" target="_top">Function Object</a>
-          which behaves as if it were <code class="computeroutput"><span class="identifier">v</span>
-          <span class="special">-&gt;</span> <span class="keyword">if</span><span class="special">(</span><span class="identifier">_prd</span><span class="special">(*</span><span class="identifier">v</span><span class="special">))</span>
-          <span class="special">*</span><span class="identifier">_outit</span><span class="special">++</span> <span class="special">=</span> <span class="special">*</span><span class="identifier">v</span></code>.
+          <code class="computeroutput"><span class="identifier">f_</span></code> &#12399;&#12289; <code class="computeroutput"><span class="identifier">v</span> <span class="special">-&gt;</span> <span class="keyword">if</span><span class="special">(</span><span class="identifier">_prd</span><span class="special">(*</span><span class="identifier">v</span><span class="special">))</span>
+          <span class="special">*</span><span class="identifier">_outit</span><span class="special">++</span> <span class="special">=</span> <span class="special">*</span><span class="identifier">v</span></code> &#12398;&#12424;&#12358;&#12395;&#25391;&#33310;&#12358; <a class="ulink" href="http://www.sgi.com/tech/stl/functors.html" target="_top">Function
+          Object</a> &#12391;&#12354;&#12427;&#12290;
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.filterer.valid_expressions"></a>
       <h5>
-<a name="id1009604"></a>
+<a name="id1009648"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.filterer.valid_expressions">Valid
         expressions</a>
       </h5>
@@ -393,25 +390,26 @@
       </div>
       <a name="oven.output_iterator_adaptors.filterer.preconditions"></a>
       <h5>
-<a name="id1009771"></a>
+<a name="id1009813"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.filterer.preconditions">Preconditions</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc">
 <li class="listitem">
-          <code class="computeroutput"><span class="identifier">_prd</span></code> is <a class="ulink" href="http://boost.org/doc/html/Assignable.html" target="_top">Assignable</a>.
+          <code class="computeroutput"><span class="identifier">_prd</span></code> &#12399; <a class="ulink" href="http://boost.org/doc/html/Assignable.html" target="_top">Assignable</a>
+          &#12391;&#12354;&#12427;&#12290;
         </li>
 <li class="listitem">
-          The corresponding semantics is a valid expression.
+          &#23550;&#24540;&#12377;&#12427;&#12475;&#12510;&#12531;&#12486;&#12451;&#12463;&#12473;&#12399;&#26377;&#21177;&#12394;&#24335;&#12391;&#12354;&#12427;&#12290;
         </li>
 </ul></div>
       <a name="oven.output_iterator_adaptors.filterer.example"></a>
       <h5>
-<a name="id1009822"></a>
+<a name="id1009864"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.filterer.example">Example</a>
       </h5>
       <a name="oven.output_iterator_adaptors.filterer.see_also"></a>
       <h5>
-<a name="id1009842"></a>
+<a name="id1009883"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.filterer.see_also">See also</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc">
@@ -430,16 +428,15 @@
       
       <a name="oven.output_iterator_adaptors.indirecter.description"></a>
       <h5>
-<a name="id1009904"></a>
+<a name="id1009946"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.indirecter.description">Description</a>
       </h5>
       <p>
-        <code class="computeroutput"><span class="identifier">indirecter</span></code> applies an extra
-        dereference in outputting.
+        <code class="computeroutput"><span class="identifier">indirecter</span></code> &#12399;&#12289;&#38291;&#25509;&#21442;&#29031;&#12434;&#36969;&#29992;&#12375;&#12383;&#32080;&#26524;&#12434;&#20986;&#21147;&#12377;&#12427;&#12290;
       </p>
       <a name="oven.output_iterator_adaptors.indirecter.header"></a>
       <h5>
-<a name="id1009940"></a>
+<a name="id1009982"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.indirecter.header">Header</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -447,7 +444,7 @@
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.indirecter.model_of"></a>
       <h5>
-<a name="id1010020"></a>
+<a name="id1010062"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.indirecter.model_of">Model of</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -455,17 +452,16 @@
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.indirecter.notation"></a>
       <h5>
-<a name="id1010055"></a>
+<a name="id1010097"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.indirecter.notation">Notation</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-          <code class="computeroutput"><span class="identifier">f_</span></code> is an imaginary <a class="ulink" href="http://www.sgi.com/tech/stl/functors.html" target="_top">Function Object</a>
-          which behaves as if it were <code class="computeroutput"><span class="identifier">v</span>
-          <span class="special">-&gt;</span> <span class="special">*</span><span class="identifier">_outit</span><span class="special">++</span> <span class="special">=</span> <span class="special">*</span><span class="identifier">v</span></code>.
+          <code class="computeroutput"><span class="identifier">f_</span></code> &#12399;&#12289; <code class="computeroutput"><span class="identifier">v</span> <span class="special">-&gt;</span> <span class="special">*</span><span class="identifier">_outit</span><span class="special">++</span> <span class="special">=</span> <span class="special">*</span><span class="identifier">v</span></code> &#12398;&#12424;&#12358;&#12395;&#25391;&#33310;&#12358; <a class="ulink" href="http://www.sgi.com/tech/stl/functors.html" target="_top">Function
+          Object</a> &#12391;&#12354;&#12427;&#12290;
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.indirecter.valid_expressions"></a>
       <h5>
-<a name="id1010153"></a>
+<a name="id1010196"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.indirecter.valid_expressions">Valid
         expressions</a>
       </h5>
@@ -504,20 +500,20 @@
       </div>
       <a name="oven.output_iterator_adaptors.indirecter.preconditions"></a>
       <h5>
-<a name="id1010302"></a>
+<a name="id1010345"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.indirecter.preconditions">Preconditions</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-          The corresponding semantics is a valid expression.
+          &#23550;&#24540;&#12377;&#12427;&#12475;&#12510;&#12531;&#12486;&#12451;&#12463;&#12473;&#12399;&#26377;&#21177;&#12394;&#24335;&#12391;&#12354;&#12427;&#12290;
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.indirecter.example"></a>
       <h5>
-<a name="id1010331"></a>
+<a name="id1010374"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.indirecter.example">Example</a>
       </h5>
       <a name="oven.output_iterator_adaptors.indirecter.see_also"></a>
       <h5>
-<a name="id1010351"></a>
+<a name="id1010394"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.indirecter.see_also">See also</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc">
@@ -539,15 +535,15 @@
       
       <a name="oven.output_iterator_adaptors.intercepter.description"></a>
       <h5>
-<a name="id1010425"></a>
+<a name="id1010468"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.intercepter.description">Description</a>
       </h5>
       <p>
-        <code class="computeroutput"><span class="identifier">intercepter</span></code> intercepts inputs.
+        <code class="computeroutput"><span class="identifier">intercepter</span></code> &#12399;&#20837;&#21147;&#12434;&#21106;&#12426;&#36796;&#12416;&#12290;
       </p>
       <a name="oven.output_iterator_adaptors.intercepter.header"></a>
       <h5>
-<a name="id1010460"></a>
+<a name="id1010503"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.intercepter.header">Header</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -555,7 +551,7 @@
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.intercepter.model_of"></a>
       <h5>
-<a name="id1010541"></a>
+<a name="id1010583"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.intercepter.model_of">Model
         of</a>
       </h5>
@@ -564,14 +560,14 @@
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.intercepter.notation"></a>
       <h5>
-<a name="id1010576"></a>
+<a name="id1010618"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.intercepter.notation">Notation</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.intercepter.valid_expressions"></a>
       <h5>
-<a name="id1010605"></a>
+<a name="id1010647"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.intercepter.valid_expressions">Valid
         expressions</a>
       </h5>
@@ -625,7 +621,7 @@
       </div>
       <a name="oven.output_iterator_adaptors.intercepter.preconditions"></a>
       <h5>
-<a name="id1010807"></a>
+<a name="id1010850"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.intercepter.preconditions">Preconditions</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -633,12 +629,12 @@
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.intercepter.example"></a>
       <h5>
-<a name="id1010836"></a>
+<a name="id1010879"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.intercepter.example">Example</a>
       </h5>
       <a name="oven.output_iterator_adaptors.intercepter.see_also"></a>
       <h5>
-<a name="id1010856"></a>
+<a name="id1010899"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.intercepter.see_also">See also</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -652,16 +648,15 @@
       
       <a name="oven.output_iterator_adaptors.permuter.description"></a>
       <h5>
-<a name="id1010905"></a>
+<a name="id1010948"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.permuter.description">Description</a>
       </h5>
       <p>
-        <code class="computeroutput"><span class="identifier">permuter</span></code> outputs permuted
-        values using inputs as indices of a range.
+        <code class="computeroutput"><span class="identifier">permuter</span></code> &#12399;&#12289;&#31684;&#22258;&#12398;&#12452;&#12531;&#12487;&#12483;&#12463;&#12473;&#12392;&#12375;&#12390;&#20837;&#21147;&#12434;&#20351;&#29992;&#12375;&#12289;&#20516;&#12434;&#38918;&#30058;&#12395;&#20986;&#21147;&#12377;&#12427;&#12290;
       </p>
       <a name="oven.output_iterator_adaptors.permuter.header"></a>
       <h5>
-<a name="id1010939"></a>
+<a name="id1010983"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.permuter.header">Header</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -669,7 +664,7 @@
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.permuter.model_of"></a>
       <h5>
-<a name="id1011020"></a>
+<a name="id1011063"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.permuter.model_of">Model of</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -677,17 +672,17 @@
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.permuter.notation"></a>
       <h5>
-<a name="id1011055"></a>
+<a name="id1011098"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.permuter.notation">Notation</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-          <code class="computeroutput"><span class="identifier">f_</span></code> is an imaginary <a class="ulink" href="http://www.sgi.com/tech/stl/functors.html" target="_top">Function Object</a>
-          which behaves as if it were <code class="computeroutput"><span class="identifier">v</span>
-          <span class="special">-&gt;</span> <span class="special">*</span><span class="identifier">_outit</span><span class="special">++</span> <span class="special">=</span> <span class="special">*(</span><span class="identifier">_begin</span><span class="special">(</span><span class="identifier">_rndrng</span><span class="special">)+</span><span class="identifier">v</span><span class="special">)</span></code>.
+          <code class="computeroutput"><span class="identifier">f_</span></code> &#12399;&#12289; <code class="computeroutput"><span class="identifier">v</span> <span class="special">-&gt;</span> <span class="special">*</span><span class="identifier">_outit</span><span class="special">++</span> <span class="special">=</span> <span class="special">*(</span><span class="identifier">_begin</span><span class="special">(</span><span class="identifier">_rndrng</span><span class="special">)+</span><span class="identifier">v</span><span class="special">)</span></code> &#12398;&#12424;&#12358;&#12395;&#25391;&#33310;&#12358;
+          <a class="ulink" href="http://www.sgi.com/tech/stl/functors.html" target="_top">Function Object</a>
+          &#12391;&#12354;&#12427;&#12290;
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.permuter.valid_expressions"></a>
       <h5>
-<a name="id1011179"></a>
+<a name="id1011221"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.permuter.valid_expressions">Valid
         expressions</a>
       </h5>
@@ -726,20 +721,20 @@
       </div>
       <a name="oven.output_iterator_adaptors.permuter.preconditions"></a>
       <h5>
-<a name="id1011344"></a>
+<a name="id1011387"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.permuter.preconditions">Preconditions</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-          The corresponding semantics is a valid expression.
+          &#23550;&#24540;&#12377;&#12427;&#12475;&#12510;&#12531;&#12486;&#12451;&#12463;&#12473;&#12399;&#26377;&#21177;&#12394;&#24335;&#12391;&#12354;&#12427;&#12290;
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.permuter.example"></a>
       <h5>
-<a name="id1011373"></a>
+<a name="id1011417"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.permuter.example">Example</a>
       </h5>
       <a name="oven.output_iterator_adaptors.permuter.see_also"></a>
       <h5>
-<a name="id1011393"></a>
+<a name="id1011436"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.permuter.see_also">See also</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc">
@@ -758,16 +753,17 @@
       
       <a name="oven.output_iterator_adaptors.transformer.description"></a>
       <h5>
-<a name="id1011456"></a>
+<a name="id1011499"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.transformer.description">Description</a>
       </h5>
       <p>
-        <code class="computeroutput"><span class="identifier">tranformer</span></code> applies a <a class="ulink" href="http://www.sgi.com/tech/stl/functors.html" target="_top">Function Object</a> to
-        an input.
+        <code class="computeroutput"><span class="identifier">tranformer</span></code> &#12399;&#12289;&#20837;&#21147;&#12395;
+        <a class="ulink" href="http://www.sgi.com/tech/stl/functors.html" target="_top">Function Object</a>
+        &#12434;&#36969;&#29992;&#12377;&#12427;&#12290;
       </p>
       <a name="oven.output_iterator_adaptors.transformer.header"></a>
       <h5>
-<a name="id1011498"></a>
+<a name="id1011541"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.transformer.header">Header</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -775,7 +771,7 @@
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.transformer.model_of"></a>
       <h5>
-<a name="id1011578"></a>
+<a name="id1011621"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.transformer.model_of">Model
         of</a>
       </h5>
@@ -784,17 +780,17 @@
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.transformer.notation"></a>
       <h5>
-<a name="id1011614"></a>
+<a name="id1011657"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.transformer.notation">Notation</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-          <code class="computeroutput"><span class="identifier">f_</span></code> is an imaginary <a class="ulink" href="http://www.sgi.com/tech/stl/functors.html" target="_top">Function Object</a>
-          which behaves as if it were <code class="computeroutput"><span class="identifier">v</span>
-          <span class="special">-&gt;</span> <span class="special">*</span><span class="identifier">_outit</span><span class="special">++</span> <span class="special">=</span> <span class="identifier">_fun</span><span class="special">(</span><span class="identifier">v</span><span class="special">)</span></code>.
+          <code class="computeroutput"><span class="identifier">f_</span></code> &#12399;&#12289; <code class="computeroutput"><span class="identifier">v</span> <span class="special">-&gt;</span> <span class="special">*</span><span class="identifier">_outit</span><span class="special">++</span> <span class="special">=</span> <span class="identifier">_fun</span><span class="special">(</span><span class="identifier">v</span><span class="special">)</span></code>
+          &#12398;&#12424;&#12358;&#12395;&#25391;&#33310;&#12358; <a class="ulink" href="http://www.sgi.com/tech/stl/functors.html" target="_top">Function
+          Object</a> &#12391;&#12354;&#12427;&#12290;
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.transformer.valid_expressions"></a>
       <h5>
-<a name="id1011723"></a>
+<a name="id1011766"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.transformer.valid_expressions">Valid
         expressions</a>
       </h5>
@@ -833,25 +829,26 @@
       </div>
       <a name="oven.output_iterator_adaptors.transformer.preconditions"></a>
       <h5>
-<a name="id1011886"></a>
+<a name="id1011930"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.transformer.preconditions">Preconditions</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc">
 <li class="listitem">
-          <code class="computeroutput"><span class="identifier">_fun</span></code> is <a class="ulink" href="http://boost.org/doc/html/Assignable.html" target="_top">Assignable</a>.
+          <code class="computeroutput"><span class="identifier">_fun</span></code> &#12399; <a class="ulink" href="http://boost.org/doc/html/Assignable.html" target="_top">Assignable</a>
+          &#12391;&#12354;&#12427;&#12290;
         </li>
 <li class="listitem">
-          The corresponding semantics is a valid expression.
+          &#23550;&#24540;&#12377;&#12427;&#12475;&#12510;&#12531;&#12486;&#12451;&#12463;&#12473;&#12399;&#26377;&#21177;&#12394;&#24335;&#12391;&#12354;&#12427;&#12290;
         </li>
 </ul></div>
       <a name="oven.output_iterator_adaptors.transformer.example"></a>
       <h5>
-<a name="id1011938"></a>
+<a name="id1011982"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.transformer.example">Example</a>
       </h5>
       <a name="oven.output_iterator_adaptors.transformer.see_also"></a>
       <h5>
-<a name="id1011958"></a>
+<a name="id1012001"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.transformer.see_also">See also</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc">
@@ -876,16 +873,16 @@
       
       <a name="oven.output_iterator_adaptors.range_transformer.description"></a>
       <h5>
-<a name="id1012044"></a>
+<a name="id1012087"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.range_transformer.description">Description</a>
       </h5>
       <p>
-        <code class="computeroutput"><span class="identifier">range_transformer</span></code> can turn
-        a Range Adaptor into Output Iterator Adaptor.
+        <code class="computeroutput"><span class="identifier">range_transformer</span></code> &#12399;&#12289;
+        Range Adaptor &#12434; Output Iterator Adaptor &#12395;&#22793;&#12360;&#12427;&#12371;&#12392;&#12364;&#12391;&#12365;&#12427;&#12290;
       </p>
       <a name="oven.output_iterator_adaptors.range_transformer.header"></a>
       <h5>
-<a name="id1012080"></a>
+<a name="id1012124"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.range_transformer.header">Header</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -893,7 +890,7 @@
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.range_transformer.model_of"></a>
       <h5>
-<a name="id1012160"></a>
+<a name="id1012204"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.range_transformer.model_of">Model
         of</a>
       </h5>
@@ -902,19 +899,17 @@
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.range_transformer.notation"></a>
       <h5>
-<a name="id1012196"></a>
+<a name="id1012240"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.range_transformer.notation">Notation</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-          <code class="computeroutput"><span class="identifier">f_</span></code> is an imaginary <a class="ulink" href="http://www.sgi.com/tech/stl/functors.html" target="_top">Function Object</a>
-          which behaves as if it were <code class="computeroutput"><span class="identifier">v</span>
-          <span class="special">-&gt;</span> <span class="identifier">_outit</span>
-          <span class="special">=</span> <span class="identifier">copy</span><span class="special">(</span><span class="identifier">_fun</span><span class="special">(</span><span class="identifier">single</span><span class="special">(</span><span class="identifier">v</span><span class="special">)),</span>
-          <span class="identifier">_outit</span><span class="special">)</span></code>.
+          <code class="computeroutput"><span class="identifier">f_</span></code> &#12399;&#12289; <code class="computeroutput"><span class="identifier">v</span> <span class="special">-&gt;</span> <span class="identifier">_outit</span> <span class="special">=</span> <span class="identifier">copy</span><span class="special">(</span><span class="identifier">_fun</span><span class="special">(</span><span class="identifier">single</span><span class="special">(</span><span class="identifier">v</span><span class="special">)),</span> <span class="identifier">_outit</span><span class="special">)</span></code>
+          &#12398;&#12424;&#12358;&#12395;&#25391;&#33310;&#12358; <a class="ulink" href="http://www.sgi.com/tech/stl/functors.html" target="_top">Function
+          Object</a> &#12391;&#12354;&#12427;&#12290;
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.range_transformer.valid_expressions"></a>
       <h5>
-<a name="id1012329"></a>
+<a name="id1012373"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.range_transformer.valid_expressions">Valid
         expressions</a>
       </h5>
@@ -952,31 +947,32 @@
       </div>
       <a name="oven.output_iterator_adaptors.range_transformer.preconditions"></a>
       <h5>
-<a name="id1012494"></a>
+<a name="id1012538"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.range_transformer.preconditions">Preconditions</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc">
 <li class="listitem">
-          <code class="computeroutput"><span class="identifier">_fun</span></code> is <a class="ulink" href="http://boost.org/doc/html/Assignable.html" target="_top">Assignable</a>.
+          <code class="computeroutput"><span class="identifier">_fun</span></code> &#12399; <a class="ulink" href="http://boost.org/doc/html/Assignable.html" target="_top">Assignable</a>
+          &#12391;&#12354;&#12427;&#12290;
         </li>
 <li class="listitem">
-          The corresponding semantics is a valid expression.
+          &#23550;&#24540;&#12377;&#12427;&#24335;&#12399;&#26377;&#21177;&#12394;&#24335;&#12391;&#12354;&#12427;&#12290;
         </li>
 </ul></div>
       <a name="oven.output_iterator_adaptors.range_transformer.example"></a>
       <h5>
-<a name="id1012545"></a>
+<a name="id1012589"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.range_transformer.example">Example</a>
       </h5>
       
 <pre class="programlisting"><span class="identifier">file_range</span><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">uint8_t</span><span class="special">&gt;</span> <span class="identifier">frng</span><span class="special">(</span><span class="string">"utf8.txt"</span><span class="special">);</span>
 <span class="identifier">std</span><span class="special">::</span><span class="identifier">vector</span><span class="special">&lt;</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">uint8_t</span><span class="special">&gt;</span> <span class="identifier">result</span><span class="special">;</span>
-<span class="comment">// Do the same job as utf8_encoder slightly inefficient way.
+<span class="comment">// utf8_encoder&#12392;&#21516;&#12376;&#20316;&#26989;&#12398;&#12431;&#12378;&#12363;&#12395;&#21177;&#29575;&#12398;&#24746;&#12356;&#26041;&#27861;
 </span><span class="identifier">copy</span><span class="special">(</span><span class="identifier">frng</span><span class="special">|</span><span class="identifier">utf8_decoded</span><span class="special">,</span> <span class="identifier">range_transformer</span><span class="special">(</span><span class="identifier">make_utf8_encoded</span><span class="special">)</span> <span class="special">|=</span> <span class="identifier">std</span><span class="special">::</span><span class="identifier">back_inserter</span><span class="special">(</span><span class="identifier">result</span><span class="special">));</span>
 </pre>
       <a name="oven.output_iterator_adaptors.range_transformer.see_also"></a>
       <h5>
-<a name="id1012778"></a>
+<a name="id1012822"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.range_transformer.see_also">See
         also</a>
       </h5>
@@ -1002,7 +998,7 @@
       
       <a name="oven.output_iterator_adaptors.utf8_encoder.description"></a>
       <h5>
-<a name="id1012864"></a>
+<a name="id1012908"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.utf8_encoder.description">Description</a>
       </h5>
       <p>
@@ -1010,7 +1006,7 @@
       </p>
       <a name="oven.output_iterator_adaptors.utf8_encoder.header"></a>
       <h5>
-<a name="id1012889"></a>
+<a name="id1012933"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.utf8_encoder.header">Header</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -1018,7 +1014,7 @@
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.utf8_encoder.model_of"></a>
       <h5>
-<a name="id1012969"></a>
+<a name="id1013013"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.utf8_encoder.model_of">Model
         of</a>
       </h5>
@@ -1027,7 +1023,7 @@
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.utf8_encoder.valid_expressions"></a>
       <h5>
-<a name="id1013004"></a>
+<a name="id1013048"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.utf8_encoder.valid_expressions">Valid
         expressions</a>
       </h5>
@@ -1066,20 +1062,21 @@
       </div>
       <a name="oven.output_iterator_adaptors.utf8_encoder.preconditions"></a>
       <h5>
-<a name="id1013152"></a>
+<a name="id1013197"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.utf8_encoder.preconditions">Preconditions</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-          <code class="computeroutput"><span class="identifier">T</span></code> is <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">utf8_output_iterator</span><span class="special">&lt;</span><span class="identifier">typeof</span><span class="special">(</span><span class="identifier">_outit</span><span class="special">)&gt;</span></code> such that <code class="computeroutput"><span class="identifier">T</span><span class="special">(</span><span class="identifier">_outit</span><span class="special">)</span></code> is a valid expression.
+          <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">utf8_output_iterator</span><span class="special">&lt;</span><span class="identifier">typeof</span><span class="special">(</span><span class="identifier">_outit</span><span class="special">)&gt;</span></code>&#12391;&#12354;&#12427;
+          <code class="computeroutput"><span class="identifier">T</span></code> &#12395;&#12362;&#12356;&#12390;&#12289; <code class="computeroutput"><span class="identifier">T</span><span class="special">(</span><span class="identifier">_outit</span><span class="special">)</span></code> &#12399;&#26377;&#21177;&#12394;&#24335;&#12391;&#12354;&#12427;&#12290;
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.utf8_encoder.example"></a>
       <h5>
-<a name="id1013263"></a>
+<a name="id1013309"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.utf8_encoder.example">Example</a>
       </h5>
       <a name="oven.output_iterator_adaptors.utf8_encoder.see_also"></a>
       <h5>
-<a name="id1013283"></a>
+<a name="id1013328"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.utf8_encoder.see_also">See also</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -1093,7 +1090,7 @@
       
       <a name="oven.output_iterator_adaptors.utf16_encoder.description"></a>
       <h5>
-<a name="id1013333"></a>
+<a name="id1013378"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.utf16_encoder.description">Description</a>
       </h5>
       <p>
@@ -1101,7 +1098,7 @@
       </p>
       <a name="oven.output_iterator_adaptors.utf16_encoder.header"></a>
       <h5>
-<a name="id1013358"></a>
+<a name="id1013403"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.utf16_encoder.header">Header</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -1109,7 +1106,7 @@
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.utf16_encoder.model_of"></a>
       <h5>
-<a name="id1013438"></a>
+<a name="id1013483"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.utf16_encoder.model_of">Model
         of</a>
       </h5>
@@ -1118,7 +1115,7 @@
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.utf16_encoder.valid_expressions"></a>
       <h5>
-<a name="id1013474"></a>
+<a name="id1013519"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.utf16_encoder.valid_expressions">Valid
         expressions</a>
       </h5>
@@ -1157,20 +1154,23 @@
       </div>
       <a name="oven.output_iterator_adaptors.utf16_encoder.preconditions"></a>
       <h5>
-<a name="id1013623"></a>
+<a name="id1013668"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.utf16_encoder.preconditions">Preconditions</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-          <code class="computeroutput"><span class="identifier">T</span></code> is <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">utf16_output_iterator</span><span class="special">&lt;</span><span class="identifier">typeof</span><span class="special">(</span><span class="identifier">_outit</span><span class="special">)&gt;</span></code> such that <code class="computeroutput"><span class="identifier">T</span><span class="special">(</span><span class="identifier">_outit</span><span class="special">)</span></code> is a valid expression.
+          <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">utf16_output_iterator</span><span class="special">&lt;</span><span class="identifier">typeof</span><span class="special">(</span><span class="identifier">_outit</span><span class="special">)&gt;</span></code>
+          &#12391;&#12354;&#12427; <code class="computeroutput"><span class="identifier">T</span></code> &#12395;&#12362;&#12356;&#12390;&#12289;
+          <code class="computeroutput"><span class="identifier">T</span><span class="special">(</span><span class="identifier">_outit</span><span class="special">)</span></code>
+          &#12399;&#26377;&#21177;&#12394;&#24335;&#12391;&#12354;&#12427;&#12290;
         </li></ul></div>
       <a name="oven.output_iterator_adaptors.utf16_encoder.example"></a>
       <h5>
-<a name="id1013734"></a>
+<a name="id1013781"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.utf16_encoder.example">Example</a>
       </h5>
       <a name="oven.output_iterator_adaptors.utf16_encoder.see_also"></a>
       <h5>
-<a name="id1013754"></a>
+<a name="id1013801"></a>
         <a class="link" href="output_iterator_adaptors.html#oven.output_iterator_adaptors.utf16_encoder.see_also">See
         also</a>
       </h5>

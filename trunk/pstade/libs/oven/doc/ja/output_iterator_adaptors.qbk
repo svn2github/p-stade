@@ -1,7 +1,7 @@
 [section Output Iterator Adaptors]
 
-Output Iterator Adaptors adapt the behavior of the underlying _output_iterator_.
-An Output Iterator Adaptor is a _pipable_fuction_object_, so that, by using `operator|=`, you can "chain" multiple adaptors:
+Output Iterator Adaptors は、_output_iterator_ の基本的な振る舞いをアダプトする。
+Output Iterator Adaptor は、 `operator|=` を使用することによって複数のアダプタを「繋げる」ことができる _pipable_fuction_object_ である：
 
     int const in[] = { 1,2,3,4,5,6,7,8,9,10 };
     int const answer[] = {2*3,4*3,6*3,8*3,10*3};
@@ -16,7 +16,7 @@ An Output Iterator Adaptor is a _pipable_fuction_object_, so that, by using `ope
 [section converter]
 
 [heading Description]
-`converter` changes an output into specified type.
+`converter` は、出力を指定された型に変換する。
 
 [heading Header]
 * `<pstade/oven/converter.hpp>`
@@ -25,7 +25,7 @@ An Output Iterator Adaptor is a _pipable_fuction_object_, so that, by using `ope
 * ...
 
 [heading Notation]
-* `f_` is an imaginary _function_object_ which behaves as if it were `v -> *_outit++ = boost::implicit_cast<To>(v)`.
+* `f_` は、 `v -> *_outit++ = boost::implicit_cast<To>(v)` のように振舞う _function_object_ である。
 
 [heading Valid expressions]
 [table 
@@ -66,7 +66,7 @@ An Output Iterator Adaptor is a _pipable_fuction_object_, so that, by using `ope
 ]
 
 [heading Preconditions]
-* The corresponding semantics is a valid expression.
+* 対応するセマンティクスは有効な式である。
 
 [heading Example]
 
@@ -83,7 +83,7 @@ An Output Iterator Adaptor is a _pipable_fuction_object_, so that, by using `ope
 [section copier]
 
 [heading Description]
-`copier` outputs to another output iterator.
+`copier` は、他の output iterator へ出力する。
 
 [heading Header]
 * `<pstade/oven/copier.hpp>`
@@ -92,7 +92,7 @@ An Output Iterator Adaptor is a _pipable_fuction_object_, so that, by using `ope
 * _pipable_adaptor_
 
 [heading Notation]
-* `f_` is an imaginary _function_object_ which behaves as if it were `v -> *_outit0++ = v; *_outit++ = v`.
+* `f_` は、 `v -> *_outit0++ = v; *_outit++ = v` のように振舞う _function_object_ である。
 
 [heading Valid expressions]
 [table 
@@ -109,7 +109,7 @@ An Output Iterator Adaptor is a _pipable_fuction_object_, so that, by using `ope
 ]
 
 [heading Preconditions]
-* The corresponding semantics is a valid expression.
+* 対応するセマンティクスは有効な式である。
 
 [heading Example]
     std::vector<int> v1, v2, v3;
@@ -132,7 +132,7 @@ An Output Iterator Adaptor is a _pipable_fuction_object_, so that, by using `ope
 [section filterer]
 
 [heading Description]
-`filterer` skips an input which doesn't satify a predicate.
+`filterer` は、述語を満たさない入力を読み飛ばす。
 
 [heading Header]
 * `<pstade/oven/filterer.hpp>`
@@ -141,7 +141,7 @@ An Output Iterator Adaptor is a _pipable_fuction_object_, so that, by using `ope
 * _pipable_adaptor_
 
 [heading Notation]
-* `f_` is an imaginary _function_object_ which behaves as if it were `v -> if(_prd(*v)) *_outit++ = *v`.
+* `f_` は、 `v -> if(_prd(*v)) *_outit++ = *v` のように振舞う _function_object_ である。
 
 [heading Valid expressions]
 [table 
@@ -158,8 +158,8 @@ An Output Iterator Adaptor is a _pipable_fuction_object_, so that, by using `ope
 ]
 
 [heading Preconditions]
-* `_prd` is _assignable_.
-* The corresponding semantics is a valid expression.
+* `_prd` は _assignable_ である。
+* 対応するセマンティクスは有効な式である。
 
 [heading Example]
 
@@ -175,7 +175,7 @@ An Output Iterator Adaptor is a _pipable_fuction_object_, so that, by using `ope
 [section indirecter]
 
 [heading Description]
-`indirecter` applies an extra dereference in outputting.
+`indirecter` は、間接参照を適用した結果を出力する。
 
 [heading Header]
 * `<pstade/oven/indirecter.hpp>`
@@ -184,7 +184,7 @@ An Output Iterator Adaptor is a _pipable_fuction_object_, so that, by using `ope
 * _pipable_adaptor_
 
 [heading Notation]
-* `f_` is an imaginary _function_object_ which behaves as if it were `v -> *_outit++ = *v`.
+* `f_` は、 `v -> *_outit++ = *v` のように振舞う _function_object_ である。
 
 [heading Valid expressions]
 [table 
@@ -201,7 +201,7 @@ An Output Iterator Adaptor is a _pipable_fuction_object_, so that, by using `ope
 ]
 
 [heading Preconditions]
-* The corresponding semantics is a valid expression.
+* 対応するセマンティクスは有効な式である。
 
 [heading Example]
 
@@ -218,7 +218,7 @@ An Output Iterator Adaptor is a _pipable_fuction_object_, so that, by using `ope
 [section intercepter]
 
 [heading Description]
-`intercepter` intercepts inputs.
+`intercepter` は入力を割り込む。
 
 [heading Header]
 * `<pstade/oven/intercepter.hpp>`
@@ -265,7 +265,7 @@ An Output Iterator Adaptor is a _pipable_fuction_object_, so that, by using `ope
 [section permuter]
 
 [heading Description]
-`permuter` outputs permuted values using inputs as indices of a range.
+`permuter` は、範囲のインデックスとして入力を使用し、値を順番に出力する。
 
 [heading Header]
 * `<pstade/oven/permuter.hpp>`
@@ -274,7 +274,7 @@ An Output Iterator Adaptor is a _pipable_fuction_object_, so that, by using `ope
 * _pipable_adaptor_
 
 [heading Notation]
-* `f_` is an imaginary _function_object_ which behaves as if it were `v -> *_outit++ = *(_begin(_rndrng)+v)`.
+* `f_` は、 `v -> *_outit++ = *(_begin(_rndrng)+v)` のように振舞う _function_object_ である。
 
 [heading Valid expressions]
 [table 
@@ -291,7 +291,7 @@ An Output Iterator Adaptor is a _pipable_fuction_object_, so that, by using `ope
 ]
 
 [heading Preconditions]
-* The corresponding semantics is a valid expression.
+* 対応するセマンティクスは有効な式である。
 
 [heading Example]
 
@@ -307,7 +307,7 @@ An Output Iterator Adaptor is a _pipable_fuction_object_, so that, by using `ope
 [section transformer]
 
 [heading Description]
-`tranformer` applies a _function_object_ to an input.
+`tranformer` は、入力に _function_object_ を適用する。
 
 [heading Header]
 * `<pstade/oven/transformer.hpp>`
@@ -316,7 +316,7 @@ An Output Iterator Adaptor is a _pipable_fuction_object_, so that, by using `ope
 * _pipable_adaptor_
 
 [heading Notation]
-* `f_` is an imaginary _function_object_ which behaves as if it were `v -> *_outit++ = _fun(v)`.
+* `f_` は、 `v -> *_outit++ = _fun(v)` のように振舞う _function_object_ である。
 
 [heading Valid expressions]
 [table 
@@ -333,8 +333,8 @@ An Output Iterator Adaptor is a _pipable_fuction_object_, so that, by using `ope
 ]
 
 [heading Preconditions]
-* `_fun` is _assignable_.
-* The corresponding semantics is a valid expression.
+* `_fun` は _assignable_ である。
+* 対応するセマンティクスは有効な式である。
 
 [heading Example]
 
@@ -352,7 +352,7 @@ An Output Iterator Adaptor is a _pipable_fuction_object_, so that, by using `ope
 [section range_transformer]
 
 [heading Description]
-`range_transformer` can turn a Range Adaptor into Output Iterator Adaptor.
+`range_transformer` は、 Range Adaptor を Output Iterator Adaptor に変えることができる。
 
 [heading Header]
 * `<pstade/oven/range_transformer.hpp>`
@@ -361,7 +361,7 @@ An Output Iterator Adaptor is a _pipable_fuction_object_, so that, by using `ope
 * _pipable_adaptor_
 
 [heading Notation]
-* `f_` is an imaginary _function_object_ which behaves as if it were `v -> _outit = copy(_fun(single(v)), _outit)`.
+* `f_` は、 `v -> _outit = copy(_fun(single(v)), _outit)` のように振舞う _function_object_ である。
 
 [heading Valid expressions]
 [table 
@@ -378,13 +378,13 @@ An Output Iterator Adaptor is a _pipable_fuction_object_, so that, by using `ope
 ]
 
 [heading Preconditions]
-* `_fun` is _assignable_.
-* The corresponding semantics is a valid expression.
+* `_fun` は _assignable_ である。
+* 対応する式は有効な式である。
 
 [heading Example]
     file_range<boost::uint8_t> frng("utf8.txt");
     std::vector<boost::uint8_t> result;
-    // Do the same job as utf8_encoder slightly inefficient way.
+    // utf8_encoderと同じ作業のわずかに効率の悪い方法
     copy(frng|utf8_decoded, range_transformer(make_utf8_encoded) |= std::back_inserter(result));
 
 [heading See also]
@@ -424,7 +424,7 @@ Pending...
 ]
 
 [heading Preconditions]
-* `T` is `boost::utf8_output_iterator<typeof(_outit)>` such that `T(_outit)` is a valid expression.
+* `boost::utf8_output_iterator<typeof(_outit)>`である `T` において、 `T(_outit)` は有効な式である。
 
 [heading Example]
 
@@ -462,7 +462,7 @@ Pending...
 ]
 
 [heading Preconditions]
-* `T` is `boost::utf16_output_iterator<typeof(_outit)>` such that `T(_outit)` is a valid expression.
+* `boost::utf16_output_iterator<typeof(_outit)>` である `T` において、 `T(_outit)` は有効な式である。
 
 [heading Example]
 

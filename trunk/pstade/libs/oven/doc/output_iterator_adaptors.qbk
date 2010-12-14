@@ -132,7 +132,7 @@ An Output Iterator Adaptor is a _pipable_fuction_object_, so that, by using `ope
 [section filterer]
 
 [heading Description]
-`filterer` skips an input which doesn't satify a predicate.
+`filterer` skips an input which doesn't satisfy a predicate.
 
 [heading Header]
 * `<pstade/oven/filterer.hpp>`
