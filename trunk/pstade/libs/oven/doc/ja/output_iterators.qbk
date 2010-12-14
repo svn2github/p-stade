@@ -1,6 +1,6 @@
 [section Output Iterators]
 
-Oven provides some useful Output Iterators.
+Oven は、いくつかの有用な Output Iterator を提供する。
 
 
 
@@ -8,7 +8,7 @@ Oven provides some useful Output Iterators.
 [section any_output_iterator]
 
 [heading Description]
-`any_output_iterator` is an _output_iterator_ to which any _output_iterator_ can be assigned.
+`any_output_iterator` は、あらゆる _output_iterator_ でも代入可能な _output_iterator_ である。
 
 [heading Header]
 * `<pstade/oven/any_output_iterator.hpp>`
@@ -26,12 +26,12 @@ Oven provides some useful Output Iterators.
     ]
     [
         [`any_output_iterator<V>(_outit)`]
-        [An _output_iterator_ whose iterator operations are forwarded to `_outit`.]
+        [イテレータ操作が `_outit` に転送される _output_iterator_ である。]
     ]
 ]
 
 [heading Preconditions]
-* `V` specifies a (possibly reference) type which is outputted to `_outit`.
+* `V` は、 `_outit` に出力される (おそらく参照) 型を指定する。
 
 [heading Example]
     int const in[] = { 1,2,3,4,5,6,7,8,9,10 };
@@ -54,7 +54,7 @@ Oven provides some useful Output Iterators.
 [section applier]
 
 [heading Description]
-`applier` returns an _output_iterator_ which passes each item assigned as an argument to the unary function.
+`applier` は、引数として渡された単項の関数を各要素に割り当てる _output_iterator_ を返す。
 
 [heading Header]
 * `<pstade/oven/applier.hpp>`
@@ -77,8 +77,8 @@ Oven provides some useful Output Iterators.
 ]
 
 [heading Preconditions]
-* `T` is `boost::function_output_iterator<typeof(_fun)>` such that `T(_fun)` is a valid expression.
-* `_fun` is _assignable_.
+* `boost::function_output_iterator<typeof(_fun)>` である `T` において、 `T(_fun)` は有効な式である。
+* `_fun` は _assignable_ である。
 
 [heading Example]
 
@@ -94,7 +94,7 @@ Oven provides some useful Output Iterators.
 [section eater]
 
 [heading Description]
-`eater` returns an _output_iterator_ which ignores inputs.
+`eater` は、入力を無視する _output_iterator_ を返す。
 
 [heading Header]
 * `<pstade/oven/eater.hpp>`
@@ -103,7 +103,7 @@ Oven provides some useful Output Iterators.
 * _static_function_object_
 
 [heading Notation]
-* `f_` is an imaginary _function_object_ which behaves as if it were `v -> (void)v`.
+* `f_` は、 `v -> (void)v` のように振舞う _function_object_ である。
 
 [heading Valid expressions]
 [table 
@@ -120,7 +120,7 @@ Oven provides some useful Output Iterators.
 ]
 
 [heading Preconditions]
-* The corresponding semantics is a valid expression.
+* 対応するセマンティクスは有効な式である。
 
 [heading Example]
 
@@ -136,9 +136,8 @@ Oven provides some useful Output Iterators.
 [section stream_writer]
 
 [heading Description]
-`stream_writer` returns an _output_iterator_ which is a shorthand version of `std::ostream_iterator`.
-It needs no explicit template parameter to specify the `value_type` to output,
-but one extra precondition below must be met. It can be easily guaranteed by using `converter`, though.
+`stream_writer` は、 `std::ostream_iterator` の短い表記のバージョンの _output_iterator_ である。
+これは、出力するべき `value_type` を指定するために明示的なテンプレートパラメータを必要としない。しかし、以下の特別な事前条件を満たさなければならない。しかしそれは、 `converter` を使用することによって容易に保証することができる。
 
 [heading Header]
 * `<pstade/oven/stream_writer.hpp>`
@@ -166,11 +165,11 @@ but one extra precondition below must be met. It can be easily guaranteed by usi
     ]
 ]
 
-[note `stream_writer` doesn't write an extra delimiter after the last element.]
+[注： `stream_writer` は、最後の要素の後に余分な区切り文字を書きこむ。]
 
 [heading Preconditions]
-* `T` is `hamigaki::ostream_iterator<unspecified, _typeof(s)::char_type, _typeof(s)::traits_type>` such that `T(s, d)` is a valid expressin.
-* An object which is passed to `_typeof(stream_writer(s))::operator=` is _output_streamable_.
+* `hamigaki::ostream_iterator<unspecified, _typeof(s)::char_type, _typeof(s)::traits_type>` である `T` において、 `T(s, d)` は有効な式である。
+* `_typeof(stream_writer(s))::operator=` に渡されるオブジェクトは、 _output_streamable_ である。
 
 [heading Example]
     std::vector<std::string> sample
@@ -204,7 +203,7 @@ but one extra precondition below must be met. It can be easily guaranteed by usi
 [section streambuf_writer]
 
 [heading Description]
-`streambuf_writer` is the object generator of `std::ostreambuf_iterator`.
+`streambuf_writer` は、 `std::ostreambuf_iterator` のオブジェクトジェネレータである。
 
 [heading Header]
 * `<pstade/oven/stream_writer.hpp>`
@@ -233,8 +232,8 @@ but one extra precondition below must be met. It can be easily guaranteed by usi
 ]
 
 [heading Preconditions]
-* `T` is `std::ostreambuf_iterator<typeof(s)::char_type, typeof(s)::traits_type>` such that `T(s)` is a valid expression.
-* `U` is `std::ostreambuf_iterator<typeof(*p)::char_type, typeof(*p)::traits_type>` such that `U(p)` is a valid expression.
+* `std::ostreambuf_iterator<typeof(s)::char_type, typeof(s)::traits_type>` である `T` において、 `T(s)` は有効な式である。
+* `std::ostreambuf_iterator<typeof(*p)::char_type, typeof(*p)::traits_type>` である `U` において、 `U(p)` は有効な式である。
 
 [heading Example]
 
@@ -248,7 +247,7 @@ but one extra precondition below must be met. It can be easily guaranteed by usi
 [section std_stream_writer]
 
 [heading Description]
-`std_stream_writer` returns an _output_iterator_ which behaves as if it were `std::ostream_iterator`.
+`std_stream_writer` は、 `std::ostream_iterator` のように振舞う _output_iterator_ を返す。
 
 [heading Header]
 * `<pstade/oven/stream_writer.hpp>`
@@ -265,7 +264,7 @@ but one extra precondition below must be met. It can be easily guaranteed by usi
     [
         [`std_stream_writer(s, d)`]
         [
-            `stream_writer(s, d)` but it outputs a trailing delimiter `d`.
+            `stream_writer(s, d)` だが、終了区切り文字である `d` を出力する。
         ]
     ]
     [
@@ -277,9 +276,9 @@ but one extra precondition below must be met. It can be easily guaranteed by usi
 ]
 
 [heading Preconditions]
-* The corresponding semantics is a valid expression.
+* 対応するセマンティクスは有効な式である。
 
-[note `std_stream_writer` doesn't take a template parameter for output `value_type`. Use `converter` when you want to specify it.]
+[注： `std_stream_writer` は出力のためにテンプレートパラメータとして `value_type` をとらない。それを指定したい場合は `converter` を使用すること。 ]
 
 [heading Example]
 

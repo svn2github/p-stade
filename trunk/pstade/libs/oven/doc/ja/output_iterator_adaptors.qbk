@@ -379,7 +379,7 @@ Output Iterator Adaptor は、 `operator|=` を使用することによって複
 
 [heading Preconditions]
 * `_fun` は _assignable_ である。
-* 対応する式は有効な式である。
+* 対応するセマンティクスは有効な式である。
 
 [heading Example]
     file_range<boost::uint8_t> frng("utf8.txt");
