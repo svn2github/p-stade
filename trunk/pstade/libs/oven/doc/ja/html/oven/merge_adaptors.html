@@ -19,8 +19,8 @@
 </h2></div></div></div>
     
     <p>
-      A Merge Adaptor is a <a class="link" href="range_adaptors.html" title="Range Adaptors">Range Adaptor</a>
-      for sorted ranges.
+      Merge Adaptor&#12399;&#12289;sorted range&#12398;&#12383;&#12417;&#12398; <a class="link" href="range_adaptors.html" title="Range Adaptors">Range
+      Adaptor</a> &#12391;&#12354;&#12427;&#12290;
     </p>
     <div class="section">
 <div class="titlepage"><div><div><h3 class="title">
@@ -28,16 +28,16 @@
 </h3></div></div></div>
        <a name="oven.merge_adaptors.merged.description"></a>
       <h5>
-<a name="id999495"></a>
+<a name="id998619"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.merged.description">Description</a>
       </h5>
       <p>
-        <code class="computeroutput"><span class="identifier">merged</span></code> combines two sorted
-        ranges into a single sorted range.
+        <code class="computeroutput"><span class="identifier">merged</span></code> &#12399;&#12289;2&#12388;&#12398; sorted
+        range &#12434;&#12289;1&#12388;&#12398; sorted range &#12395;&#32080;&#21512;&#12377;&#12427;&#12290;
       </p>
       <a name="oven.merge_adaptors.merged.header"></a>
       <h5>
-<a name="id999530"></a>
+<a name="id998654"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.merged.header">Header</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -45,7 +45,7 @@
         </li></ul></div>
       <a name="oven.merge_adaptors.merged.model_of"></a>
       <h5>
-<a name="id999611"></a>
+<a name="id998735"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.merged.model_of">Model of</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -53,15 +53,15 @@
         </li></ul></div>
       <a name="oven.merge_adaptors.merged.notation"></a>
       <h5>
-<a name="id999645"></a>
+<a name="id998769"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.merged.notation">Notation</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-          <code class="computeroutput"><span class="identifier">less</span></code> is <code class="computeroutput"><span class="identifier">regular</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">lambda</span><span class="special">::</span><span class="identifier">_1</span> <span class="special">&lt;</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">lambda</span><span class="special">::</span><span class="identifier">_2</span><span class="special">)</span></code>.
+          <code class="computeroutput"><span class="identifier">less</span></code> &#12399; <code class="computeroutput"><span class="identifier">regular</span><span class="special">(</span><span class="identifier">boost</span><span class="special">::</span><span class="identifier">lambda</span><span class="special">::</span><span class="identifier">_1</span> <span class="special">&lt;</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">lambda</span><span class="special">::</span><span class="identifier">_2</span><span class="special">)</span></code> &#12391;&#12354;&#12427;&#12290;
         </li></ul></div>
       <a name="oven.merge_adaptors.merged.valid_expressions"></a>
       <h5>
-<a name="id999767"></a>
+<a name="id998891"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.merged.valid_expressions">Valid expressions</a>
       </h5>
       <div class="informaltable">
@@ -92,9 +92,12 @@
               </td>
 <td>
               <p>
-                An up-to-<a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#forward-traversal-iterators-lib-forward-traversal-iterators" target="_top">Forward</a>
+                <code class="computeroutput"><span class="identifier">merge</span><span class="special">(</span><span class="identifier">_rng1</span><span class="special">,</span>
+                <span class="identifier">_rng2</span><span class="special">,</span>
+                <span class="identifier">_prd</span><span class="special">)</span></code>
+                &#12395;&#12424;&#12387;&#12390;&#20316;&#12425;&#12428;&#12427; <a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#forward-traversal-iterators-lib-forward-traversal-iterators" target="_top">Forward</a>
                 <a class="link" href="concepts.html#oven.concepts.constant_range" title="Constant Range">Constant</a> <a class="ulink" href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
-                which behaves as if it were made by <code class="computeroutput"><span class="identifier">merge</span><span class="special">(</span><span class="identifier">_rng1</span><span class="special">,</span> <span class="identifier">_rng2</span><span class="special">,</span> <span class="identifier">_prd</span><span class="special">)</span></code>.
+                &#12398;&#12424;&#12358;&#12395;&#25391;&#33310;&#12358;&#12290;
               </p>
               </td>
 </tr>
@@ -116,33 +119,34 @@
       </div>
       <a name="oven.merge_adaptors.merged.preconditions"></a>
       <h5>
-<a name="id1000092"></a>
+<a name="id999218"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.merged.preconditions">Preconditions</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc">
 <li class="listitem">
-          <code class="computeroutput"><span class="identifier">_rng1</span></code> and <code class="computeroutput"><span class="identifier">_rng2</span></code> are <a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#readable-iterators-lib-readable-iterators" target="_top">Readable</a>
-          or <a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#lvalue-iterators-lib-lvalue-iterators" target="_top">Lvalue</a>.
+          <code class="computeroutput"><span class="identifier">_rng1</span></code> &#12362;&#12424;&#12403; <code class="computeroutput"><span class="identifier">_rng2</span></code> &#12399;&#12289; <a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#readable-iterators-lib-readable-iterators" target="_top">Readable</a>
+          &#12418;&#12375;&#12367;&#12399; <a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#lvalue-iterators-lib-lvalue-iterators" target="_top">Lvalue</a>
+          &#12391;&#12354;&#12427;&#12290;
         </li>
 <li class="listitem">
-          <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">range_reference</span><span class="special">&lt;</span><span class="identifier">_typeof</span><span class="special">(</span><span class="identifier">_rng2</span><span class="special">)&gt;::</span><span class="identifier">type</span></code> is convertible to <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">range_reference</span><span class="special">&lt;</span><span class="identifier">_typeof</span><span class="special">(</span><span class="identifier">_rng1</span><span class="special">)&gt;::</span><span class="identifier">type</span></code> without binding <span class="emphasis"><em>reference</em></span>
-          to <span class="emphasis"><em>rvalue</em></span>.
+          <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">range_reference</span><span class="special">&lt;</span><span class="identifier">_typeof</span><span class="special">(</span><span class="identifier">_rng2</span><span class="special">)&gt;::</span><span class="identifier">type</span></code> &#12399;&#12289; <span class="emphasis"><em>reference</em></span>
+          &#12363;&#12425; <span class="emphasis"><em>rvalue</em></span> &#12395;&#26463;&#32283;&#12377;&#12427;&#12371;&#12392;&#12394;&#12367; <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">range_reference</span><span class="special">&lt;</span><span class="identifier">_typeof</span><span class="special">(</span><span class="identifier">_rng1</span><span class="special">)&gt;::</span><span class="identifier">type</span></code> &#12395;&#22793;&#25563;&#21487;&#33021;&#12391;&#12354;&#12427;&#12290;
         </li>
 <li class="listitem">
-          <code class="computeroutput"><span class="identifier">_rng1</span></code> and <code class="computeroutput"><span class="identifier">_rng2</span></code> are sorted.
+          <code class="computeroutput"><span class="identifier">_rng1</span></code> &#12362;&#12424;&#12403; <code class="computeroutput"><span class="identifier">_rng2</span></code> &#12399;&#12477;&#12540;&#12488;&#28168;&#12415;&#12391;&#12354;&#12427;&#12290;
         </li>
 <li class="listitem">
-          <code class="computeroutput"><span class="identifier">_prd</span></code> is <a class="ulink" href="http://boost.org/doc/html/Assignable.html" target="_top">Assignable</a>
-          and <a class="ulink" href="http://boost.org/doc/html/DefaultConstructible.html" target="_top">Default
-          Constructible</a>.
+          <code class="computeroutput"><span class="identifier">_prd</span></code> &#12399;&#12289; <a class="ulink" href="http://boost.org/doc/html/Assignable.html" target="_top">Assignable</a>
+          &#12362;&#12424;&#12403; <a class="ulink" href="http://boost.org/doc/html/DefaultConstructible.html" target="_top">Default
+          Constructible</a> &#12391;&#12354;&#12427;&#12290;
         </li>
 <li class="listitem">
-          <code class="computeroutput"><span class="identifier">_prd</span></code> shall not modify referents.
+          <code class="computeroutput"><span class="identifier">_prd</span></code> &#12399;&#12289;&#23550;&#35937;&#12434;&#22793;&#26356;&#12375;&#12394;&#12356;&#12290;
         </li>
 </ul></div>
       <a name="oven.merge_adaptors.merged.example"></a>
       <h5>
-<a name="id1000343"></a>
+<a name="id999470"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.merged.example">Example</a>
       </h5>
       
@@ -153,7 +157,7 @@
 </pre>
       <a name="oven.merge_adaptors.merged.see_also"></a>
       <h5>
-<a name="id1000572"></a>
+<a name="id999700"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.merged.see_also">See also</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc">
@@ -178,12 +182,12 @@
       
       <a name="oven.merge_adaptors.set_cap.description"></a>
       <h5>
-<a name="id1000655"></a>
+<a name="id999784"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_cap.description">Description</a>
       </h5>
       <a name="oven.merge_adaptors.set_cap.header"></a>
       <h5>
-<a name="id1000674"></a>
+<a name="id999802"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_cap.header">Header</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -191,7 +195,7 @@
         </li></ul></div>
       <a name="oven.merge_adaptors.set_cap.model_of"></a>
       <h5>
-<a name="id1000755"></a>
+<a name="id999884"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_cap.model_of">Model of</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -199,7 +203,7 @@
         </li></ul></div>
       <a name="oven.merge_adaptors.set_cap.valid_expressions"></a>
       <h5>
-<a name="id1000790"></a>
+<a name="id999919"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_cap.valid_expressions">Valid expressions</a>
       </h5>
       <div class="informaltable">
@@ -230,9 +234,9 @@
               </td>
 <td>
               <p>
-                An up-to-<a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#forward-traversal-iterators-lib-forward-traversal-iterators" target="_top">Forward</a>
+                <code class="computeroutput"><span class="identifier">set_intersection</span><span class="special">(</span><span class="identifier">_rng1</span><span class="special">,</span> <span class="identifier">_rng2</span><span class="special">,</span> <span class="identifier">_prd</span><span class="special">)</span></code> &#12395;&#12424;&#12387;&#12390;&#20316;&#12425;&#12428;&#12427; <a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#forward-traversal-iterators-lib-forward-traversal-iterators" target="_top">Forward</a>
                 <a class="link" href="concepts.html#oven.concepts.constant_range" title="Constant Range">Constant</a> <a class="ulink" href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
-                which behaves as if it were made by <code class="computeroutput"><span class="identifier">set_intersection</span><span class="special">(</span><span class="identifier">_rng1</span><span class="special">,</span> <span class="identifier">_rng2</span><span class="special">,</span> <span class="identifier">_prd</span><span class="special">)</span></code>.
+                &#12398;&#12424;&#12358;&#12395;&#25391;&#33310;&#12358;&#12290;
               </p>
               </td>
 </tr>
@@ -254,20 +258,21 @@
       </div>
       <a name="oven.merge_adaptors.set_cap.preconditions"></a>
       <h5>
-<a name="id1001116"></a>
+<a name="id1000247"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_cap.preconditions">Preconditions</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-          The preconditions of <code class="computeroutput"><span class="identifier">merged</span></code>.
+          &#20107;&#21069;&#29366;&#24907;&#12399; <code class="computeroutput"><span class="identifier">merged</span></code>
+          &#12391;&#12354;&#12427;&#12290;
         </li></ul></div>
       <a name="oven.merge_adaptors.set_cap.example"></a>
       <h5>
-<a name="id1001153"></a>
+<a name="id1000285"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_cap.example">Example</a>
       </h5>
       <a name="oven.merge_adaptors.set_cap.see_also"></a>
       <h5>
-<a name="id1001171"></a>
+<a name="id1000302"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_cap.see_also">See also</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc">
@@ -292,12 +297,12 @@
       
       <a name="oven.merge_adaptors.set_cup.description"></a>
       <h5>
-<a name="id1001255"></a>
+<a name="id1000385"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_cup.description">Description</a>
       </h5>
       <a name="oven.merge_adaptors.set_cup.header"></a>
       <h5>
-<a name="id1001274"></a>
+<a name="id1000404"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_cup.header">Header</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -305,7 +310,7 @@
         </li></ul></div>
       <a name="oven.merge_adaptors.set_cup.model_of"></a>
       <h5>
-<a name="id1001355"></a>
+<a name="id1000485"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_cup.model_of">Model of</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -313,7 +318,7 @@
         </li></ul></div>
       <a name="oven.merge_adaptors.set_cup.valid_expressions"></a>
       <h5>
-<a name="id1001390"></a>
+<a name="id1000520"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_cup.valid_expressions">Valid expressions</a>
       </h5>
       <div class="informaltable">
@@ -344,9 +349,12 @@
               </td>
 <td>
               <p>
-                An up-to-<a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#forward-traversal-iterators-lib-forward-traversal-iterators" target="_top">Forward</a>
+                <code class="computeroutput"><span class="identifier">set_union</span><span class="special">(</span><span class="identifier">_rng1</span><span class="special">,</span>
+                <span class="identifier">_rng2</span><span class="special">,</span>
+                <span class="identifier">_prd</span><span class="special">)</span></code>
+                &#12395;&#12424;&#12387;&#12390;&#20316;&#12425;&#12428;&#12383; <a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#forward-traversal-iterators-lib-forward-traversal-iterators" target="_top">Forward</a>
                 <a class="link" href="concepts.html#oven.concepts.constant_range" title="Constant Range">Constant</a> <a class="ulink" href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
-                which behaves as if it were made by <code class="computeroutput"><span class="identifier">set_union</span><span class="special">(</span><span class="identifier">_rng1</span><span class="special">,</span> <span class="identifier">_rng2</span><span class="special">,</span> <span class="identifier">_prd</span><span class="special">)</span></code>.
+                &#12398;&#12424;&#12358;&#12395;&#25391;&#33310;&#12358;&#12290;
               </p>
               </td>
 </tr>
@@ -368,20 +376,21 @@
       </div>
       <a name="oven.merge_adaptors.set_cup.preconditions"></a>
       <h5>
-<a name="id1001717"></a>
+<a name="id1000849"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_cup.preconditions">Preconditions</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-          The preconditions of <code class="computeroutput"><span class="identifier">merged</span></code>.
+          &#20107;&#21069;&#29366;&#24907;&#12399; <code class="computeroutput"><span class="identifier">merged</span></code>
+          &#12391;&#12354;&#12427;&#12290;
         </li></ul></div>
       <a name="oven.merge_adaptors.set_cup.example"></a>
       <h5>
-<a name="id1001754"></a>
+<a name="id1000886"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_cup.example">Example</a>
       </h5>
       <a name="oven.merge_adaptors.set_cup.see_also"></a>
       <h5>
-<a name="id1001772"></a>
+<a name="id1000904"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_cup.see_also">See also</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc">
@@ -406,12 +415,12 @@
       
       <a name="oven.merge_adaptors.set_delta.description"></a>
       <h5>
-<a name="id1001856"></a>
+<a name="id1000988"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_delta.description">Description</a>
       </h5>
       <a name="oven.merge_adaptors.set_delta.header"></a>
       <h5>
-<a name="id1001875"></a>
+<a name="id1001007"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_delta.header">Header</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -419,7 +428,7 @@
         </li></ul></div>
       <a name="oven.merge_adaptors.set_delta.model_of"></a>
       <h5>
-<a name="id1001955"></a>
+<a name="id1001087"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_delta.model_of">Model of</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -427,7 +436,7 @@
         </li></ul></div>
       <a name="oven.merge_adaptors.set_delta.valid_expressions"></a>
       <h5>
-<a name="id1001990"></a>
+<a name="id1001122"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_delta.valid_expressions">Valid expressions</a>
       </h5>
       <div class="informaltable">
@@ -458,9 +467,9 @@
               </td>
 <td>
               <p>
-                An up-to-<a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#forward-traversal-iterators-lib-forward-traversal-iterators" target="_top">Forward</a>
+                <code class="computeroutput"><span class="identifier">set_symmetric_difference</span><span class="special">(</span><span class="identifier">_rng1</span><span class="special">,</span> <span class="identifier">_rng2</span><span class="special">,</span> <span class="identifier">_prd</span><span class="special">)</span></code> &#12395;&#12424;&#12387;&#12390;&#20316;&#12425;&#12428;&#12383; <a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#forward-traversal-iterators-lib-forward-traversal-iterators" target="_top">Forward</a>
                 <a class="link" href="concepts.html#oven.concepts.constant_range" title="Constant Range">Constant</a> <a class="ulink" href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
-                which behaves as if it were made by <code class="computeroutput"><span class="identifier">set_symmetric_difference</span><span class="special">(</span><span class="identifier">_rng1</span><span class="special">,</span> <span class="identifier">_rng2</span><span class="special">,</span> <span class="identifier">_prd</span><span class="special">)</span></code>.
+                &#12398;&#12424;&#12358;&#12395;&#25391;&#33310;&#12358;&#12290;
               </p>
               </td>
 </tr>
@@ -482,20 +491,21 @@
       </div>
       <a name="oven.merge_adaptors.set_delta.preconditions"></a>
       <h5>
-<a name="id1002318"></a>
+<a name="id1001451"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_delta.preconditions">Preconditions</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-          The preconditions of <code class="computeroutput"><span class="identifier">merged</span></code>.
+          &#20107;&#21069;&#29366;&#24907;&#12399; <code class="computeroutput"><span class="identifier">merged</span></code>
+          &#12391;&#12354;&#12427;&#12290;
         </li></ul></div>
       <a name="oven.merge_adaptors.set_delta.example"></a>
       <h5>
-<a name="id1002355"></a>
+<a name="id1001489"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_delta.example">Example</a>
       </h5>
       <a name="oven.merge_adaptors.set_delta.see_also"></a>
       <h5>
-<a name="id1002373"></a>
+<a name="id1001506"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_delta.see_also">See also</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc">
@@ -520,12 +530,12 @@
       
       <a name="oven.merge_adaptors.set_minus.description"></a>
       <h5>
-<a name="id1002457"></a>
+<a name="id1001590"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_minus.description">Description</a>
       </h5>
       <a name="oven.merge_adaptors.set_minus.header"></a>
       <h5>
-<a name="id1002476"></a>
+<a name="id1001609"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_minus.header">Header</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -533,7 +543,7 @@
         </li></ul></div>
       <a name="oven.merge_adaptors.set_minus.model_of"></a>
       <h5>
-<a name="id1002557"></a>
+<a name="id1001690"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_minus.model_of">Model of</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
@@ -541,7 +551,7 @@
         </li></ul></div>
       <a name="oven.merge_adaptors.set_minus.valid_expressions"></a>
       <h5>
-<a name="id1002592"></a>
+<a name="id1001724"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_minus.valid_expressions">Valid expressions</a>
       </h5>
       <div class="informaltable">
@@ -572,9 +582,12 @@
               </td>
 <td>
               <p>
-                An up-to-<a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#forward-traversal-iterators-lib-forward-traversal-iterators" target="_top">Forward</a>
+                <code class="computeroutput"><span class="identifier">set_difference</span><span class="special">(</span><span class="identifier">_rng1</span><span class="special">,</span>
+                <span class="identifier">_rng2</span><span class="special">,</span>
+                <span class="identifier">_prd</span><span class="special">)</span></code>
+                &#12395;&#12424;&#12387;&#12390;&#20316;&#12425;&#12428;&#12383; <a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#forward-traversal-iterators-lib-forward-traversal-iterators" target="_top">Forward</a>
                 <a class="link" href="concepts.html#oven.concepts.constant_range" title="Constant Range">Constant</a> <a class="ulink" href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
-                which behaves as if it were made by <code class="computeroutput"><span class="identifier">set_difference</span><span class="special">(</span><span class="identifier">_rng1</span><span class="special">,</span> <span class="identifier">_rng2</span><span class="special">,</span> <span class="identifier">_prd</span><span class="special">)</span></code>.
+                &#12398;&#12424;&#12358;&#12395;&#25391;&#33310;&#12358;&#12290;
               </p>
               </td>
 </tr>
@@ -596,20 +609,21 @@
       </div>
       <a name="oven.merge_adaptors.set_minus.preconditions"></a>
       <h5>
-<a name="id1002920"></a>
+<a name="id1002053"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_minus.preconditions">Preconditions</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-          The preconditions of <code class="computeroutput"><span class="identifier">merged</span></code>.
+          &#20107;&#21069;&#29366;&#24907;&#12399; <code class="computeroutput"><span class="identifier">merged</span></code>
+          &#12391;&#12354;&#12427;&#12290;
         </li></ul></div>
       <a name="oven.merge_adaptors.set_minus.example"></a>
       <h5>
-<a name="id1002956"></a>
+<a name="id1002092"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_minus.example">Example</a>
       </h5>
       <a name="oven.merge_adaptors.set_minus.see_also"></a>
       <h5>
-<a name="id1002974"></a>
+<a name="id1002109"></a>
         <a class="link" href="merge_adaptors.html#oven.merge_adaptors.set_minus.see_also">See also</a>
       </h5>
       <div class="itemizedlist"><ul class="itemizedlist" type="disc">

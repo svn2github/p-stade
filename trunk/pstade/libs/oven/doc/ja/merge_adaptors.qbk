@@ -1,6 +1,6 @@
 [section Merge Adaptors]
 
-A Merge Adaptor is a [link oven.range_adaptors Range Adaptor] for sorted ranges.
+Merge Adaptorは、sorted rangeのための [link oven.range_adaptors Range Adaptor] である。
 
 
 
@@ -8,7 +8,7 @@ A Merge Adaptor is a [link oven.range_adaptors Range Adaptor] for sorted ranges.
 [section merged]
 
 [heading Description]
-`merged` combines two sorted ranges into a single sorted range.
+`merged` は、2つの sorted range を、1つの sorted range に結合する。
 
 [heading Header]
 * `<pstade/oven/merged.hpp>`
@@ -17,7 +17,7 @@ A Merge Adaptor is a [link oven.range_adaptors Range Adaptor] for sorted ranges.
 * _pipable_adaptor_
 
 [heading Notation]
-* `less` is `regular(boost::lambda::_1 < boost::lambda::_2)`.
+* `less` は `regular(boost::lambda::_1 < boost::lambda::_2)` である。
 
 [heading Valid expressions]
 [table 
@@ -28,7 +28,7 @@ A Merge Adaptor is a [link oven.range_adaptors Range Adaptor] for sorted ranges.
     [
         [`_rng1|merged(_rng2, _prd)`]
         [
-            An up-to-_forward_ _constant_ _range_ which behaves as if it were made by `merge(_rng1, _rng2, _prd)`.
+            `merge(_rng1, _rng2, _prd)` によって作られる _forward_ _constant_ _range_ のように振舞う。
         ]
     ]
     [
@@ -40,12 +40,11 @@ A Merge Adaptor is a [link oven.range_adaptors Range Adaptor] for sorted ranges.
 ]
 
 [heading Preconditions]
-* `_rng1` and `_rng2` are _readable_ or _lvalue_.
-* `boost::range_reference<_typeof(_rng2)>::type` is convertible to `boost::range_reference<_typeof(_rng1)>::type`
-  without binding /reference/ to /rvalue/.
-* `_rng1` and `_rng2` are sorted.
-* `_prd` is _assignable_ and _default_constructible_.
-* `_prd` shall not modify referents.
+* `_rng1` および `_rng2` は、 _readable_ もしくは _lvalue_ である。
+* `boost::range_reference<_typeof(_rng2)>::type` は、 /reference/ から /rvalue/ に束縛することなく `boost::range_reference<_typeof(_rng1)>::type` に変換可能である。
+* `_rng1` および `_rng2` はソート済みである。
+* `_prd` は、 _assignable_ および _default_constructible_ である。
+* `_prd` は、対象を変更しない。
 
 [heading Example]
     std::string A1("abbbfH");
@@ -83,7 +82,7 @@ A Merge Adaptor is a [link oven.range_adaptors Range Adaptor] for sorted ranges.
     [
         [`_rng1|set_cap(_rng2, _prd)`]
         [
-            An up-to-_forward_ _constant_ _range_ which behaves as if it were made by `set_intersection(_rng1, _rng2, _prd)`.
+            `set_intersection(_rng1, _rng2, _prd)` によって作られる _forward_ _constant_ _range_ のように振舞う。
         ]
     ]
     [
@@ -95,7 +94,7 @@ A Merge Adaptor is a [link oven.range_adaptors Range Adaptor] for sorted ranges.
 ]
 
 [heading Preconditions]
-* The preconditions of `merged`.
+* 事前状態は `merged` である。
 
 [heading Example]
 
@@ -129,7 +128,7 @@ A Merge Adaptor is a [link oven.range_adaptors Range Adaptor] for sorted ranges.
     [
         [`_rng1|set_cup(_rng2, _prd)`]
         [
-            An up-to-_forward_ _constant_ _range_ which behaves as if it were made by `set_union(_rng1, _rng2, _prd)`.
+            `set_union(_rng1, _rng2, _prd)` によって作られた _forward_ _constant_ _range_ のように振舞う。
         ]
     ]
     [
@@ -141,7 +140,7 @@ A Merge Adaptor is a [link oven.range_adaptors Range Adaptor] for sorted ranges.
 ]
 
 [heading Preconditions]
-* The preconditions of `merged`.
+* 事前状態は `merged` である。
 
 [heading Example]
 
@@ -175,7 +174,7 @@ A Merge Adaptor is a [link oven.range_adaptors Range Adaptor] for sorted ranges.
     [
         [`_rng1|set_delta(_rng2, _prd)`]
         [
-            An up-to-_forward_ _constant_ _range_ which behaves as if it were made by `set_symmetric_difference(_rng1, _rng2, _prd)`.
+            `set_symmetric_difference(_rng1, _rng2, _prd)` によって作られた _forward_ _constant_ _range_ のように振舞う。
         ]
     ]
     [
@@ -187,7 +186,7 @@ A Merge Adaptor is a [link oven.range_adaptors Range Adaptor] for sorted ranges.
 ]
 
 [heading Preconditions]
-* The preconditions of `merged`.
+* 事前状態は `merged` である。
 
 [heading Example]
 
@@ -221,7 +220,7 @@ A Merge Adaptor is a [link oven.range_adaptors Range Adaptor] for sorted ranges.
     [
         [`_rng1|set_minus(_rng2, _prd)`]
         [
-            An up-to-_forward_ _constant_ _range_ which behaves as if it were made by `set_difference(_rng1, _rng2, _prd)`.
+            `set_difference(_rng1, _rng2, _prd)` によって作られた _forward_ _constant_ _range_ のように振舞う。
         ]
     ]
     [
@@ -233,7 +232,7 @@ A Merge Adaptor is a [link oven.range_adaptors Range Adaptor] for sorted ranges.
 ]
 
 [heading Preconditions]
-* The preconditions of `merged`.
+* 事前状態は `merged` である。
 
 [heading Example]
 
