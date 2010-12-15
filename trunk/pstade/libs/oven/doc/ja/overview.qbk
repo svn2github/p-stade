@@ -1,14 +1,14 @@
 [section Overview]
 
 
-["I tried to commit suicide by sticking my head in the oven, but there was a cake in it.] -- Lesley Boone
+「私は自分の頭をオーブンに差し込むことによって自殺しようとしたが、その中にはケーキがあった。」 -- Lesley Boone
 
 
 
 
 [section Introduction]
 
-Oven is an advanced implementation of _proposal_:
+Oven は、 _proposal_ の高度な実装である：
 
     namespace lambda = boost::lambda;
     using namespace pstade::oven;
@@ -30,8 +30,8 @@ Oven is an advanced implementation of _proposal_:
         std::cout << (primes|taken(200));
     }
 
-Oven is a header-only template library.
-All the types, functions and objects are defined in `namespace pstade::oven`.
+Oven はヘッダオンリーのテンプレートライブラリである。
+全ての型、関数およびオブジェクトは `pstade::oven` 名前空間で定義される。
 
 [endsect]
 
@@ -53,7 +53,7 @@ All the types, functions and objects are defined in `namespace pstade::oven`.
 
 [section Portability]
 
-Oven is known to work on the following platforms:
+Oven は以下のプラットフォームで動作することが確認されている：
 
 * Microsoft Visual C++ 2005 Express Edition SP1
 * Microsoft Visual C++ .NET Version 7.1 SP1
@@ -68,9 +68,9 @@ Oven is known to work on the following platforms:
 
 [section Rationale]
 
-* Oven doesn't introduce any new elaborate concept.
-* Oven supports an iterator such that destruction of it may invalidate pointers and references previously obtained from that iterator (24.1/9).
-* Oven Range Adaptors return in constant time if possible.
+* Oven は、いかなる新たな概念も導入しない。
+* Oven は、その破壊によってそれ以前に得られたポインタおよび参照が無効になるイテレータをサポートする(24.1/9)。
+* Oven の Range Adaptor は、可能な場合、定数時間で返る。
 
 [endsect]
 
@@ -108,7 +108,7 @@ Oven is known to work on the following platforms:
 
 [section Notation]
 
-This document uses the following notation:
+このドキュメントでは、以下の表記を使用する：
 
 [table
     [
@@ -117,43 +117,43 @@ This document uses the following notation:
     ]
     [
         [`_typeof`]
-        [An imaginary operator to get the type of an expression.]
+        [式の型を得る架空の演算子。]
     ]
     [
         [`++`]
-        [An imaginary operator to concatenate tokens.]
+        [トークンを連結する架空の演算子。]
     ]
     [
         [`_rng`]
-        [A _range_ such that it is _forward_ or _readable_.]
+        [_forward_ もしくは _readable_ である _range_ 。]
     ]
     [
         [`_fwdrng`]
-        [A _forward_ _range_]
+        [_forward_ _range_]
     ]
     [
         [`_bidrng`]
-        [A _bidirectional_ _range_]
+        [_bidirectional_ _range_]
     ]
     [
         [`_rndrng`]
-        [A _random_access_ _range_]
+        [_random_access_ _range_]
     ]
     [
         [`_outit`]
-        [An _output_iterator_]
+        [ _output_iterator_]
     ]
     [
         [`_fun`]
-        [A _function_object_]
+        [_function_object_]
     ]
     [
         [`_cal`]
-        [A _polymorphic_function_object_]
+        [_polymorphic_function_object_]
     ]
     [
         [`_prd`]
-        [A _predicate_]
+        [_predicate_]
     ]
     [
         [`_begin`]
@@ -173,19 +173,19 @@ This document uses the following notation:
     ]
     [
         [`[i, j)`]
-        [A _range_ which behaves as if `i = boost::begin([i, j))` and `j = boost::end([i, j))`.]
+        [`i = boost::begin([i, j))` かつ `j = boost::end([i, j))` のように振舞う _range_ 。]
     ]
     [
         [`{a0,a1,a2,...,aN}`]
-        [A _range_]
+        [_range_]
     ]
     [
         [`(a0 a1 a2 ... aN)`]
-        [A `boost::tuple`]
+        [`boost::tuple`]
     ]
 ]
 
-Also, assume that every expression is placed after:
+また、すべての式は以下の後ろに置かれると仮定する：
 
     namespace oven = pstade::oven;
     using namespace oven;
