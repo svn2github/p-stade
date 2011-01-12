@@ -1,11 +1,11 @@
 [section Range Adaptors]
 
-A Range Adaptor delivers an altered presentation of one or more underlying ranges.
-Range Adaptors are lazy, meaning that their elements are only computed on demand.
-A Range Adaptor meets the following requirements unless otherwise specified:
+Rangeアダプタ(Range Adaptors)は、Rangeに一つ以上の基本的なRangeの変化した表現を与える。
+Rangeアダプタは、それらの要素が要求に応じて計算されるという意味でlazyである。
+Rangeアダプタは、とくに明記しない限りは以下の要件を満たす：
 
-* The complexity is `O(1)`; it returns in constant time.
-* It doesn't modify _range_ concepts to which the base range conforms.
+* 計算量は `O(1)`; 定数時間で返る。
+* ベースとなるRangeの _range_ コンセプトを変更しない。
 
 
 
@@ -13,7 +13,7 @@ A Range Adaptor meets the following requirements unless otherwise specified:
 [section adjacent_filtered]
 
 [heading Description]
-`adjacent_filtered` skips elements while a predicate applied to adjacent pairs doesn't satisfy.
+`adjacent_filtered` は、隣接した組に適用される述語を満たさない間、要素を読み飛ばす。
 
 [heading Header]
 * `<pstade/oven/adjacent_filtered.hpp>`
@@ -22,10 +22,10 @@ A Range Adaptor meets the following requirements unless otherwise specified:
 * _pipable_adaptor_
 
 [heading Notation]
-* `{a1,...,aN}` is `_rng`.
-* `{b1,...,bM}` is a [@http://en.wikipedia.org/wiki/Subsequence subsequence] of `{a1,...,aN}`.
-* `_prd(b1, b2)`, `_prd(b2, b3)`, ..., `_prd(b(M-1), bM)` are `true`.
-* The distance from `bI` to `bJ` is minimum for all `(bI, bJ)`.
+* `{a1,...,aN}` は `_rng` である。
+* `{b1,...,bM}` は、 `{a1,...,aN}` の [@http://en.wikipedia.org/wiki/Subsequence subsequence] である。
+* `_prd(b1, b2)`, `_prd(b2, b3)`, ..., `_prd(b(M-1), bM)` は `true` である。
+* `bI` から `bJ` までの距離は、全ての `(bI, bJ)` の最小である。
 
 [heading Valid expressions]
 [table 
@@ -36,19 +36,19 @@ A Range Adaptor meets the following requirements unless otherwise specified:
     [
         [`_rng|adjacent_filtered(_prd)`]
         [
-            A _forward_ _constant_ `{b1,...,bM}`
+            _forward_ _constant_ `{b1,...,bM}`
         ]
     ]
 ]
 
 [heading Preconditions]
-* `_rng` is _readable_ or _lvalue_.
-* `_prd(*_begin(_rng), *_begin(_rng))` is well-formed.
-* `_prd` is _assignable_ and _default_constructible_.
-* `_prd` shall not modify referents.
+* `_rng` は _readable_ もしくは _lvalue_ である。
+* `_prd(*_begin(_rng), *_begin(_rng))` は適格である。
+* `_prd` は _assignable_ かつ _default_constructible_ である。
+* `_prd` は対象を変更しない。
 
 [heading Complexity]
-* At most `distance(_rng)` applications of the corresponding `_prd`.
+* 対応する `_prd` を高々 `distance(_rng)` 回だけ適用する。
 
 [heading Example]
 
@@ -64,8 +64,8 @@ A Range Adaptor meets the following requirements unless otherwise specified:
 [section adjacent_transformed]
 
 [heading Description]
-`adjacent_transformed` is considered as the adaptor version of `std::adjacent_difference`.
-It passes adjacent pairs to a function to transform repeatedly.
+`adjacent_transformed` は、 `std::adjacent_difference` のアダプタバージョンであると考えられる。
+それは、隣接した組を繰り返し変換関数へ渡す。
 
 [heading Header]
 * `<pstade/oven/adjacent_transformed.hpp>`
@@ -74,7 +74,7 @@ It passes adjacent pairs to a function to transform repeatedly.
 * _pipable_adaptor_
 
 [heading Notation]
-* `{a1,...,aN}` is `_rng`.
+* `{a1,...,aN}` は `_rng` である。
 
 [heading Valid expressions]
 [table 
@@ -85,13 +85,13 @@ It passes adjacent pairs to a function to transform repeatedly.
     [
         [`X_make_adjacent_transformed<R>`]
         [
-            A _major_function_object_ type
+            _major_function_object_ 型
         ]
     ]
     [
         [`X_make_adjacent_transformed<R>()(_rng, _fun)`]
         [
-            `{_fun(a1,a2),_fun(a2,a3),...,_fun(a(N-1),aN)}` whose `boost::range_reference` type is `R`.
+            `boost::range_reference` 型が `R` である `{_fun(a1,a2),_fun(a2,a3),...,_fun(a(N-1),aN)}` 。
         ]
     ]
     [
@@ -109,12 +109,12 @@ It passes adjacent pairs to a function to transform repeatedly.
 ]
 
 [heading Preconditions]
-* If `_rng` is not _forward_, `_value_of<_typeof(_rng)>::type` is _assignable_.
+* `_rng` が _forward_ でない場合、 `_value_of<_typeof(_rng)>::type` は _assignable_ である。
 * `!boost::empty(_rng)`
-* `_fun(*_begin(_rng), *_begin(_rng))` is well-formed.
-* `_fun` is _assignable_ and _default_constructible_.
-* `_fun` shall not modify referents.
-* `_cal` meets the preconditions of `_fun`.
+* `_fun(*_begin(_rng), *_begin(_rng))` は適格である。
+* `_fun` は、 _assignable_ かつ _default_constructible_ である。
+* `_fun` は、対象を変更しない。
+* `_cal` は、 `_fun` の事前条件を満たす。
 
 [heading Example]
 
@@ -130,7 +130,7 @@ It passes adjacent pairs to a function to transform repeatedly.
 [section always]
 
 [heading Description]
-`always` returns a range which does not change as the base range varies.
+`always` は、ベースとなるRangeが変更される際に、変わらないRangeを返す。
 
 [heading Header]
 * `<pstade/oven/always.hpp>`
@@ -170,7 +170,7 @@ It passes adjacent pairs to a function to transform repeatedly.
 [section applied]
 
 [heading Description]
-`applied`, given a function object which represents an algorithm, creates an adaptor.
+`applied` は、アルゴリズムを表す関数オブジェクトを与えるアダプタを生成する。
 
 [heading Header]
 * `<pstade/oven/applied.hpp>`
@@ -199,13 +199,13 @@ It passes adjacent pairs to a function to transform repeatedly.
 ]
 
 [heading Preconditions]
-* `_typeof(_fun1(_rng))` and `_typeof(_fun2(_rng))` are convertible to `_iter_of<_typeof(_rng)>::type`.
-* `_iter_of<_typeof(fun3(_rng))>::type` is convertible to `_iter_of<_typeof(_rng)>::type`.
-* `[_fun1(_rng), _fun2(_rng))` is a _range_.
-* `[_begin(r), _end(_rng))`, where `r = _fun3(_rng)`, is a _range_.
+* `_typeof(_fun1(_rng))` および `_typeof(_fun2(_rng))` は、 `_iter_of<_typeof(_rng)>::type` に変換可能である。
+* `_iter_of<_typeof(fun3(_rng))>::type` は `_iter_of<_typeof(_rng)>::type` に変換可能である。
+* `[_fun1(_rng), _fun2(_rng))` は _range_ でる。
+* `r = _fun3(_rng)` である `[_begin(r), _end(_rng))` は _range_ である。
 
 [heading Complexity]
-* Depends on `_fun1`, `_fun2` and `_fun3`.
+* `_fun1`、 `_fun2` および `_fun3` に依存する。
 
 
 [heading Example]
@@ -229,7 +229,7 @@ It passes adjacent pairs to a function to transform repeatedly.
 [section checked]
 
 [heading Description]
-`checked` adds the bounds checking ability to the base range.
+`checked` は、ベースとなるRangeに境界チェックする能力を付加する。
 
 [heading Header]
 * `<pstade/oven/checked.hpp>`
@@ -264,10 +264,10 @@ It passes adjacent pairs to a function to transform repeatedly.
 ]
 
 [heading Effects]
-* Throws `std::out_of_range` if iterators go out of `_fwdrng`.
+* イテレータ `_fwdrng` の外に出た場合、 `std::out_of_range` を投げる。
 
 [heading Preconditions]
-* The corresponding semantics is a valid expression.
+* 対応するセマンティクスは有効な式である。
 
 [heading Example]
     std::string in("012345");
@@ -289,7 +289,7 @@ It passes adjacent pairs to a function to transform repeatedly.
 [section cleared]
 
 [heading Description]
-`cleared` lets the base range viewed as empty.
+`cleared` はベースとなるRangeを空のビューと見なす。
 
 [heading Header]
 * `<pstade/oven/cleared.hpp>`
@@ -331,7 +331,7 @@ It passes adjacent pairs to a function to transform repeatedly.
 [section concatenated]
 
 [heading Description]
-`concatenated`, given a range whose values are ranges, concatenates them.
+`concatenated` は、与えられたRangeとRangeを連結する。
 
 [heading Header]
 * `<pstade/oven/concatenated.hpp>`
@@ -360,13 +360,13 @@ It passes adjacent pairs to a function to transform repeatedly.
 ]
 
 [heading Preconditions]
-* `_rng` is _readable_ or _lvalue_.
-* `LocalRange` is _range_.
-* Destruction of a `SegmentIterator` doesn't invalidate the `LocalIterator` previously obtained from that iterator.
+* `_rng` は _readable_ もしくは _lvalue_ である。
+* `LocalRange` は _range_ である。
+* `SegmentIterator` はその破壊によって、以前そのイテレータから得られた `LocalIterator` を無効にしない。
 
-[important The last precondition implies that `SegmentIterator` isn't allowed to manage the lifetime of `LocalIterator` referents.
-      Hence `broken_into` can't meets the precondition. (`xpressive_tokenized` with Boost 1.35 works well.)
-      Fortunately, `memoized` can turn them into _lvalue_ _range_ which meets it trivially.]
+[重要な最後の事前条件は、 `SegmentIterator` が `LocalIterator` オブジェクトの有効期間を管理するのを許さないことを示唆する。
+      したがって、 `broken_into` は事前条件を満たすことができない。 (Boost 1.35 の `xpressive_tokenized` は正しく動作する。)
+      幸運にも、 `memoized` はそれらを自明に、 _lvalue_ _range_ に変換することができる。]
 
 [heading Example]
     std::string input("This is his face");
@@ -390,10 +390,9 @@ It passes adjacent pairs to a function to transform repeatedly.
 [section const_refs]
 
 [heading Description]
-`const_refs` converts the base range into a range of /const reference/,
-then pretends to be a range of _forward_iterator_.
+`const_refs` は、ベースとなるRangeを /const reference/ のRangeに変換し、 _forward_iterator_ のRangeのように振舞う。
 
-[tip Strictly speaking, an iterator obtained is not a conforming _forward_iterator_.]
+[Tips : 厳密に言えば、得られたイテレータは _forward_iterator_ には従っていない。]
 
 [heading Header]
 * `<pstade/oven/const_refs.hpp>`
@@ -410,13 +409,13 @@ then pretends to be a range of _forward_iterator_.
     [
         [`_rng|const_refs`]
         [
-            A _readable_ non-_lvalue_ _constant_ `[_begin(_rng), _end(_rng))`  whose `boost::range_reference` type is a /reference type/.
+             `boost::range_reference` 型 が /reference type/ である _readable_ non-_lvalue_ _constant_ `[_begin(_rng), _end(_rng))`  。
         ]
     ]
 ]
 
 [heading Preconditions]
-* `_value_of<_typeof(_rng)>::type` is _assignable_ and _copy_constructible_.
+* `_value_of<_typeof(_rng)>::type` は _assignable_ かつ _copy_constructible_ である。
 
 [heading Example]
 
