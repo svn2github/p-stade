@@ -430,7 +430,7 @@ Rangeアダプタは、とくに明記しない限りは以下の要件を満た
 [section constants]
 
 [heading Description]
-`constants` converts the base range into a _constant_ _range_.
+`constants` は、ベースとなるRangeを _constant_ _range_ に変換する。
 
 [heading Header]
 * `<pstade/oven/constants.hpp>`
@@ -447,13 +447,13 @@ Rangeアダプタは、とくに明記しない限りは以下の要件を満た
     [
         [`_rng|constants`]
         [
-            A _constant_ `[_begin(_rng), _end(_rng))`
+            _constant_ `[_begin(_rng), _end(_rng))`
         ]
     ]
 ]
 
 [heading Preconditions]
-* `_rng` is _readable_ or _lvalue_.
+* `_rng` は _readable_ もしくは _lvalue_ である。
 
 [heading Example]
 
