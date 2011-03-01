@@ -3,13 +3,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Chapter&#160;1.&#160;Oven 1.00.1</title>
 <link rel="stylesheet" href="boostbook.css" type="text/css">
-<meta name="generator" content="DocBook XSL-NS Stylesheets V1.76.1-RC2">
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="Chapter&#160;1.&#160;Oven 1.00.1">
+<link rel="next" href="oven/concepts.html" title="Concepts">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table cellpadding="2" width="100%"><tr><td valign="top"><img alt="pstade" width="200" height="164" src="../../../../doc/logo.png"></td></tr></table>
 <hr>
-<div class="spirit-nav"></div>
+<div class="spirit-nav"><a accesskey="n" href="oven/concepts.html"><img src="images/next.png" alt="Next"></a></div>
 <div class="chapter">
 <div class="titlepage"><div>
 <div><h2 class="title">
@@ -19,12 +20,11 @@
 </h3></div></div>
 <div><p class="copyright">Copyright &#169; 2005 -2010 Shunsuke Sogame, Akira Takahashi</p></div>
 <div><div class="legalnotice">
-<a name="id908950"></a>
-      <p>
+<a name="id36370372"></a><p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
-        file LICENSE_1_0.txt or copy at <a class="ulink" href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+        file LICENSE_1_0.txt or copy at <a href="http://www.boost.org/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
       </p>
-    </div></div>
+</div></div>
 </div></div>
 <div class="toc">
 <p><b>Table of Contents</b></p>
@@ -189,7 +189,7 @@
 </dl></dd>
 <dt><span class="section"><a href="oven/utilities.html">Utilities</a></span></dt>
 <dd><dl>
-<dt><span class="section"><a href="oven/utilities.html#oven.utilities.adapted_to_base"> adapted_to/to_base</a></span></dt>
+<dt><span class="section"><a href="oven/utilities.html#oven.utilities.adapted_to_base">adapted_to/to_base</a></span></dt>
 <dt><span class="section"><a href="oven/utilities.html#oven.utilities.expression">expression</a></span></dt>
 <dt><span class="section"><a href="oven/utilities.html#oven.utilities.foreach">FOREACH</a></span></dt>
 <dt><span class="section"><a href="oven/utilities.html#oven.utilities.io_hpp">io.hpp</a></span></dt>
@@ -228,27 +228,31 @@
 <dt><span class="section"><a href="oven/version_history.html">Version History</a></span></dt>
 </dl>
 </div>
-  
-  
-  <div class="section">
+<div class="section">
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="oven.overview"></a><a class="link" href="index.html#oven.overview" title="Overview">Overview</a>
 </h2></div></div></div>
-    
-    <p>
+<div class="toc"><dl>
+<dt><span class="section"><a href="index.html#oven.overview.introduction">Introduction</a></span></dt>
+<dt><span class="section"><a href="index.html#oven.overview.requirements">Requirements</a></span></dt>
+<dt><span class="section"><a href="index.html#oven.overview.portability">Portability</a></span></dt>
+<dt><span class="section"><a href="index.html#oven.overview.rationale">Rationale</a></span></dt>
+<dt><span class="section"><a href="index.html#oven.overview.related_work">Related Work</a></span></dt>
+<dt><span class="section"><a href="index.html#oven.overview.acknowledgements">Acknowledgements</a></span></dt>
+<dt><span class="section"><a href="index.html#oven.overview.notation">Notation</a></span></dt>
+</dl></div>
+<p>
       &#12300;&#31169;&#12399;&#33258;&#20998;&#12398;&#38957;&#12434;&#12458;&#12540;&#12502;&#12531;&#12395;&#24046;&#12375;&#36796;&#12416;&#12371;&#12392;&#12395;&#12424;&#12387;&#12390;&#33258;&#27578;&#12375;&#12424;&#12358;&#12392;&#12375;&#12383;&#12364;&#12289;&#12381;&#12398;&#20013;&#12395;&#12399;&#12465;&#12540;&#12461;&#12364;&#12354;&#12387;&#12383;&#12290;&#12301;
       -- Lesley Boone
     </p>
-    <div class="section">
+<div class="section">
 <div class="titlepage"><div><div><h3 class="title">
 <a name="oven.overview.introduction"></a><a class="link" href="index.html#oven.overview.introduction" title="Introduction">Introduction</a>
 </h3></div></div></div>
-      
-      <p>
-        Oven &#12399;&#12289; <a class="ulink" href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1871.html" target="_top">Range
+<p>
+        Oven &#12399;&#12289; <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1871.html" target="_top">Range
         Library Proposal</a> &#12398;&#39640;&#24230;&#12394;&#23455;&#35013;&#12391;&#12354;&#12427;&#65306;
       </p>
-      
 <pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">lambda</span> <span class="special">=</span> <span class="identifier">boost</span><span class="special">::</span><span class="identifier">lambda</span><span class="special">;</span>
 <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="identifier">pstade</span><span class="special">::</span><span class="identifier">oven</span><span class="special">;</span>
 
@@ -269,425 +273,410 @@
     <span class="identifier">std</span><span class="special">::</span><span class="identifier">cout</span> <span class="special">&lt;&lt;</span> <span class="special">(</span><span class="identifier">primes</span><span class="special">|</span><span class="identifier">taken</span><span class="special">(</span><span class="number">200</span><span class="special">));</span>
 <span class="special">}</span>
 </pre>
-      <p>
+<p>
         Oven &#12399;&#12504;&#12483;&#12480;&#12458;&#12531;&#12522;&#12540;&#12398;&#12486;&#12531;&#12503;&#12524;&#12540;&#12488;&#12521;&#12452;&#12502;&#12521;&#12522;&#12391;&#12354;&#12427;&#12290;
         &#20840;&#12390;&#12398;&#22411;&#12289;&#38306;&#25968;&#12362;&#12424;&#12403;&#12458;&#12502;&#12472;&#12455;&#12463;&#12488;&#12399; <code class="computeroutput"><span class="identifier">pstade</span><span class="special">::</span><span class="identifier">oven</span></code>
         &#21517;&#21069;&#31354;&#38291;&#12391;&#23450;&#32681;&#12373;&#12428;&#12427;&#12290;
       </p>
-    </div>
-    <div class="section">
+</div>
+<div class="section">
 <div class="titlepage"><div><div><h3 class="title">
 <a name="oven.overview.requirements"></a><a class="link" href="index.html#oven.overview.requirements" title="Requirements">Requirements</a>
 </h3></div></div></div>
-      
-      <div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
 <li class="listitem">
-          <a class="ulink" href="http://www.boost.org" target="_top">Boost C++ Libraries</a> Version 1.34.0
-          or later
-          <div class="itemizedlist"><ul class="itemizedlist" type="circle">
+<p class="simpara">
+            <a href="http://www.boost.org" target="_top">Boost C++ Libraries</a> Version
+            1.34.0 or later
+          </p>
+<div class="itemizedlist"><ul class="itemizedlist" type="circle">
 <li class="listitem">
-              <a class="link" href="oven/ranges.html#oven.ranges.directory_range" title="directory_range">directory_range</a>
-              requires <a class="ulink" href="http://www.boost.org/libs/filesystem/index.html" target="_top">Boost.Filesystem</a>
-              to be built.
-            </li>
+                <a class="link" href="oven/ranges.html#oven.ranges.directory_range" title="directory_range">directory_range</a>
+                requires <a href="http://www.boost.org/libs/filesystem/index.html" target="_top">Boost.Filesystem</a>
+                to be built.
+              </li>
 <li class="listitem">
-              <a class="link" href="oven/string_adaptors.html#oven.string_adaptors.matches" title="matches">matches</a> and <a class="link" href="oven/string_adaptors.html#oven.string_adaptors.tokenized" title="tokenized">tokenized</a> requires
-              <a class="ulink" href="http://boost.org/libs/regex/doc/index.html" target="_top">Boost.Regex</a>
-              to be built.
-            </li>
+                <a class="link" href="oven/string_adaptors.html#oven.string_adaptors.matches" title="matches">matches</a> and
+                <a class="link" href="oven/string_adaptors.html#oven.string_adaptors.tokenized" title="tokenized">tokenized</a> requires
+                <a href="http://boost.org/libs/regex/doc/index.html" target="_top">Boost.Regex</a>
+                to be built.
+              </li>
 <li class="listitem">
-              <a class="link" href="oven/ranges.html#oven.ranges.block" title="block">block</a> requires <a class="ulink" href="http://www.boost.org/doc/html/thread.html" target="_top">Boost.Thread</a>
-              to be built.
-            </li>
+                <a class="link" href="oven/ranges.html#oven.ranges.block" title="block">block</a> requires <a href="http://www.boost.org/doc/html/thread.html" target="_top">Boost.Thread</a>
+                to be built.
+              </li>
 </ul></div>
-        </li>
+</li>
 <li class="listitem">
-          <a class="ulink" href="http://sourceforge.net/project/showfiles.php?group_id=141222&amp;package_id=173059" target="_top">P-Stade
-          C++ Libraries</a> Version 1.04.2 or later (build not required)
-        </li>
+            <a href="http://sourceforge.net/project/showfiles.php?group_id=141222&amp;package_id=173059" target="_top">P-Stade
+            C++ Libraries</a> Version 1.04.2 or later (build not required)
+          </li>
 </ul></div>
-    </div>
-    <div class="section">
+</div>
+<div class="section">
 <div class="titlepage"><div><div><h3 class="title">
 <a name="oven.overview.portability"></a><a class="link" href="index.html#oven.overview.portability" title="Portability">Portability</a>
 </h3></div></div></div>
-      
-      <p>
+<p>
         Oven &#12399;&#20197;&#19979;&#12398;&#12503;&#12521;&#12483;&#12488;&#12501;&#12457;&#12540;&#12512;&#12391;&#21205;&#20316;&#12377;&#12427;&#12371;&#12392;&#12364;&#30906;&#35469;&#12373;&#12428;&#12390;&#12356;&#12427;&#65306;
       </p>
-      <div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
 <li class="listitem">
-          Microsoft Visual C++ 2005 Express Edition SP1
-        </li>
+            Microsoft Visual C++ 2005 Express Edition SP1
+          </li>
 <li class="listitem">
-          Microsoft Visual C++ .NET Version 7.1 SP1
-        </li>
+            Microsoft Visual C++ .NET Version 7.1 SP1
+          </li>
 <li class="listitem">
-          MinGW with GCC 3.4.4
-        </li>
+            MinGW with GCC 3.4.4
+          </li>
 <li class="listitem">
-          MinGW with GCC 4.1.2
-        </li>
+            MinGW with GCC 4.1.2
+          </li>
 <li class="listitem">
-          Intel C++ Compiler Professional Edition 10.1 for Windows
-        </li>
+            Intel C++ Compiler Professional Edition 10.1 for Windows
+          </li>
 </ul></div>
-    </div>
-    <div class="section">
+</div>
+<div class="section">
 <div class="titlepage"><div><div><h3 class="title">
 <a name="oven.overview.rationale"></a><a class="link" href="index.html#oven.overview.rationale" title="Rationale">Rationale</a>
 </h3></div></div></div>
-      
-      <div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
 <li class="listitem">
-          Oven &#12399;&#12289;&#12356;&#12363;&#12394;&#12427;&#26032;&#12383;&#12394;&#27010;&#24565;&#12418;&#23566;&#20837;&#12375;&#12394;&#12356;&#12290;
-        </li>
+            Oven &#12399;&#12289;&#12356;&#12363;&#12394;&#12427;&#26032;&#12383;&#12394;&#27010;&#24565;&#12418;&#23566;&#20837;&#12375;&#12394;&#12356;&#12290;
+          </li>
 <li class="listitem">
-          Oven &#12399;&#12289;&#12381;&#12398;&#30772;&#22730;&#12395;&#12424;&#12387;&#12390;&#12381;&#12428;&#20197;&#21069;&#12395;&#24471;&#12425;&#12428;&#12383;&#12509;&#12452;&#12531;&#12479;&#12362;&#12424;&#12403;&#21442;&#29031;&#12364;&#28961;&#21177;&#12395;&#12394;&#12427;&#12452;&#12486;&#12524;&#12540;&#12479;&#12434;&#12469;&#12509;&#12540;&#12488;&#12377;&#12427;(24.1/9)&#12290;
-        </li>
+            Oven &#12399;&#12289;&#12381;&#12398;&#30772;&#22730;&#12395;&#12424;&#12387;&#12390;&#12381;&#12428;&#20197;&#21069;&#12395;&#24471;&#12425;&#12428;&#12383;&#12509;&#12452;&#12531;&#12479;&#12362;&#12424;&#12403;&#21442;&#29031;&#12364;&#28961;&#21177;&#12395;&#12394;&#12427;&#12452;&#12486;&#12524;&#12540;&#12479;&#12434;&#12469;&#12509;&#12540;&#12488;&#12377;&#12427;(24.1/9)&#12290;
+          </li>
 <li class="listitem">
-          Oven &#12398; Range Adaptor &#12399;&#12289;&#21487;&#33021;&#12394;&#22580;&#21512;&#12289;&#23450;&#25968;&#26178;&#38291;&#12391;&#36820;&#12427;&#12290;
-        </li>
+            Oven &#12398; Range Adaptor &#12399;&#12289;&#21487;&#33021;&#12394;&#22580;&#21512;&#12289;&#23450;&#25968;&#26178;&#38291;&#12391;&#36820;&#12427;&#12290;
+          </li>
 </ul></div>
-    </div>
-    <div class="section">
+</div>
+<div class="section">
 <div class="titlepage"><div><div><h3 class="title">
 <a name="oven.overview.related_work"></a><a class="link" href="index.html#oven.overview.related_work" title="Related Work">Related Work</a>
 </h3></div></div></div>
-      
-      <div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
 <li class="listitem">
-          <a class="ulink" href="http://boost-consulting.com/vault/index.php?&amp;directory=Algorithms" target="_top">Boost.RangeEx</a>
-        </li>
+            <a href="http://boost-consulting.com/vault/index.php?&amp;directory=Algorithms" target="_top">Boost.RangeEx</a>
+          </li>
 <li class="listitem">
-          <a class="ulink" href="http://www.boost.org/doc/html/string_algo.html" target="_top">Boost.StringAlgorithm</a>
-        </li>
+            <a href="http://www.boost.org/doc/html/string_algo.html" target="_top">Boost.StringAlgorithm</a>
+          </li>
 <li class="listitem">
-          <a class="ulink" href="http://boost.cvs.sourceforge.net/boost-sandbox/boost-sandbox/boost/view/" target="_top">Boost.View</a>
-        </li>
+            <a href="http://boost.cvs.sourceforge.net/boost-sandbox/boost-sandbox/boost/view/" target="_top">Boost.View</a>
+          </li>
 <li class="listitem">
-          <a class="ulink" href="http://sourceforge.jp/projects/cradle/" target="_top">Cradle - A C++ Sandbox</a>
-        </li>
+            <a href="http://sourceforge.jp/projects/cradle/" target="_top">Cradle - A C++ Sandbox</a>
+          </li>
 <li class="listitem">
-          <a class="ulink" href="http://www.ddj.com/dept/cpp/196513737" target="_top">C++ View Objects</a>
-        </li>
+            <a href="http://www.ddj.com/dept/cpp/196513737" target="_top">C++ View Objects</a>
+          </li>
 <li class="listitem">
-          <a class="ulink" href="http://hamigaki.sourceforge.jp/doc/html/index.html" target="_top">Hamigaki
-          C++ Libraries</a>
-        </li>
+            <a href="http://hamigaki.sourceforge.jp/doc/html/index.html" target="_top">Hamigaki
+            C++ Libraries</a>
+          </li>
 <li class="listitem">
-          <a class="ulink" href="http://www.threadingbuildingblocks.org/" target="_top">Intel Threading Building
-          Blocks</a>
-        </li>
+            <a href="http://www.threadingbuildingblocks.org/" target="_top">Intel Threading
+            Building Blocks</a>
+          </li>
 <li class="listitem">
-          <a class="ulink" href="http://www.torjo.com/rangelib/index.html" target="_top">RangeLib - The Boost
-          Iterable Range Library</a>
-        </li>
+            <a href="http://www.torjo.com/rangelib/index.html" target="_top">RangeLib - The
+            Boost Iterable Range Library</a>
+          </li>
 <li class="listitem">
-          <a class="ulink" href="http://www.assembla.com/wiki/show/baGo5wpz0r3iFaabIlDkbG" target="_top">trotter-libs</a>
-        </li>
+            <a href="http://www.assembla.com/wiki/show/baGo5wpz0r3iFaabIlDkbG" target="_top">trotter-libs</a>
+          </li>
 <li class="listitem">
-          <a class="ulink" href="http://www.zib.de/weiser/vtl/" target="_top">VTL (View Template Library)</a>
-        </li>
+            <a href="http://www.zib.de/weiser/vtl/" target="_top">VTL (View Template Library)</a>
+          </li>
 <li class="listitem">
-          <a class="ulink" href="http://www.zeta.org.au/~jon/STL/views/doc/views.html" target="_top">Views
-          - a C++ Standard Library extension</a>
-        </li>
+            <a href="http://www.zeta.org.au/~jon/STL/views/doc/views.html" target="_top">Views
+            - a C++ Standard Library extension</a>
+          </li>
 </ul></div>
-    </div>
-    <div class="section">
+</div>
+<div class="section">
 <div class="titlepage"><div><div><h3 class="title">
 <a name="oven.overview.acknowledgements"></a><a class="link" href="index.html#oven.overview.acknowledgements" title="Acknowledgements">Acknowledgements</a>
 </h3></div></div></div>
-      
-      <div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
 <li class="listitem">
-          Special thanks to Thorsten Ottosen, the author of <a class="ulink" href="http://www.boost.org/libs/range/index.html" target="_top">Boost.Range</a>
-          and <a class="ulink" href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1871.html" target="_top">Range
-          Library Proposal</a>.
-        </li>
+            Special thanks to Thorsten Ottosen, the author of <a href="http://www.boost.org/libs/range/index.html" target="_top">Boost.Range</a>
+            and <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2005/n1871.html" target="_top">Range
+            Library Proposal</a>.
+          </li>
 <li class="listitem">
-          Special thanks to Cryolite, Takeshi Mouri, yotto-k and Yusuke Kajimoto.
-          These people are instrumental in the design and development of Oven.
-        </li>
+            Special thanks to Cryolite, Takeshi Mouri, yotto-k and Yusuke Kajimoto.
+            These people are instrumental in the design and development of Oven.
+          </li>
 </ul></div>
-    </div>
-    <div class="section">
+</div>
+<div class="section">
 <div class="titlepage"><div><div><h3 class="title">
 <a name="oven.overview.notation"></a><a class="link" href="index.html#oven.overview.notation" title="Notation">Notation</a>
 </h3></div></div></div>
-      
-      <p>
+<p>
         &#12371;&#12398;&#12489;&#12461;&#12517;&#12513;&#12531;&#12488;&#12391;&#12399;&#12289;&#20197;&#19979;&#12398;&#34920;&#35352;&#12434;&#20351;&#29992;&#12377;&#12427;&#65306;
       </p>
-      <div class="informaltable">
-        <table border="1">
+<div class="informaltable"><table class="table">
 <colgroup>
 <col>
 <col>
 </colgroup>
 <thead><tr>
 <th>
-              <p>
-                <span class="bold"><strong>Expression</strong></span>
-              </p>
+                <p>
+                  <span class="bold"><strong>Expression</strong></span>
+                </p>
               </th>
 <th>
-              <p>
-                <span class="bold"><strong>Semantics</strong></span>
-              </p>
+                <p>
+                  <span class="bold"><strong>Semantics</strong></span>
+                </p>
               </th>
 </tr></thead>
 <tbody>
 <tr>
 <td>
-              <p>
-                <code class="computeroutput"><span class="identifier">_typeof</span></code>
-              </p>
+                <p>
+                  <code class="computeroutput"><span class="identifier">_typeof</span></code>
+                </p>
               </td>
 <td>
-              <p>
-                &#24335;&#12398;&#22411;&#12434;&#24471;&#12427;&#26550;&#31354;&#12398;&#28436;&#31639;&#23376;&#12290;
-              </p>
-              </td>
-</tr>
-<tr>
-<td>
-              <p>
-                <code class="computeroutput"><span class="special">++</span></code>
-              </p>
-              </td>
-<td>
-              <p>
-                &#12488;&#12540;&#12463;&#12531;&#12434;&#36899;&#32080;&#12377;&#12427;&#26550;&#31354;&#12398;&#28436;&#31639;&#23376;&#12290;
-              </p>
+                <p>
+                  &#24335;&#12398;&#22411;&#12434;&#24471;&#12427;&#26550;&#31354;&#12398;&#28436;&#31639;&#23376;&#12290;
+                </p>
               </td>
 </tr>
 <tr>
 <td>
-              <p>
-                <code class="computeroutput"><span class="identifier">_rng</span></code>
-              </p>
+                <p>
+                  <code class="computeroutput"><span class="special">++</span></code>
+                </p>
               </td>
 <td>
-              <p>
-                <a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#forward-traversal-iterators-lib-forward-traversal-iterators" target="_top">Forward</a>
-                &#12418;&#12375;&#12367;&#12399; <a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#readable-iterators-lib-readable-iterators" target="_top">Readable</a>
-                &#12391;&#12354;&#12427; <a class="ulink" href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
-                &#12290;
-              </p>
+                <p>
+                  &#12488;&#12540;&#12463;&#12531;&#12434;&#36899;&#32080;&#12377;&#12427;&#26550;&#31354;&#12398;&#28436;&#31639;&#23376;&#12290;
+                </p>
               </td>
 </tr>
 <tr>
 <td>
-              <p>
-                <code class="computeroutput"><span class="identifier">_fwdrng</span></code>
-              </p>
+                <p>
+                  <code class="computeroutput"><span class="identifier">_rng</span></code>
+                </p>
               </td>
 <td>
-              <p>
-                <a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#forward-traversal-iterators-lib-forward-traversal-iterators" target="_top">Forward</a>
-                <a class="ulink" href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
-              </p>
-              </td>
-</tr>
-<tr>
-<td>
-              <p>
-                <code class="computeroutput"><span class="identifier">_bidrng</span></code>
-              </p>
-              </td>
-<td>
-              <p>
-                <a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#bidirectional-traversal-iterators-lib-bidirectional-traversal-iterators" target="_top">Bidirectional</a>
-                <a class="ulink" href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
-              </p>
+                <p>
+                  <a href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#forward-traversal-iterators-lib-forward-traversal-iterators" target="_top">Forward</a>
+                  &#12418;&#12375;&#12367;&#12399; <a href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#readable-iterators-lib-readable-iterators" target="_top">Readable</a>
+                  &#12391;&#12354;&#12427; <a href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
+                  &#12290;
+                </p>
               </td>
 </tr>
 <tr>
 <td>
-              <p>
-                <code class="computeroutput"><span class="identifier">_rndrng</span></code>
-              </p>
+                <p>
+                  <code class="computeroutput"><span class="identifier">_fwdrng</span></code>
+                </p>
               </td>
 <td>
-              <p>
-                <a class="ulink" href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#random-access-traversal-iterators-lib-random-access-traversal-iterators" target="_top">Random
-                Access</a> <a class="ulink" href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
-              </p>
-              </td>
-</tr>
-<tr>
-<td>
-              <p>
-                <code class="computeroutput"><span class="identifier">_outit</span></code>
-              </p>
-              </td>
-<td>
-              <p>
-                <a class="ulink" href="http://boost.org/doc/html/OutputIterator.html" target="_top">Output
-                Iterator</a>
-              </p>
+                <p>
+                  <a href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#forward-traversal-iterators-lib-forward-traversal-iterators" target="_top">Forward</a>
+                  <a href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
+                </p>
               </td>
 </tr>
 <tr>
 <td>
-              <p>
-                <code class="computeroutput"><span class="identifier">_fun</span></code>
-              </p>
+                <p>
+                  <code class="computeroutput"><span class="identifier">_bidrng</span></code>
+                </p>
               </td>
 <td>
-              <p>
-                <a class="ulink" href="http://www.sgi.com/tech/stl/functors.html" target="_top">Function Object</a>
-              </p>
-              </td>
-</tr>
-<tr>
-<td>
-              <p>
-                <code class="computeroutput"><span class="identifier">_cal</span></code>
-              </p>
-              </td>
-<td>
-              <p>
-                <a class="ulink" href="http://spirit.sourceforge.net/dl_more/fusion_v2/libs/fusion/doc/html/fusion/functional/concepts/poly.html" target="_top">Polymorphic
-                Function Object</a>
-              </p>
+                <p>
+                  <a href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#bidirectional-traversal-iterators-lib-bidirectional-traversal-iterators" target="_top">Bidirectional</a>
+                  <a href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
+                </p>
               </td>
 </tr>
 <tr>
 <td>
-              <p>
-                <code class="computeroutput"><span class="identifier">_prd</span></code>
-              </p>
+                <p>
+                  <code class="computeroutput"><span class="identifier">_rndrng</span></code>
+                </p>
               </td>
 <td>
-              <p>
-                <a class="ulink" href="http://www.sgi.com/tech/stl/Predicate.html" target="_top">Predicate</a>
-              </p>
-              </td>
-</tr>
-<tr>
-<td>
-              <p>
-                <code class="computeroutput"><span class="identifier">_begin</span></code>
-              </p>
-              </td>
-<td>
-              <p>
-                <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">begin</span></code>
-              </p>
+                <p>
+                  <a href="http://www.boost.org/libs/iterator/doc/new-iter-concepts.html#random-access-traversal-iterators-lib-random-access-traversal-iterators" target="_top">Random
+                  Access</a> <a href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
+                </p>
               </td>
 </tr>
 <tr>
 <td>
-              <p>
-                <code class="computeroutput"><span class="identifier">_end</span></code>
-              </p>
+                <p>
+                  <code class="computeroutput"><span class="identifier">_outit</span></code>
+                </p>
               </td>
 <td>
-              <p>
-                <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">end</span></code>
-              </p>
-              </td>
-</tr>
-<tr>
-<td>
-              <p>
-                <code class="computeroutput"><span class="identifier">_iter_of</span></code>
-              </p>
-              </td>
-<td>
-              <p>
-                <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">range_result_iterator</span></code>
-              </p>
+                <p>
+                  <a href="http://boost.org/doc/html/OutputIterator.html" target="_top">Output
+                  Iterator</a>
+                </p>
               </td>
 </tr>
 <tr>
 <td>
-              <p>
-                <code class="computeroutput"><span class="identifier">_value_of</span></code>
-              </p>
+                <p>
+                  <code class="computeroutput"><span class="identifier">_fun</span></code>
+                </p>
               </td>
 <td>
-              <p>
-                <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">range_value</span></code>
-              </p>
-              </td>
-</tr>
-<tr>
-<td>
-              <p>
-                <code class="computeroutput"><span class="special">[</span><span class="identifier">i</span><span class="special">,</span> <span class="identifier">j</span><span class="special">)</span></code>
-              </p>
-              </td>
-<td>
-              <p>
-                <code class="computeroutput"><span class="identifier">i</span> <span class="special">=</span>
-                <span class="identifier">boost</span><span class="special">::</span><span class="identifier">begin</span><span class="special">([</span><span class="identifier">i</span><span class="special">,</span> <span class="identifier">j</span><span class="special">))</span></code>
-                &#12363;&#12388; <code class="computeroutput"><span class="identifier">j</span> <span class="special">=</span>
-                <span class="identifier">boost</span><span class="special">::</span><span class="identifier">end</span><span class="special">([</span><span class="identifier">i</span><span class="special">,</span> <span class="identifier">j</span><span class="special">))</span></code>
-                &#12398;&#12424;&#12358;&#12395;&#25391;&#33310;&#12358; <a class="ulink" href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
-                &#12290;
-              </p>
+                <p>
+                  <a href="http://www.sgi.com/tech/stl/functors.html" target="_top">Function
+                  Object</a>
+                </p>
               </td>
 </tr>
 <tr>
 <td>
-              <p>
-                <code class="computeroutput"><span class="special">{</span><span class="identifier">a0</span><span class="special">,</span><span class="identifier">a1</span><span class="special">,</span><span class="identifier">a2</span><span class="special">,...,</span><span class="identifier">aN</span><span class="special">}</span></code>
-              </p>
+                <p>
+                  <code class="computeroutput"><span class="identifier">_cal</span></code>
+                </p>
               </td>
 <td>
-              <p>
-                <a class="ulink" href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
-              </p>
+                <p>
+                  <a href="http://spirit.sourceforge.net/dl_more/fusion_v2/libs/fusion/doc/html/fusion/functional/concepts/poly.html" target="_top">Polymorphic
+                  Function Object</a>
+                </p>
               </td>
 </tr>
 <tr>
 <td>
-              <p>
-                <code class="computeroutput"><span class="special">(</span><span class="identifier">a0</span>
-                <span class="identifier">a1</span> <span class="identifier">a2</span>
-                <span class="special">...</span> <span class="identifier">aN</span><span class="special">)</span></code>
-              </p>
+                <p>
+                  <code class="computeroutput"><span class="identifier">_prd</span></code>
+                </p>
               </td>
 <td>
-              <p>
-                <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tuple</span></code>
-              </p>
+                <p>
+                  <a href="http://www.sgi.com/tech/stl/Predicate.html" target="_top">Predicate</a>
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">_begin</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">begin</span></code>
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">_end</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">end</span></code>
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">_iter_of</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">range_result_iterator</span></code>
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">_value_of</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">range_value</span></code>
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="special">[</span><span class="identifier">i</span><span class="special">,</span> <span class="identifier">j</span><span class="special">)</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">i</span> <span class="special">=</span>
+                  <span class="identifier">boost</span><span class="special">::</span><span class="identifier">begin</span><span class="special">([</span><span class="identifier">i</span><span class="special">,</span>
+                  <span class="identifier">j</span><span class="special">))</span></code>
+                  &#12363;&#12388; <code class="computeroutput"><span class="identifier">j</span> <span class="special">=</span>
+                  <span class="identifier">boost</span><span class="special">::</span><span class="identifier">end</span><span class="special">([</span><span class="identifier">i</span><span class="special">,</span>
+                  <span class="identifier">j</span><span class="special">))</span></code>
+                  &#12398;&#12424;&#12358;&#12395;&#25391;&#33310;&#12358; <a href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
+                  &#12290;
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="special">{</span><span class="identifier">a0</span><span class="special">,</span><span class="identifier">a1</span><span class="special">,</span><span class="identifier">a2</span><span class="special">,...,</span><span class="identifier">aN</span><span class="special">}</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  <a href="http://www.boost.org/libs/range/doc/range.html" target="_top">Range</a>
+                </p>
+              </td>
+</tr>
+<tr>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="special">(</span><span class="identifier">a0</span>
+                  <span class="identifier">a1</span> <span class="identifier">a2</span>
+                  <span class="special">...</span> <span class="identifier">aN</span><span class="special">)</span></code>
+                </p>
+              </td>
+<td>
+                <p>
+                  <code class="computeroutput"><span class="identifier">boost</span><span class="special">::</span><span class="identifier">tuple</span></code>
+                </p>
               </td>
 </tr>
 </tbody>
-</table>
-      </div>
-      <p>
+</table></div>
+<p>
         &#12414;&#12383;&#12289;&#12377;&#12409;&#12390;&#12398;&#24335;&#12399;&#20197;&#19979;&#12398;&#24460;&#12429;&#12395;&#32622;&#12363;&#12428;&#12427;&#12392;&#20206;&#23450;&#12377;&#12427;&#65306;
       </p>
-      
 <pre class="programlisting"><span class="keyword">namespace</span> <span class="identifier">oven</span> <span class="special">=</span> <span class="identifier">pstade</span><span class="special">::</span><span class="identifier">oven</span><span class="special">;</span>
 <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="identifier">oven</span><span class="special">;</span>
 </pre>
-    </div>
-  </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+</div>
+</div>
 </div>
 <table xmlns:rev="http://www.cs.rpi.edu/~gregod/boost/tools/doc/revision" width="100%"><tr>
-<td align="left"><p><small>Last revised: December 15, 2010 at 04:03:05 GMT</small></p></td>
+<td align="left"><p><small>Last revised: March 01, 2011 at 16:51:58 GMT</small></p></td>
 <td align="right"><div class="copyright-footer"></div></td>
 </tr></table>
 <hr>
-<div class="spirit-nav"></div>
+<div class="spirit-nav"><a accesskey="n" href="oven/concepts.html"><img src="images/next.png" alt="Next"></a></div>
 </body>
 </html>

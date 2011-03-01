@@ -1,20 +1,17 @@
 [section Utilities]
 
-Some helper function objects are given to fill the gap between Oven and other libraries.
-
-
-
+Ovenと他のライブラリの間の溝を埋めるためにいくつかのヘルパー関数オブジェクトが用意されている。
 
 [section:adapted_to_base adapted_to/to_base]
 
 [heading Description]
-`adapted_to` pulls the base iterator from the adapted one.
+`adapted_to` は ベースのイテレータをアダプトされたものから取り出す。
 
 [heading Header]
 * `<pstade/oven/adapted_to_base.hpp>`
 
 [heading Model of]
-* `to_base` is an _ambi_ _static_function_object_.
+* `to_base` は _ambi_ _static_function_object_ である。
 
 [heading Valid expressions]
 [table 
@@ -24,7 +21,7 @@ Some helper function objects are given to fill the gap between Oven and other li
     ]
     [
         [`oven::adapted_to<B>(a)`]
-        [Returns the shortest `a.base().base() ... .base()` such that `_typeof(a.base().base() ... .base())` is convertible to `B`.]
+        [`_typeof(a.base().base() ... .base())` が `B` に変換可能な `a.base().base() ... .base()` のうち、最も短いものを返す。]
     ]
     [
         [`B b = to_base(a);`]
@@ -33,9 +30,9 @@ Some helper function objects are given to fill the gap between Oven and other li
 ]
 
 [heading Preconditions]
-* `B` is _copy_constructible_.
-* `_typeof(a)` correctly works with `boost::is_convertible`.
-* There is a (possibly empty) sequence `{ base(), ..., base() }` such that `_typeof(a.base().base() ... .base())` is `B`.
+* `B` は _copy_constructible_ である。
+* `_typeof(a)` は `boost::is_convertible` に対して正しくはたらく。
+* `_typeof(a.base().base() ... .base())` が `B` であるような、(空であり得る)aの列 `{ base(), ..., base() }` が存在する。
 
 [heading Example]
     std::string src("cjaigvwzenqhe");
@@ -56,9 +53,9 @@ Some helper function objects are given to fill the gap between Oven and other li
 [section expression]
 
 [heading Description]
-_oven_any_range_ incurs an overhead for calling a `virtual` function every iterator operation.
-The overhead can be removed with the help of _boost_typeof_ if your compiler supports the native typeof.
-`expression` converts a range into _boost_typeof_ compatible one, then removes the overhead if possible.
+_oven_any_range_ はあらゆるイテレータの操作に仮想関数呼び出しのオーバヘッドを負っている。
+もしあなたの使っているコンパイラがネイティブなtypeofをサポートしているならば _boost_typeof_ の力を借りてこのオーバヘッドを除去できる。
+`expression` は range を _boost_typeof_ に適合するものに変換し、可能であればオーバヘッドを除去する。
 
 [heading Header]
 * `<pstade/oven/expression.hpp>`
@@ -74,16 +71,15 @@ The overhead can be removed with the help of _boost_typeof_ if your compiler sup
     ]
     [
         [`expression(_rng)`]
-        [`[_begin(_rng), _end(_rng))` which can be used with _boost_typeof_ macros.]
+        [_boost_typeof_ マクロに使用しうる `[_begin(_rng), _end(_rng))` 。]
     ]
 ]
 
 [heading Preconditions]
-* `_typeof(*boost::begin(_rng))` is the same as `_value_of<_typeof(_rng)>::type`.
-* `_value_of<_typeof(_rng)>::type` is registered to _boost_typeof_.
+* `_typeof(*boost::begin(_rng))` は `_value_of<_typeof(_rng)>::type` と等しい。
+* `_value_of<_typeof(_rng)>::type` は _boost_typeof_ に登録されている。
 
-[note As far as the precondition met, `expression` with _boost_typeof_ macros is portable
-      even where native typeof isn't available.]
+[note たとえネイティブなtypeofが使用できなくても precondition が適合する限り、 _boost_typeof_ マクロを使用した `expression` は可搬性がある。]
 
 [heading Example]
     BOOST_AUTO(factorials,
@@ -101,20 +97,19 @@ The overhead can be removed with the help of _boost_typeof_ if your compiler sup
 [section FOREACH]
 
 [heading Description]
-`PSTADE_OVEN_FOREACH` is similar to `BOOST_FOREACH`,
-but there is no need to write the referent type of iterating.
+`PSTADE_OVEN_FOREACH` は `BOOST_FOREACH` に似ているが, イテレート時の参照型を書く必要がない。
 
 [heading Header]
 * `<pstade/oven/foreach.hpp>`
 
 [heading Notation]
-* `auto` is an imaginary operator such that `auto x = y;` is the same as  `_typeof(y) x = y;`
+* `auto` は `auto x = y;` が `_typeof(y) x = y;` に等しくなるような架空のオペレータである。
 
 [heading Valid expression and Semantics]
     PSTADE_OVEN_FOREACH(var, _rng)
         statement
 
-is conceptually equivalent to
+は概念的に以下と等価である。
 
     auto __rng = expression(_rng);
     for (auto __begin = boost::begin(__rng), __end = boost::end(__rng); __begin != __end; ++__begin) {
@@ -122,15 +117,14 @@ is conceptually equivalent to
          statement
     }
 
-, where `__rng`, `__begin` and `__end` are variables defined for exposition only.
+ここで `__rng`, `__begin`, `__end` は解説用にのみ定義された変数である。
 
-[important The semantics implies that the range referents must outlive the `PSTADE_OVEN_FOREACH` statement.
-           Unlike `BOOST_FOREACH`, it doens't copy a rvalue `_rng`.]
+[important この構文は range の参照が `PSTADE_OVEN_FOREACH` 文を超える寿命を持つ必要が有る事を暗に示している。 `BOOST_FOREACH` と違い、こちらはrvalueである `_rng` をコピーしない。]
 
 [heading Preconditions]
-* The preconditions of `expression(_rng)`.
-* The corresponding semantics behavior is well-defined.
-* If `_rng` is a dependent name, `PSTADE_OVEN_FOREACH_TPL` must be used instead.
+*`expression(_rng)` における preconditions。
+* 対応するセマンティクスの振る舞いが明確に定義されている。
+* もし `_rng` が依存名であるならば、 `PSTADE_OVEN_FOREACH_TPL` の方を使わなければならない。
 
 [heading Example]
     std::string hello("Hello, world!");
@@ -151,13 +145,13 @@ is conceptually equivalent to
 [section io.hpp]
 
 [heading Description]
-The header `<pstade/oven/io.hpp>` lets Oven ranges be _input_streamable_ and _output_streamable_.
+ヘッダ `<pstade/oven/io.hpp>` は Oven の range を _input_streamable_ かつ _output_streamable_ にする。
 
 [heading Header]
 * `<pstade/oven/io.hpp>`
 
 [heading Effects]
-* All the ranges which Oven defines and returns become _input_streamable_ and _output_streamable_.
+Oven で定義されていて Oven によって返される全ての range が _input_streamable_ かつ _output_streamable_ になる。
 
 [heading Example]
     std::string src("abc");
@@ -173,17 +167,16 @@ The header `<pstade/oven/io.hpp>` lets Oven ranges be _input_streamable_ and _ou
 [section optional.hpp]
 
 [heading Description]
-The header `<pstade/oven/optional.hpp>` lets `boost::optional` be a model of _range_,
-meaning that it can be used as "one element range".
+ヘッダ `<pstade/oven/optional.hpp>` は `boost::optional` を "one element range" として扱えるように _range_ のモデルにする。
 
 [heading Header]
 * `<pstade/oven/optional.hpp>`
 
 [heading Effects]
-* `boost::optional` becomes a _random_access_ _s_ _range_.
+* `boost::optional` は _random_access_ _s_ _range_ になる。
 
 [heading Invariants]
-* An uninitialized `boost::optional` is an empty range.
+* 未初期化の `boost::optional` は 空の range である。
 
 [heading See also]
 * _boost_optional_
@@ -196,13 +189,13 @@ meaning that it can be used as "one element range".
 [section regex.hpp]
 
 [heading Description]
-The header `<pstade/oven/regex.hpp>` lets `boost::sub_match` be a model of _range_.
+ヘッダ `<pstade/oven/regex.hpp>` は `boost::sub_match` を _range_ のモデルにする。
 
 [heading Header]
 * `<pstade/oven/regex.hpp>`
 
 [heading Effects]
-* `boost::sub_match` becomes a _range_.
+* `boost::sub_match` は _range_ になる。
 
 [heading See also]
 * _boost_regex_
@@ -216,13 +209,13 @@ The header `<pstade/oven/regex.hpp>` lets `boost::sub_match` be a model of _rang
 [section xpressive.hpp]
 
 [heading Description]
-The header `<pstade/oven/xpressive.hpp>` lets `boost::xpressive::sub_match` be a model of _range_.
+ヘッダ `<pstade/oven/xpressive.hpp>` は `boost::xpressive::sub_match` を _range_ のモデルにする。
 
 [heading Header]
 * `<pstade/oven/xpressive.hpp>`
 
 [heading Effects]
-* `boost::xpressive::sub_match` becomes a _range_.
+* `boost::xpressive::sub_match` は _range_ になる。
 
 [heading See also]
 * _boost_xpressive_
@@ -231,13 +224,10 @@ The header `<pstade/oven/xpressive.hpp>` lets `boost::xpressive::sub_match` be a
 [endsect]
 
 
-
-
 [section nonstop]
 
 [heading Description]
-The _stoppable_generator_ concept which _oven_generation_ requires is slightly different
-from the _generator_ concept. `nonstop` turns a _generator_ into a _oven_generation_ conforming one.
+_oven_generation_ が要求する _stoppable_generator_ コンセプトは _generator_ コンセプトと僅かに違いが有る。 `nonstop` は _generator_ を _oven_generation_ に適合するように変換する。
 
 [heading Header]
 * `<pstade/oven/generation.hpp>`
@@ -253,12 +243,12 @@ from the _generator_ concept. `nonstop` turns a _generator_ into a _oven_generat
     ]
     [
         [`nonstop(g)`]
-        [Converts `g` into a _stoppable_generator_.]
+        [`g` を _stoppable_generator_ に変換する。]
     ]
 ]
 
 [heading Preconditions]
-* `g` is a both _generator_ and _polymorphic_function_object_.
+* `g` は _generator_ かつ _polymorphic_function_object_ である。
 
 [heading Example]
     BOOST_FOREACH (long x, generation(nonstop(&std::rand))|taken(30)) {
@@ -276,7 +266,7 @@ from the _generator_ concept. `nonstop` turns a _generator_ into a _oven_generat
 [section pack]
 
 [heading Description]
-`pack` makes a tuple of iterator ranges, which is useful for _oven_zipped_.
+`pack` は iterator range の tuple をつくる。これは _oven_zipped_ を使うときに重宝する。
 
 [heading Header]
 * `<pstade/oven/pack.hpp>`
@@ -302,7 +292,7 @@ from the _generator_ concept. `nonstop` turns a _generator_ into a _oven_generat
 
 [heading Preconditions]
 * `1 <= N && N <= 5`
-* The corresponding semantics is a valid expression.
+* 対応するセマンティクスは有効な式である。
 
 [heading Example]
 
@@ -320,7 +310,7 @@ from the _generator_ concept. `nonstop` turns a _generator_ into a _oven_generat
 [section partitioned]
 
 [heading Description]
-`partitioned` serves as a lazy `std::partition`.
+`partitioned` は 遅延評価の `std::partitioned` としてはたらく。
 
 [heading Header]
 * `<pstade/oven/partitioned.hpp>`
@@ -329,7 +319,7 @@ from the _generator_ concept. `nonstop` turns a _generator_ into a _oven_generat
 * _pipable_adaptor_
 
 [heading Notation]
-* `not_` is an imaginary function to negate a predicate.
+* `not_` は 述語を否定する架空の関数を表す。
 
 [heading Valid expressions]
 [table 
@@ -346,7 +336,7 @@ from the _generator_ concept. `nonstop` turns a _generator_ into a _oven_generat
 ]
 
 [heading Preconditions]
-* `_fwdrng|filtered(_prd)` is a valid expression.
+* `_fwdrng|filtered(_prd)` は有効な式である。
 
 [heading Example]
 
@@ -362,9 +352,7 @@ from the _generator_ concept. `nonstop` turns a _generator_ into a _oven_generat
 [section regular]
 
 [heading Description]
-A _boost_lambda_ functor is neither _default_constructible_ nor _assignable_.
-An iterator holding such a functor can't conform to even _input_iterator_.
-`regular` converts it into comfortable one for iterators.
+_boost_lambda_ ファンクタは _default_constructible_ でも _assignable_ でもないため、そのファンクタを保持しているイテレータは _input_iterator_ にすら適合する事ができない。`regular` はそのようなイテレータを適合可能なものに変換する。
 
 [heading Header]
 * `<pstade/oven/regular.hpp>`
@@ -380,12 +368,12 @@ An iterator holding such a functor can't conform to even _input_iterator_.
     ]
     [
         [`regular(f)`]
-        [Converts `f` into a _major_function_object_ which is _default_constructible_ and _assignable_.]
+        [`f` を _default_constructible_ かつ _assignable_ な _major_function_object_ に変換する。]
     ]
 ]
 
 [heading Preconditions]
-* `f` is a _boost_lambda_ functor or _polymorphic_function_object_.
+* `f` は _boost_lambda_ ファンクタか _polymorphic_function_object_ である。
 
 [heading Example]
     BOOST_CHECK( equals(
@@ -410,8 +398,8 @@ An iterator holding such a functor can't conform to even _input_iterator_.
 [section regular_ref]
 
 [heading Description]
-A _polymorphic_function_object_ like a random number generator may not be copyable, while many algorithms require to be.
-`regular_ref`, holding a reference to noncopyable _polymorphic_function_object_, behaves as copyable one.
+乱数ジェネレータのような _polymorphic_function_object_ は copyable ではない場合が有るが、多くのアルゴリズムはそれらが copyable であることを要求している。
+`regular_ref` は noncopyable な _polymorphic_function_object_ の参照を保持し、copyable であるかのように振る舞う。
 
 [heading Header]
 * `<pstade/oven/regular.hpp>`
@@ -427,13 +415,13 @@ A _polymorphic_function_object_ like a random number generator may not be copyab
     ]
     [
         [`regular_ref(f)`]
-        [A copyable _major_function_object_. All the calls are forwarded to `f`.]
+		[copyable な _major_function_object_ 。全ての呼び出しは `f` に向けられる。]
     ]
 ]
 
 [heading Preconditions]
-* `f` is a _polymorphic_function_object_ but may be noncopyable.
-* `f` is not destructed as long as `regular_ref(f)` is called.
+* `f` は コピー可能でないことがあり得る、 _polymorphic_function_object_ である。 
+* `f` は `regular_ref(f)` が呼び出される間は破棄されない。
 
 
 [heading See also]
@@ -448,8 +436,7 @@ A _polymorphic_function_object_ like a random number generator may not be copyab
 [section shared_regular]
 
 [heading Description]
-`shared_regular` is similar to `regular_ref`.
-It takes a pointer to heap allocated _function_object_, whereas `regular_ref` takes an object.
+`shared_regular` は `regular_ref` と似ているが、`regular_ref` が _function_object_ のオブジェクト自体を取るのに対し、`shared_regular` はヒープ上のポインタとして取る。
 
 [heading Header]
 * `<pstade/oven/shared_regular.hpp>`
@@ -465,13 +452,13 @@ It takes a pointer to heap allocated _function_object_, whereas `regular_ref` ta
     ]
     [
         [`shared_regular(pf)`]
-        [A copyable _major_function_object_. All the calls are forwarded to `*pf`.]
+		[copyable な _major_function_object_ 。全ての呼び出しは `*pf` に向けてなされる。]
     ]
 ]
 
 [heading Preconditions]
-* `_typeof(*pf)` is a _polymorphic_function_object_ but may be noncopyable.
-* `boost::shared_ptr<_typeof(*pf)>(pf)` is a valid expression.
+* `_typeof(*pf)` はコピー可能でないことがあり得る、 _polymorphic_function_object_ である。 
+* `boost::shared_ptr<_typeof(*pf)>(pf)` は有効な式である。
 
 [heading See also]
 * _oven_regular_
@@ -493,7 +480,7 @@ It takes a pointer to heap allocated _function_object_, whereas `regular_ref` ta
 * _pipable_adaptor_
 
 [heading Notation]
-* `rng2` is `_fwdrng|dropped(n)`.
+* `rng2` は `_fwdrng|dropped(n)` である。
 
 [heading Valid expressions]
 [table 
@@ -510,7 +497,7 @@ It takes a pointer to heap allocated _function_object_, whereas `regular_ref` ta
 ]
 
 [heading Preconditions]
-* `_fwdrng|dropped(n)` is a valid expression.
+* `_fwdrng|dropped(n)` は有効な式である。
 
 [heading Example]
     typedef
@@ -548,7 +535,7 @@ It takes a pointer to heap allocated _function_object_, whereas `regular_ref` ta
 [section zipped]
 
 [heading Description]
-`zipped` takes a tuple of ranges and returns a range of corresponding tuples.
+`zipped` は range の tuple を取り、対応する tuple の range を返す。
 
 [heading Header]
 * `<pstade/oven/zipped.hpp>`
@@ -557,7 +544,7 @@ It takes a pointer to heap allocated _function_object_, whereas `regular_ref` ta
 * _pipable_adaptor_
 
 [heading Notation]
-* `(_rng1 _rng2 ... _rngN)` is `u`.
+* `(_rng1 _rng2 ... _rngN)` は `u` である。
 
 [heading Valid expressions]
 [table 
@@ -574,7 +561,7 @@ It takes a pointer to heap allocated _function_object_, whereas `regular_ref` ta
 ]
 
 [heading Preconditions]
-* `T` is `boost::zip_iterator<_typeof(boost::make_tuple(_begin(_rng1),...,_begin(_rngN)))>` such that `T(boost::make_tuple(_begin(_rng1),...,_begin(_rngN)))` is a valid expression.
+* `T` は `T(boost::make_tuple(_begin(_rng1),...,_begin(_rngN)))` が有効な式であるような `boost::zip_iterator<_typeof(boost::make_tuple(_begin(_rng1),...,_begin(_rngN)))>` である。
 
 [heading Example]
     std::cout <<
@@ -604,7 +591,7 @@ It takes a pointer to heap allocated _function_object_, whereas `regular_ref` ta
 [section unzipped]
 
 [heading Description]
-`unzipped` reverses `zipped`.
+`unzipped` は `zipped` を逆にする。
 
 [heading Header]
 * `<pstade/oven/unzipped.hpp>`
@@ -630,7 +617,7 @@ It takes a pointer to heap allocated _function_object_, whereas `regular_ref` ta
 ]
 
 [heading Preconditions]
-* `_value_of<_typeof(_rng)>::type` is a `boost::tuple`.
+* `_value_of<_typeof(_rng)>::type` は `boost::tuple` である。
 
 [heading Example]
     std::cout <<
@@ -659,7 +646,7 @@ It takes a pointer to heap allocated _function_object_, whereas `regular_ref` ta
 [section fuzipped]
 
 [heading Description]
-`fuzipped` takes a _fusion_sequence_ of ranges and returns a range of corresponding _fusion_sequence_.
+`fuzipped` は range の _fusion_sequence_ を取り、_fusion_sequence_ の range を返す。
 
 [heading Header]
 * `<pstade/oven/fuzipped.hpp>`
@@ -668,8 +655,8 @@ It takes a pointer to heap allocated _function_object_, whereas `regular_ref` ta
 * _pipable_adaptor_
 
 [heading Notation]
-* `(_rng1 _rng2 ... _rngN)` is `u`.
-* `fuzip_iterator` is an imaginary iterator which works like `boost::zip_iterator` but whose `value_type` is a _fusion_random_access_sequence_.
+* `(_rng1 _rng2 ... _rngN)` は `u` である。
+* `fuzip_iterator` は `boost::zip_iterator` のようにはたらき、`value_type` が _fusion_random_access_sequence_ であるような架空の iterator である。
 
 [heading Valid expressions]
 [table 
@@ -686,7 +673,7 @@ It takes a pointer to heap allocated _function_object_, whereas `regular_ref` ta
 ]
 
 [heading Preconditions]
-* `T` is `fuzip_iterator<_typeof(boost::make_tuple(_begin(_rng1),...,_begin(_rngN)))>` such that `T(boost::fusion::make_vector(_begin(_rng1),...,_begin(_rngN)))` is a valid expression.
+* `T` は `T(boost::fusion::make_vector(_begin(_rng1),...,_begin(_rngN)))` が有効な式であるような `fuzip_iterator<_typeof(boost::make_tuple(_begin(_rng1),...,_begin(_rngN)))>` である。
 
 [heading Example]
 
@@ -706,7 +693,7 @@ It takes a pointer to heap allocated _function_object_, whereas `regular_ref` ta
 [section unfuzipped]
 
 [heading Description]
-`unfuzipped` reverses `fuzipped`.
+`unfuzipped` は `fuzipped` を逆にする。
 
 [heading Header]
 * `<pstade/oven/unfuzipped.hpp>`
@@ -715,8 +702,8 @@ It takes a pointer to heap allocated _function_object_, whereas `regular_ref` ta
 * _pipable_adaptor_
 
 [heading Notation]
-* `{a1,...,aN}` is `_rng`.
-* `at<RefSeq, I>::type` is `boost::mpl::at_c<RefSeq, I>::type`.
+* `{a1,...,aN}` は `_rng` である。
+* `at<RefSeq, I>::type` は `boost::mpl::at_c<RefSeq, I>::type` である。
 
 [heading Valid expressions]
 [table 
@@ -745,7 +732,7 @@ It takes a pointer to heap allocated _function_object_, whereas `regular_ref` ta
 ]
 
 [heading Preconditions]
-* The corresponding semantics is a valid expression.
+* 対応するセマンティクスは有効な式である。
 
 [heading See also]
 * _oven_elements_
@@ -762,8 +749,7 @@ It takes a pointer to heap allocated _function_object_, whereas `regular_ref` ta
 [section zipped_with]
 
 [heading Description]
-Though `zipped` accepts a function taking a `boost::tuple` as the parameter, such a function is not so common.
-`zipped_with` accepts a "normal" function, then turns it into comfortable one for `zipped` before passing.
+`zipped` は `boost::tuple` を取る関数をパラメータとして受け取るが、そのような関数は一般的ではない。`zipped_with` は "一般的な" 関数を受け取り、それを `zipped` に渡す前に `zipped` が受け取れるようなものに変換する。
 
 [heading Header]
 * `<pstade/oven/zipped_with.hpp>`
@@ -772,7 +758,7 @@ Though `zipped` accepts a function taking a `boost::tuple` as the parameter, suc
 * _pipable_adaptor_
 
 [heading Notation]
-* `fuse` is an imaginary function to turn the argument into the one taking a `boost::tuple` as the parameter.
+* `fuse` は受け取った引数を、`boost::tuple` を引数に取る関数へ変換する、架空の関数である。
 
 [heading Valid expressions]
 [table 
@@ -807,9 +793,9 @@ Though `zipped` accepts a function taking a `boost::tuple` as the parameter, suc
 ]
 
 [heading Preconditions]
-* `u` is a `boost::tuple` or _fusion_forward_sequence_.
-* `u|zipped|X_make_transformed<R>(fuse(_fun))` or `u|fuzipped|X_make_transformed<R>(fuse(_fun))` is a valid expressin.
-* `u|zipped|transformed(fuse(_cal))` or `u|fuzipped|transformed(fuse(_cal))` is a valid expressin.
+* `u` は `boost::tuple` であるか _fusion_forward_sequence_ である。
+* `u|zipped|X_make_transformed<R>(fuse(_fun))` あるいは `u|fuzipped|X_make_transformed<R>(fuse(_fun))` は有効な式である。
+* `u|zipped|transformed(fuse(_cal))` あるいは `u|fuzipped|transformed(fuse(_cal))` は有効な式である。
 
 [heading See also]
 * _oven_pack_
