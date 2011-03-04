@@ -1,6 +1,6 @@
 [section Parallel Algorithms]
 
-Pending section...
+保留中のセクション...
 
 
 
@@ -28,10 +28,10 @@ Pending section...
 ]
 
 [heading Preconditions]
-* `_iter_of<_fwdrng>::type` and `_typeof(it)` are _parallel_safe_.
-* `s` is a grainsize which is convertible to `boost::range_difference<_typeof(_fwdrng)>::type`.
-* `it` is a _forward_ _s_ _writable_ Iterator.
-* The corresponding semantics is a valid expression.
+* `_iter_of<_fwdrng>::type` および `_typeof(it)` は _parallel_safe_ である。
+* `s` は `boost::range_difference<_typeof(_fwdrng)>::type` と交換可能なごく小さなサイズである。
+* `it` は _forward_ _s_ _writable_ イテレータである。
+* 対応するセマンティクスは有効な式である。
 
 [heading Example]
 
@@ -67,9 +67,9 @@ Pending section...
 ]
 
 [heading Preconditions]
-* `_iter_of<_fwdrng1>::type`, `_iter_of<_fwdrng2>::type` and `_prd` are _parallel_safe_.
-* `s` is a grainsize which is convertible to `boost::range_difference<_typeof(_fwdrng1)>::type`.
-* The corresponding semantics is a valid expression.
+* `_iter_of<_fwdrng1>::type`, `_iter_of<_fwdrng2>::type` と `_prd` は _parallel_safe_ である。
+* `s` は `boost::range_difference<_typeof(_fwdrng1)>::type` と交換可能なごく小さなサイズである。
+* 対応するセマンティクスは有効な式である。
 
 [heading Example]
 
@@ -101,9 +101,9 @@ Pending section...
 ]
 
 [heading Preconditions]
-* `_iter_of<_fwdrng>::type` and `_fun` are _parallel_safe_.
-* `s` is a grainsize which is convertible to `boost::range_difference<_typeof(_fwdrng)>::type`.
-* The corresponding semantics is a valid expression.
+* `_iter_of<_fwdrng>::type` と `_fun` は _parallel_safe_ である。
+* `s` は `boost::range_difference<_typeof(_fwdrng)>::type` と交換可能なごく小さなサイズである。
+* 対応するセマンティクスは有効な式である。
 
 [heading Example]
 
@@ -123,7 +123,7 @@ Pending section...
 * _static_function_object_
 
 [heading Notation]
-* `V` is `_value_of<_typeof(_fwdrng)>::type`.
+* `V` は `_value_of<_typeof(_fwdrng)>::type` である。
 
 [heading Valid expressions]
 [table 
@@ -142,11 +142,11 @@ Pending section...
 ]
 
 [heading Preconditions]
-* `_iter_of<_fwdrng>::type` and `_fun` are _parallel_safe_.
-* `s` is a grainsize which is convertible to `boost::range_difference<_typeof(_fwdrng)>::type`.
-* `!boost::empty(_fwdrng)` in the case of the first expression.
-* The corresponding semantics is a valid expression.
-* `_fun` is [@http://planetmath.org/encyclopedia/Associative.html associative].
+* `_iter_of<_fwdrng>::type` と `_fun` は _parallel_safe_ である。
+* `s` は `boost::range_difference<_typeof(_fwdrng)>::type` と交換可能なごく小さなサイズである。
+* 最初の式の場合、 `!boost::empty(_fwdrng)` となる。
+* 対応するセマンティクスは有効な式である。
+* `_fun` は [@http://planetmath.org/encyclopedia/Associative.html associative] である。
 
 [heading Example]
 
@@ -182,9 +182,9 @@ Pending section...
 ]
 
 [heading Preconditions]
-* `_iter_of<_rndrng>::type` and `_fun` are _parallel_safe_.
-* `s` is a grainsize which is convertible to `boost::range_difference<_typeof(_rndrng)>::type`.
-* The corresponding semantics is a valid expression.
+* `_iter_of<_rndrng>::type` と `_fun` は _parallel_safe_ である。
+* `s` は `boost::range_difference<_typeof(_rndrng)>::type` と交換可能なごく小さなサイズである。
+* 対応するセマンティクスは有効な式である。
 
 [heading Example]
 
