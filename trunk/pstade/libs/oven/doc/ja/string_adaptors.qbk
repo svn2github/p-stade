@@ -1,6 +1,6 @@
 [section String Adaptors]
 
-String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
+String Adaptor は 文字列用の [link oven.range_adaptors Range Adaptor] である。
 
 
 
@@ -8,7 +8,7 @@ String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
 [section broken_into]
 
 [heading Description]
-* `broken_into` is a range adaptor version of `boost::tokenizer`.
+* `broken_into` は `boost::tokenizer` の range アダプタ バージョン である。
 
 [heading Header]
 * `<pstade/oven/broken_into.hpp>`
@@ -24,7 +24,7 @@ String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
     [
         [`X_make_broken_into<V>`]
         [
-            A _major_function_object_ type
+            _major_function_object_ 型
         ]
     ]
     [
@@ -42,8 +42,8 @@ String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
 ]
 
 [heading Preconditions]
-* `k` is a TokenizerFunction.
-* `T` is `boost::token_iterator<_typeof(k), _iter_of<_typeof(_rng)>::type, V>` such that `T(k, _begin(_rng), _end(_rng))` is a valid expression.
+* `k` は TokenizerFunction である。
+* `T` は `T(k, _begin(_rng), _end(_rng))` が有効な式であるような `boost::token_iterator<_typeof(k), _iter_of<_typeof(_rng)>::type, V>` である。
 
 [heading Example]
     int const offsets[] = { 2,2,4 };
@@ -74,7 +74,7 @@ String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
 [section lower_chars]
 
 [heading Description]
-`lower_chars` performs case-conversion on all characters in the base range.
+`lower_chars` はベースとなる range 内のすべての文字に対して大文字小文字変換を行う。
 
 [heading Header]
 * `<pstade/oven/lower_chars.hpp>`
@@ -83,8 +83,8 @@ String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
 * _pipable_adaptor_
 
 [heading Notation]
-* `loc` is a `std::locale` object.
-* `to_l` is an imaginary function object to call `std::tolower` using `loc`.
+* `loc` は `std::locale` オブジェクトである。
+* `to_l` は `loc` を使った `std::tolower` を呼び出す架空の関数オブジェクトである。
 
 [heading Valid expressions]
 [table 
@@ -107,7 +107,7 @@ String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
 ]
 
 [heading Preconditions]
-* `std::tolower(*boost::begin(_rng), loc)` is well-formed.
+* `std::tolower(*boost::begin(_rng), loc)` は適格である。
 
 [heading Example]
     BOOST_CHECK( equals(
@@ -128,7 +128,7 @@ String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
 [section upper_chars]
 
 [heading Description]
-`upper_chars` performs case-conversion on all characters in the base range.
+`upper_chars` はベースとなる range 内のすべての文字に対して大文字小文字変換を行う。
 
 [heading Header]
 * `<pstade/oven/upper_chars.hpp>`
@@ -137,8 +137,8 @@ String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
 * _pipable_adaptor_
 
 [heading Notation]
-* `loc` is a `std::locale` object.
-* `to_u` is an imaginary function object to call `std::toupper` using `loc`.
+* `loc` は `std::locale` オブジェクトである。
+* `to_u` は `loc` を使った `std::toupper` を呼び出す架空の関数オブジェクトである。
 
 [heading Valid expressions]
 [table 
@@ -161,7 +161,7 @@ String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
 ]
 
 [heading Preconditions]
-* `std::toupper(*boost::begin(_rng), loc)` is well-formed.
+* `std::toupper(*boost::begin(_rng), loc)` は適格である。
 
 [heading Example]
     BOOST_CHECK( equals(
@@ -189,8 +189,8 @@ String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
 * _pipable_adaptor_
 
 [heading Notation]
-* `loc` is a `std::locale` object.
-* `to_n` is an imaginary function object to call `narrow` using `loc`.
+* `loc` は `std::locale` オブジェクトである。
+* `to_n` は `loc` を使った `narrow` を呼び出す架空の関数オブジェクトである。
 
 [heading Valid expressions]
 [table 
@@ -213,7 +213,7 @@ String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
 ]
 
 [heading Preconditions]
-* `std::use_facet< std::ctype<_value_of<_typeof(_rng)>::type> >(loc).narrow(*boost::begin(_rng))` is well-formed.
+* `std::use_facet< std::ctype<_value_of<_typeof(_rng)>::type> >(loc).narrow(*boost::begin(_rng))` は適格である。
 
 [heading Example]
 
@@ -237,8 +237,8 @@ String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
 * _pipable_adaptor_
 
 [heading Notation]
-* `loc` is a `std::locale` object.
-* `to_w` is an imaginary function object to call `widen` using `loc`.
+* `loc` は `std::locale` オブジェクトである。
+* `to_w` は `loc` を使った `widen` を呼び出す架空の関数オブジェクトである。
 
 [heading Valid expressions]
 [table 
@@ -267,7 +267,7 @@ String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
 ]
 
 [heading Preconditions]
-* `std::use_facet< std::ctype<CharT> >(loc).widen(*boost::begin(_rng))` is well-formed.
+* `std::use_facet< std::ctype<CharT> >(loc).widen(*boost::begin(_rng))` は適格である。
 
 [heading Example]
 
@@ -283,7 +283,7 @@ String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
 [section string_found]
 
 [heading Description]
-`string_found` returns a `boost::find_iterator` range.
+`string_found` は `boost::find_iterator` の range を返す。
 
 [heading Header]
 * `<pstade/oven/string_found.hpp>`
@@ -306,8 +306,8 @@ String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
 ]
 
 [heading Preconditions]
-* `f` is a Finder.
-* `T` is `boost::find_iterator<_iter_of<_typeof(_rng)>::type>` such that `T(_rng, f)` is a valid expression.
+* `f` は Finder である。
+* `T` は `T(_rng, f)` が有効な式であるような `boost::find_iterator<_iter_of<_typeof(_rng)>::type>` である。
 
 [heading Example]
 
@@ -321,7 +321,7 @@ String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
 [section string_split]
 
 [heading Description]
-`string_split` returns a `boost::split_iterator` range.
+`string_split` は `boost::split_iterator` の range を返す。
 
 [heading Header]
 * `<pstade/oven/string_split.hpp>`
@@ -344,8 +344,8 @@ String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
 ]
 
 [heading Preconditions]
-* `f` is a Finder.
-* `T` is `boost::split_iterator<_iter_of<_typeof(_rng)>::type>` such that `T(_rng, f)` is a valid expression.
+* `f` は Finder である。
+* `T` は `T(_rng, f)` が有効な式であるような `boost::split_iterator<_iter_of<_typeof(_rng)>::type>` である。
 
 [heading Example]
 
@@ -360,7 +360,7 @@ String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
 [section matches]
 
 [heading Description]
-`matches` returns a `boost::regex_iterator` range.
+`matches` は `boost::regex_iterator` の range を返す。
 
 [heading Header]
 * `<pstade/oven/matches.hpp>`
@@ -377,7 +377,7 @@ String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
     [
         [`X_make_matches<X1,...,XN>`]
         [
-            A _major_function_object_ type
+            _major_function_object_ 型
         ]
     ]
     [
@@ -395,10 +395,10 @@ String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
 ]
 
 [heading Preconditions]
-* `T` is `boost::regex_iterator<_iter_of<_typeof(_bidrng)>::type, X1,...,XN>` such that `T(_begin(_bidrng), _end(_bidrng), y0,...,yM)` is a valid expression.
+* `T` は `T(_begin(_bidrng), _end(_bidrng), y0,...,yM)` が有効な式であるような `boost::regex_iterator<_iter_of<_typeof(_bidrng)>::type, X1,...,XN>` である。
 
 [heading Invariants]
-* The iterator type of `matches` range is not _parallel_safe_.
+* `matches` range のイテレータの型は _parallel_safe_ ではない。
 
 [heading Example]
 
@@ -414,7 +414,7 @@ String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
 [section tokenized]
 
 [heading Description]
-`tokenized` returns a `boost::regex_token_iterator` range.
+`tokenized` は `boost::regex_token_iterator` の range を返す。
 
 [heading Header]
 * `<pstade/oven/tokenized.hpp>`
@@ -431,7 +431,7 @@ String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
     [
         [`X_make_tokenized<Y1,...,YN>`]
         [
-            A _major_function_object_ type
+            _major_function_object_ 型
         ]
     ]
     [
@@ -449,10 +449,10 @@ String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
 ]
 
 [heading Preconditions]
-* `T` is `boost::regex_token_iterator<_iter_of<_typeof(_bidrng)>::type, Y1,...,YN>` such that `T(_begin(_bidrng), _end(_bidrng), x1,...,xM)` is a valid expression.
+* `T` は `T(_begin(_bidrng), _end(_bidrng), x1,...,xM)` が有効な式であるような `boost::regex_token_iterator<_iter_of<_typeof(_bidrng)>::type, Y1,...,YN>` である。
 
 [heading Invariants]
-* The iterator type of `tokenized` range is not _parallel_safe_.
+* `tokenized` range の イテレータの型は _parallel_safe_ ではない。
 
 [heading Example]
 
@@ -468,7 +468,7 @@ String Adaptor is [link oven.range_adaptors Range Adaptor] for strings.
 [section utf8_decoded]
 
 [heading Description]
-Pending...
+保留中...
 
 [heading Header]
 * `<pstade/oven/utf8_decoded.hpp>`
@@ -485,13 +485,13 @@ Pending...
     [
         [`X_make_utf8_decoded<U1,...,UN>`]
         [
-            A _major_function_object_ type
+            _major_function_object_ 型
         ]
     ]
     [
         [`X_make_utf8_decoded<U1,...,UN>()(_fwdrng)`]
         [
-            An up-to-_bidirectional_ non-_lvalue_ _constant_ `[T(_begin(_fwdrng)), T(_end(_fwdrng)))`
+            _bidirectional_ を満たし _lvalue_ でない _constant_ な `[T(_begin(_fwdrng)), T(_end(_fwdrng)))`
         ]
     ]
     [
@@ -503,8 +503,8 @@ Pending...
 ]
 
 [heading Preconditions]
-* `_fwdrng` is _readable_.
-* `T` is `boost::u8_to_u32_iterator<_iter_of<_typeof(_fwdrng)>::type, U1,...,UN>` such that `T(_begin(_fwdrng))` is a valid expression.
+* `_fwdrng` は _readable_ である。
+* `T` は `T(_begin(_fwdrng))` が有効な式であるような `boost::u8_to_u32_iterator<_iter_of<_typeof(_fwdrng)>::type, U1,...,UN>` である。
 
 [heading Example]
     file_range<boost::uint8_t> frng("utf8.txt");
@@ -525,7 +525,7 @@ Pending...
 [section utf8_encoded]
 
 [heading Description]
-Pending...
+保留中...
 
 [heading Header]
 * `<pstade/oven/utf8_encoded.hpp>`
@@ -542,13 +542,13 @@ Pending...
     [
         [`X_make_utf8_encoded<U1,...,UN>`]
         [
-            A _major_function_object_ type
+            _major_function_object_ 型
         ]
     ]
     [
         [`X_make_utf8_encoded<U1,...,UN>()(_rng)`]
         [
-            An up-to-_bidirectional_ non-_lvalue_ _constant_ `[T(_begin(_rng)), T(_end(_rng)))`
+            _bidirectional_ を満たし _lvalue_ でない _constant_ な `[T(_begin(_rng)), T(_end(_rng)))`
         ]
     ]
     [
@@ -560,8 +560,8 @@ Pending...
 ]
 
 [heading Preconditions]
-* `_rng` is _readable_.
-* `T` is `boost::u32_to_u8_iterator<_iter_of<_typeof(_rng)>::type, U1,...,UN>` such that `T(_begin(_rng))` is a valid expression.
+* `_rng` は _readable_ である。
+* `T` は `T(_begin(_rng))` が有効な式であるような `boost::u32_to_u8_iterator<_iter_of<_typeof(_rng)>::type, U1,...,UN>` である。
 
 [heading Example]
 
@@ -595,13 +595,13 @@ Pending...
     [
         [`X_make_utf16_decoded<U1,...,UN>`]
         [
-            A _major_function_object_ type
+            _major_function_object_ 型
         ]
     ]
     [
         [`X_make_utf16_decoded<U1,...,UN>()(_fwdrng)`]
         [
-            An up-to-_bidirectional_ non-_lvalue_ _constant_ `[T(_begin(_fwdrng)), T(_end(_fwdrng)))`
+            _bidirectional_ を満たし _lvalue_ でない _constant_ な `[T(_begin(_fwdrng)), T(_end(_fwdrng)))`
         ]
     ]
     [
@@ -613,8 +613,8 @@ Pending...
 ]
 
 [heading Preconditions]
-* `_fwdrng` is _readable_.
-* `T` is `boost::u16_to_u32_iterator<_iter_of<_typeof(_fwdrng)>::type, U1,...,UN>` such that `T(_begin(_fwdrng))` is a valid expression.
+* `_fwdrng` は _readable_ である。
+* `T` は `T(_begin(_fwdrng))` が有効な式であるような `boost::u16_to_u32_iterator<_iter_of<_typeof(_fwdrng)>::type, U1,...,UN>` である。
 
 [heading Example]
 
@@ -631,7 +631,7 @@ Pending...
 [section utf16_encoded]
 
 [heading Description]
-Pending...
+保留中...
 
 [heading Header]
 * `<pstade/oven/utf16_encoded.hpp>`
@@ -648,13 +648,13 @@ Pending...
     [
         [`X_make_utf16_encoded<U1,...,UN>`]
         [
-            A _major_function_object_ type
+            _major_function_object_ 型
         ]
     ]
     [
         [`X_make_utf16_encoded<U1,...,UN>()(_rng)`]
         [
-            An up-to-_bidirectional_ non-_lvalue_ _constant_ `[T(_begin(_rng)), T(_end(_rng)))`
+            _bidirectional_ を満たし _lvalue_ でない _constant_ な `[T(_begin(_rng)), T(_end(_rng)))`
         ]
     ]
     [
@@ -666,8 +666,8 @@ Pending...
 ]
 
 [heading Preconditions]
-* `_rng` is _readable_.
-* `T` is `boost::u32_to_u16_iterator<_iter_of<_typeof(_rng)>::type, U1,...,UN>` such that `T(_begin(_rng))` is a valid expression.
+* `_rng` は _readable_ である。
+* `T` は `T(_begin(_rng))` が有効な `boost::u32_to_u16_iterator<_iter_of<_typeof(_rng)>::type, U1,...,UN>` である。
 
 [heading Example]
 
@@ -684,7 +684,7 @@ Pending...
 [section xpressive_matches]
 
 [heading Description]
-`xpressive_matches` returns a `boost::xpressive::regex_iterator` range.
+`xpressive_matches` は `boost::xpressive::regex_iterator` range を返す。
 
 [heading Header]
 * `<pstade/oven/xpressive_matches.hpp>`
@@ -707,10 +707,10 @@ Pending...
 ]
 
 [heading Preconditions]
-* `T` is `boost::xpressive::regex_iterator<boost::range_const_iterator<_typeof(_bidrng)>::type>` such that `T(_begin(_bidrng), _end(_bidrng), x1,...,xN)` is a valid expression.
+* `T` は  `T(_begin(_bidrng), _end(_bidrng), x1,...,xN)` が有効な式であるような `boost::xpressive::regex_iterator<boost::range_const_iterator<_typeof(_bidrng)>::type>` である。
 
 [heading Invariants]
-* The iterator type of `xpressive_matches` range is not _parallel_safe_.
+* `xpressive_matches` range の イテレータの型は _parallel_safe_ ではない。
 
 [heading Example]
 
@@ -727,7 +727,7 @@ Pending...
 [section xpressive_tokenized]
 
 [heading Description]
-`xpressive_tokenized` returns a `boost::xpressive::regex_token_iterator` range.
+`xpressive_tokenized` は `boost::xpressive::regex_token_iterator` の range を返す。
 
 [heading Header]
 * `<pstade/oven/xpressive_tokenized.hpp>`
@@ -750,10 +750,10 @@ Pending...
 ]
 
 [heading Preconditions]
-* `T` is `boost::xpressive::regex_token_iterator<boost::range_const_iterator<_typeof(_bidrng)>::type>` such that `T(_begin(_bidrng), _end(_bidrng), x1,...,xN)` is a valid expression.
+* `T` は `T(_begin(_bidrng), _end(_bidrng), x1,...,xN)` が有効な式であるような `boost::xpressive::regex_token_iterator<boost::range_const_iterator<_typeof(_bidrng)>::type>` である。
 
 [heading Invariants]
-* The iterator type of `xpressive_tokenized` range is not _parallel_safe_.
+* `xpressive_tokenized` range のイテレータの型は _parallel_safe_ ではない。
 
 [heading Example]
 
@@ -770,3 +770,4 @@ Pending...
 
 
 [endsect]
+
