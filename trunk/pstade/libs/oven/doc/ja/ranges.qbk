@@ -1,21 +1,19 @@
 [section Ranges]
 
-Oven provides many useful predefined ranges.
-
+Oven は有用な range を多数備えている。
 
 
 
 [section any_range]
 
 [heading Description]
-Though Oven supports _boost_result_of_, it is often cumbersome to get the type of the adapted range.
-`any_range` behaves as the type erasure of ranges.
+Oven は _boost_result_of_ をサポートしているが、 range に適合した型にするのが大抵面倒である。 `any_range` は range の type erasure として機能する。
 
 [heading Header]
 * `<pstade/oven/any_range.hpp>`
 
 [heading Model of]
-* _range_ whose traversal category varies according to the template argument `C`.
+* _range_ は、テンプレート引数 `C` に応じてトラバーサルカテゴリが変わる。
 * _assignable_
 * _copy_constructible_
 * _default_constructible_
@@ -30,7 +28,7 @@ Though Oven supports _boost_result_of_, it is often cumbersome to get the type o
     [
         [`any_range<R, C>(_rng)`]
         [
-            `[_begin(_rng), _end(_rng))`, whose `boost::range_reference` type is `R`.
+            `[_begin(_rng), _end(_rng))` 、このとき、 `boost::range_reference` 型は `R` である。
         ]
     ]
     [
@@ -40,10 +38,10 @@ Though Oven supports _boost_result_of_, it is often cumbersome to get the type o
 ]
 
 [heading Preconditions]
-* `boost::range_reference<_typeof(_rng)>::type` is convertible to `R` without binding /reference/ to /rvalue/.
-* `C` is convertible to `boost::single_pass_traversal_tag`.
-* `boost::range_traversal<_typeof(_rng)>::type` is convertible to `C`.
-* `_rng0` is a range returned from Oven _function_object_ and meets the preconditions of `_rng`.
+* `boost::range_reference<_typeof(_rng)>::type` は /rvalue/ への /reference/ を束縛していなければ `R` と交換可能である。
+* `C` は `boost::single_pass_traversal_tag` と交換可能である。
+* `boost::range_traversal<_typeof(_rng)>::type` は `C` と交換可能である。
+* `_rng0` は Oven _function_object_ から返される range であり、 `_rng` の前提条件を満たす。
 
 [heading Example]
     any_range<int, boost::single_pass_traversal_tag> factorials =
@@ -66,9 +64,7 @@ Though Oven supports _boost_result_of_, it is often cumbersome to get the type o
 [section any_indexed]
 
 [heading Description]
-Iterators of _random_access_ `any_range` may require heap allocation to copy,
-whereas `any_indexed` offers lightweight-copyable iterators in return for
-some extra preconditions.
+_random_access_ `any_range` のイテレータはコピーのためにヒープアロケーションが必要となる可能性があるが、より制限がきつい `any_indexed` は軽量なコピー可能イテレータを提供する。
 
 [heading Header]
 * `<pstade/oven/any_indexed.hpp>`
@@ -95,9 +91,9 @@ some extra preconditions.
 ]
 
 [heading Preconditions]
-* The corresponding semantics is a valid expression.
-* If `R` is a /reference type/, a range which initialize or is assigned to `any_indexed<R>` is a _lvalue_ _s_ _range_.
-* `any_indexed<R>` is not recursive.
+* 対応するセマンティクスは有効な式である。
+* `R` が /reference type/ のとき、 初期化、 もしくは `any_indexed<R>` に割り当てられた range は _lvalue_ _s_ _range_ である。
+* `any_indexed<R>` は再帰できない。
 
 [heading Example]
 
@@ -114,8 +110,7 @@ some extra preconditions.
 [section array_range]
 
 [heading Description]
-`array_range` is a noncopyable _random_access_ _range_ which delivers
-a range presentation of dynamically allocated arrays.
+`array_range` は noncopyable な、動的にアロケートされた配列の range を表現する _random_access_ _range_ である。
 
 [heading Header]
 * `<pstade/oven/array_range.hpp>`
@@ -132,12 +127,12 @@ a range presentation of dynamically allocated arrays.
     ]
     [
         [`array_range<T>(sz)`]
-        [`[x, x + sz)`, where `x = new T[sz]`.]
+        [`x = new T[sz]` の場合、 `[x, x + sz)`。]
     ]
 ]
 
 [heading Preconditions]
-* `new T[sz]` is a valid expression.
+* `new T[sz]` は有効な式である。
 
 [heading Example]
     std::string str("hello, array_range!");
@@ -159,7 +154,7 @@ a range presentation of dynamically allocated arrays.
 [section directory_range]
 
 [heading Description]
-`directory_range` is a _single_pass_ _range_ which accesses the contents of a directory.
+`directory_range` はディレクトリの内容を読み取る _single_pass_ _range_ である。
 
 [heading Header]
 * `<pstade/oven/directory_range.hpp>`
@@ -194,7 +189,7 @@ a range presentation of dynamically allocated arrays.
 ]
 
 [heading Preconditions]
-* `T` is `boost::filesystem::basic_directory_iterator<P>` such that `T(p)` is a valid expression.
+* `T` は `T(p)` が有効な式である場合において、 `boost::filesystem::basic_directory_iterator` である。
 
 [heading Example]
     BOOST_FOREACH (
@@ -214,7 +209,7 @@ a range presentation of dynamically allocated arrays.
 [section empty_range]
 
 [heading Description]
-`empty_range` is a _random_access_ _range_ which is always empty.
+`empty_range` は常に空の _random_access_ _range_ である。
 
 [heading Header]
 * `<pstade/oven/empty_range.hpp>`
@@ -249,10 +244,10 @@ a range presentation of dynamically allocated arrays.
 [section file_range]
 
 [heading Description]
-`file_range` is a _random_access_ _constant_ _range_ for files.
-If the file opening failed, the range is empty.
+`file_range` はファイルの _random_access_ _constant_ _range_ である。
+ファイルオープンに失敗した場合、 range は空である。
 
-[note `file_range` is "binary"; any automatic conversion isn't performed.]
+[note `file_range` は "binary" である。また、いかなる自動変換も行わない。]
 
 [heading Header]
 * `<pstade/oven/file_range.hpp>`
@@ -262,7 +257,7 @@ If the file opening failed, the range is empty.
 * _constant_ _s_ _range_
 
 [heading Notation]
-* `r` is a `file_range<X1,...,XN>`.
+* `r` は `file_range<X1,...,XN>` である。
 
 [heading Valid expressions]
 [table 
@@ -278,7 +273,7 @@ If the file opening failed, the range is empty.
     ]
     [
         [`r.is_open()`]
-        [Returns `true` if and only if the file has successfully been opened.]
+        [ファイルが正常にオープンされた場合 `true` を返す。]
     ]
 ]
 
@@ -286,9 +281,9 @@ If the file opening failed, the range is empty.
 * `!r.is_open() ? boost::empty(r) : true`
 
 [heading Preconditions]
-* `T` is `boost::spirit::file_iterator<X1,...,XN>` such that `T(s)` is a valid expression.
+* `T` は `T(s)` が有効な式である場合において、 `boost::spirit::file_iterator<X1,...,XN>` である。
 
-[note In the current implementation, an empty file is not opened. So `is_open()` can't tell whether a file exists or not.]
+[note 現行の実装では空のファイルはオープンできない。このため `is_open()` はファイルの存在を判定するためには利用できない。]
 
 [heading Example]
     std::vector<char> vec;
@@ -307,7 +302,7 @@ If the file opening failed, the range is empty.
 [section as_array]
 
 [heading Description]
-Some versions of _boost_range_ regard `char` array as literal, which `as_array` works around.
+ある種の _boost_range_ は `char` の配列を literal と見做す。`as_array` はこれを回避する。
 
 [heading Header]
 * `<pstade/oven/as_array.hpp>`
@@ -330,7 +325,7 @@ Some versions of _boost_range_ regard `char` array as literal, which `as_array` 
 ]
 
 [heading Preconditions]
-* `a` is an array.
+* `a` は配列である。
 
 [heading Example]
     BOOST_CHECK( distance(as_array("abc\0de")) == 7 );   // contains the trailing null.
@@ -350,7 +345,7 @@ Some versions of _boost_range_ regard `char` array as literal, which `as_array` 
 [section as_c_str]
 
 [heading Description]
-`as_c_str` makes a _random_access_ _range_ from null-terminated c-style string.
+`as_c_str` は ヌル終端のC形式文字列を _random_access_ _range_ にする。
 
 [heading Header]
 * `<pstade/oven/as_c_str.hpp>`
@@ -379,8 +374,8 @@ Some versions of _boost_range_ regard `char` array as literal, which `as_array` 
 ]
 
 [heading Preconditions]
-* `_typeof(s)` is convertible to `char *` or `char const *`.
-* `_typeof(_rng)` is neither convertible to `char *` nor `char const *`.
+* `_typeof(s)` は `char *` または `char const *` と交換可能である。
+* `_typeof(_rng)` は `char *` とも `char const *` とも交換不能である。
 
 [heading See also]
 * _string_algo_proposal_
@@ -395,7 +390,7 @@ Some versions of _boost_range_ regard `char` array as literal, which `as_array` 
 [section as_literal]
 
 [heading Description]
-`as_literal` makes a _random_access_ _range_ from character array.
+`as_literal` は文字配列を _random_access_ _range_ にする。
 
 [heading Header]
 * `<pstade/oven/as_literal.hpp>`
@@ -412,7 +407,7 @@ Some versions of _boost_range_ regard `char` array as literal, which `as_array` 
     [
         [`as_literal(a)`]
         [
-            `[&a[0], &a[0] + sz-1)`, where `sz` is the size of array `a`.
+           `sz` が配列 a のサイズと同じ場合に `[&a[0], &a[0] + sz-1)` 。
         ]
     ]
     [
@@ -424,10 +419,10 @@ Some versions of _boost_range_ regard `char` array as literal, which `as_array` 
 ]
 
 [heading Preconditions]
-* `a` is an array.
-* `x` is not an array.
+* `a` は配列である。
+* `x` は配列ではない。
 
-[important `as_literal` doesn't use `strlen`, while _string_algo_proposal_ does.]
+[important `as_literal` は `strlen` を使わない。一方 _string_algo_proposal_ では利用している。]
 
 [heading See also]
 * _string_algo_proposal_
@@ -442,7 +437,7 @@ Some versions of _boost_range_ regard `char` array as literal, which `as_array` 
 [section block]
 
 [heading Description]
-`block` makes a _single_pass_ _range_ from an _iteration_block_.
+`block` は _iteration_block_ から _single_pass_ _range_ を作る。
 
 [heading Header]
 * `<pstade/oven/block.hpp>`
@@ -451,7 +446,7 @@ Some versions of _boost_range_ regard `char` array as literal, which `as_array` 
 * _static_function_object_
 
 [heading Notation]
-* `yield` is an unspecified unary _function_object_ passed to `b`.
+* unary _function_object_ が `b` に渡された場合、 `yield` は未規定である。
 
 [heading Valid expressions]
 [table 
@@ -462,14 +457,14 @@ Some versions of _boost_range_ regard `char` array as literal, which `as_array` 
     [
         [`block(b)`]
         [
-            A _single_pass_ _range_ whose values are the objects passed to `yield`.
+            `yield` に渡されたオブジェクトの値となる _single_pass_ _range_ 。
         ]
     ]
 ]
 
 [heading Preconditions]
-* `b` is an _iteration_block_.
-* Multithreaded compilation must be invoked.
+* `b` は _iteration_block_ である。
+* マルチスレッド・コンパイルが行われなければならない。
 
 [heading Example]
     struct power
@@ -513,7 +508,7 @@ Some versions of _boost_range_ regard `char` array as literal, which `as_array` 
 [section comprehension]
 
 [heading Description]
-Pending... `comprehension` emulates set-builder notation.
+保留。 `comprehension` は set-builder notation を模倣する。
 
 [heading Header]
 * `<pstade/oven/comprehension.hpp>`
@@ -523,8 +518,8 @@ Pending... `comprehension` emulates set-builder notation.
 
 [heading Notation]
 * `d(I) = distance(_rngI)`
-* `a(1,j)` ia a `j`-th element of `makerng1()`.
-* If `I >= 2`, `a(I,j)` is a `j`-th element of `makerngI(a(I-1, u))`.
+* `a(1,j)` は `makerng1()` の `j` 番目の要素である。
+* もし `I >= 2` であるならば、 `a(I,j)` は `makerngI(a(I-1, u))` の `j` 番目の要素である。
 
 [heading Valid expressions]
 [table 
@@ -535,13 +530,13 @@ Pending... `comprehension` emulates set-builder notation.
     [
         [`comprehension(_fun, _prd, makerng1,...,makerngN)`]
         [
-            A _forward_ _lvalue_ _constant_ `{_fun(a(1,1),a(2,1),...a(N,1)),_fun(a(1,1),a(2,1),...a(N,2)),...,_fun(a(1,1),a(2,1),...a(N,d(N))),...}` but filtered using `_prd`.
+			\_prd でフィルターされた _forward_ _lvalue_ _constant_ `{_fun(a(1,1),a(2,1),...a(N,1)),_fun(a(1,1),a(2,1),...a(N,2)),...,_fun(a(1,1),a(2,1),...a(N,d(N))),...}` 。
         ]
     ]
     [
         [`always_return`]
         [
-            A _static_function_object_
+            _static_function_object_
         ]
     ]
     [
@@ -558,15 +553,15 @@ Pending... `comprehension` emulates set-builder notation.
     ]
 ]
 
-[note A result object of `_fun(...)` is copied, whereas range referents which `makerngI` returns must outlive `comprehension(...)`.] 
+[note `_fun(...)` の結果はコピーされるが、 `makerngI` が返す range は `comprehension(...)` より長い生存期間を持たなければならない。] 
 
 [heading Preconditions]
 * `N <= 3`
-* `_fun` is a `N`-ary _polymorphic_function_object_ or _boost_lambda_ functor.
-* `_typeof(_fun(...))` is _copy_constructible_.
-* For any `I`, `makerngI` is a `I-1`-ary _polymorphic_function_object_ or _boost_lambda_ functor which returns a _range_.
-* `_prd` is `N`-ary.
-* `_typeof(b)` is `bool`.
+* `_fun` は `N`-ary _polymorphic_function_object_ か _boost_lambda_ ファンクタである。
+* `_typeof(_fun(...))` は _copy_constructible_ である。
+* どんな `I` についても、 `makerngI` は `I-1`-ary _polymorphic_function_object_ か _range_ を返す _boost_lambda_ ファンクタである。
+* `_prd` は `N`-ary である。
+* `_typeof(b)` は `bool` である。
 
 [heading Example]
     namespace bll = boost::lambda;
@@ -619,7 +614,7 @@ Pending... `comprehension` emulates set-builder notation.
 [section counting]
 
 [heading Description]
-`counting` makes a `boost::counting_iterator` range, which is not a _lvalue_ _range_.
+`counting` は _lvalue_ _range_ ではない `boost::counting_iterator` range を作る。
 
 [heading Header]
 * `<pstade/oven/counting.hpp>`
@@ -636,7 +631,7 @@ Pending... `comprehension` emulates set-builder notation.
     [
         [`X_counting<X1,...,XN>`]
         [
-            A _major_function_object_ type
+            _major_function_object_ 型
         ]
     ]
     [
@@ -657,7 +652,7 @@ Pending... `comprehension` emulates set-builder notation.
 
 [heading Preconditions]
 * `0 <= N && N <= 2`
-* `T` is `boost::counting_iterator<_typeof(j), X1,...,XN>` such that `T(i)` and `T(j)` is a valid expression.
+* `T` は `T(i)` and `T(j)` が有効な式となる `boost::counting_iterator<_typeof(j), X1,...,XN>` である。
 
 [heading Example]
     int ans[] = { 2, 3, 4, 5, 6 };
@@ -679,7 +674,7 @@ Pending... `comprehension` emulates set-builder notation.
 [section generation]
 
 [heading Description]
-`generation` makes a _single_pass_ _range_ from a _stoppable_generator_.
+`generation` は _stoppable_generator_ から _single_pass_ _range_ を作る。
 
 [heading Header]
 * `<pstade/oven/generation.hpp>`
@@ -696,15 +691,15 @@ Pending... `comprehension` emulates set-builder notation.
     [
         [`generation(g)`]
         [
-            The longest _single_pass_ `{*g(),*g(),*g(),...,*g()}` such that `g()` is not /uninitialized/.
+            `g()` が /uninitialized/ ではない場合、最長の _single_pass_ `{*g(),*g(),*g(),...,*g()}` を生成する。
         ]
     ]
 ]
 
 [heading Preconditions]
-* `g` is a nullary _stoppable_generator_.
-* `g` is _assignable_.
-* `_typeof(*g())` is _copy_constructible_ and _assignable_.
+* `g` は nullary _stoppable_generator_ である。
+* `g` は _assignable_ である。
+* `_typeof(*g())` は _copy_constructible_ かつ _assignable_ である。
 
 [heading Example]
     struct rand_generator
@@ -745,7 +740,7 @@ Pending... `comprehension` emulates set-builder notation.
 [section hetero]
 
 [heading Description]
-`hetero` runs through a "tuple".
+`hetero` は "tuple" を走査する。
 
 [heading Header]
 * `<pstade/oven/hetero.hpp>`
@@ -753,7 +748,7 @@ Pending... `comprehension` emulates set-builder notation.
 [heading Model of]
 
 [heading Notation]
-* `N` is `boost::fusion::result_of::size<_typeof(tup)>::type::value`.
+* `N` は `boost::fusion::result_of::size<_typeof(tup)>::type::value` である。
 
 [heading Valid expressions]
 [table 
@@ -764,13 +759,13 @@ Pending... `comprehension` emulates set-builder notation.
     [
         [`X_hetero<Ref>`]
         [
-            A _major_function_object_ type
+            _major_function_object_ 型
         ]
     ]
     [
         [`X_hetero<Ref>()(tup)`]
         [
-            A _random_access_ `{(Ref)boost::fusion::at_c<0>(tup),...,(Ref)boost::fusion::at_c<N-1>(tup)}`
+            _random_access_ `{(Ref)boost::fusion::at_c<0>(tup),...,(Ref)boost::fusion::at_c<N-1>(tup)}`
         ]
     ]
     [
@@ -782,10 +777,9 @@ Pending... `comprehension` emulates set-builder notation.
 ]
 
 [heading Preconditions]
-* `tup` is a _fusion_forward_sequence_ or `boost::tuple<...>`.
+* `tup` は _fusion_forward_sequence_ か `boost::tuple<...>` である。
 * `0 <= N && N < 20`.
-* For all `I` such that `0 <= I && I < N`, `Ref` is convertible to `boost::fusion::result_of::at_c<_typeof(tup), I>::type`
-  without binding a reference to rvalue.
+* `0 <= I && I < N` を満たす全ての `I` について、`Ref` は rvalue への reference を束縛していなければ `boost::fusion::result_of::at_c<_typeof(tup), I>::type` と交換可能である。
 
 [heading Example]
     rectangle r; triangle t; circle c;
@@ -805,7 +799,7 @@ Pending... `comprehension` emulates set-builder notation.
 [section initial_values]
 
 [heading Description]
-`initial_values` emulates initializer-lists.
+`initial_values` は initializer-lists を模倣する。
 
 [heading Header]
 * `<pstade/oven/initial_values.hpp>`
@@ -822,13 +816,13 @@ Pending... `comprehension` emulates set-builder notation.
     [
         [`X_initial_values<T>`]
         [
-            A _major_function_object_ type
+            _major_function_object_ 型
         ]
     ]
     [
         [`X_initial_values<T>()(a1,...,aN)`]
         [
-            A _random_access_ _readable_ _lvalue_ _constant_ `{a1,...,aN}`
+            _random_access_ _readable_ _lvalue_ _constant_ `{a1,...,aN}`
         ]
     ]
     [
@@ -846,22 +840,21 @@ Pending... `comprehension` emulates set-builder notation.
     [
         [`initial_values`]
         [
-            `X_initial_values<t>()`, where `t` is deduced from the first argument.
+            `X_initial_values<t>()` 、この文脈において `t` は最初の引数から推論される。
         ]
     ]
 ]
 
-[note Every `aK` is copied, meaning that they are not referenced from Oven later.]
+[note 全ての `aK` はコピーされる。このため、以降これらは Oven から参照されない。]
 
 [heading Preconditions]
 * `1 <= N && N <= 20`
-* `_typeof(aK)` is _copy_constructible_ for all `K` such that `1 <= K && K <= N`.
-* `_typeof(aK)` is convertible to `_typeof(a1)` for all `K` such that `2 <= K && K <= N`.
-* `Rng rng = X_initial_values<T>()(a1,...,aN)|copied;` is a valid expression.
-* `Rng2 rng2(X_initial_values<T>()(a1,...,aN)|copied);` is a valid expression.
+* `_typeof(aK)` は `1 <= K && K <= N` を満たす全ての `K` について _copy_constructible_ である。
+* `_typeof(aK)` は `2 <= K && K <= N` を満たす全ての `K` について `_typeof(a1)` と交換可能である。
+* `Rng rng = X_initial_values<T>()(a1,...,aN)|copied;` は有効な式である。
+* `Rng2 rng2(X_initial_values<T>()(a1,...,aN)|copied);` は有効な式である。
 
-[tip `initial_values` trades unlimited arity for the lightweight initialization of `boost::array`.
-      Also, it doesn't require the arguments to be _assignable_.]
+[tip `initial_values` は軽量な `boost::array` の初期化を行うために引数の制限を設けた。また、 `initial_values` は引数が _assignable_ でなくてもよい。]
 
 [heading Example]
     int const ans[] = { 1,5,3,6,1,3,7,1,4,2,2 };
@@ -881,11 +874,9 @@ Pending... `comprehension` emulates set-builder notation.
 [section iteration]
 
 [heading Description]
-`iteration` makes an infinite _forward_ _range_ where the first item is calculated by applying the function
-on the first argument, the second item by applying the function on the previous result and so on.
+`iteration` は第一引数が最初の項目となり、以降の項目は一つ前の項目に関数を適用した結果となるような無限の _forward_ _range_ を作る。
 
-[note Strictly speaking, the range concept doesn't allow an infinite range.
-      So assume here the end iterator is reachable from the begin iterator in the googolplex number of increments.]
+[note 厳密には _range_ の概念は無限の _range_ を認めていない。よって、ここでは end iterator は begin iterator から天文学的にインクリメントすれば到達可能であると見做す。]
 
 [heading Header]
 * `<pstade/oven/iteration.hpp>`
@@ -894,7 +885,7 @@ on the first argument, the second item by applying the function on the previous 
 * _static_function_object_
 
 [heading Notation]
-* `just` is an imaginary function object such that `y -> boost::optional<_typeof(x)>(y)`.
+* `just` は `y -> boost::optional<_typeof(x)>(y)` となる架空の関数オブジェクトである。
 
 [heading Valid expressions]
 [table 
@@ -911,7 +902,7 @@ on the first argument, the second item by applying the function on the previous 
 ]
 
 [heading Preconditions]
-* The corresponding semantics is a valid expression.
+* 対応するセマンティクスは有効な式である。
 
 [heading Example]
     int answer[] = { 1,2,4,8,16 };
@@ -932,8 +923,7 @@ on the first argument, the second item by applying the function on the previous 
 [section make_range]
 
 [heading Description]
-Types defined in Oven is so hardhead that you can't /copy-initialize/ `any_range` by third-party ranges.
-So, you sometimes have to call `make_range`, which turns a range into Oven compatible iterator-range.
+Oven で定義される型は非常に厳密であるためサードパーティの _range_ から `any_range` を /copy-initialize/ できない。このため、時として `make_range` を呼ぶ必要に迫られるかもしれない。これは外部の range を Oven 互換の iterator-range に変換する。
 
 [heading Header]
 * `<pstade/oven/make_range.hpp>`
@@ -962,7 +952,7 @@ So, you sometimes have to call `make_range`, which turns a range into Oven compa
 ]
 
 [heading Preconditions]
-* The corresponding semantics is a valid expression.
+* 対応するセマンティクスは有効な式である。
 
 [heading See also]
 * _oven_any_range_
@@ -976,7 +966,7 @@ So, you sometimes have to call `make_range`, which turns a range into Oven compa
 [section recursion]
 
 [heading Description]
-Pending... `recursion`, collaborating with _oven_any_range_, creates a recursive range.
+保留。 `recursion` は _oven_any_range_ と組み合わせて再帰 range を作る。
 
 [heading Header]
 * `<pstade/oven/recursion.hpp>`
@@ -993,14 +983,14 @@ Pending... `recursion`, collaborating with _oven_any_range_, creates a recursive
     [
         [`recursion(_fwdrng)`]
         [
-            An up-to-_bidirectional_ `[_begin(_fwdrng), _end(_fwdrng))`
+            up-to-_bidirectional_ `[_begin(_fwdrng), _end(_fwdrng))`
         ]
     ]
 ]
 
 [heading Preconditions]
-* `_fwdrng` is an `any_range`.
-* Every `memoized` in the base range takes its own `memo_table` object.
+* `_fwdrng` は `any_range` である。
+* 基となる range の全ての `memoized` は、独自の `memo_table` オブジェクトを持つ。
 
 [heading Example]
     typedef any_range<int const&, boost::forward_traversal_tag> range_t;
@@ -1019,8 +1009,7 @@ Pending... `recursion`, collaborating with _oven_any_range_, creates a recursive
 
     std::cout << (fibs|taken(howMany));
 
-[note In a recursive range, `memoized` must take a named `memo_table` object.
-      A recursive range tends to be inefficient without memoization.]
+[note 再帰 range では、 `memoized` は必ず `memo_table` という名前のオブジェクトをもつ。再帰 range はメモ化なしでは非効率になる傾向がある。]
 
 [heading See also]
 * _oven_any_range_
@@ -1034,8 +1023,7 @@ Pending... `recursion`, collaborating with _oven_any_range_, creates a recursive
 [section shared]
 
 [heading Description]
-`shared` makes a range from a pointer to a heap allocated range,
-and the iterators manage the allocation.
+`shared` はヒープにアロケートされた range へのポインタから range を作る。また、 iterator はアロケーションを管理する。
 
 [heading Header]
 * `<pstade/oven/shared.hpp>`
@@ -1044,8 +1032,7 @@ and the iterators manage the allocation.
 * _static_function_object_
 
 [heading Notation]
-* `shared_range_iterator` is an imaginary iterator which works like
-  `boost::shared_container_iterator` but uses a range instead of a container.
+* `shared_range_iterator` は `boost::shared_container_iterator` のように機能する架空のイテレータである。ただし、 `shared_range_iterator` は container の代わりに range を利用する。
 
 [heading Valid expressions]
 [table 
@@ -1062,8 +1049,8 @@ and the iterators manage the allocation.
 ]
 
 [heading Preconditions]
-* `sp` is a `boost::shared_ptr<_typeof(*p)>(p)` such that `sp(p)` is a valid expression.
-* `T` is a `shared_range_iterator<_typeof(*p)>` such that `T(_begin(*p), sp)` is a valid expression.
+* `sp(p)` が有効な式の場合、 `sp` は `boost::shared_ptr<_typeof(*p)>(p)` である。
+* `T(_begin(*p), sp)` が有効な式の場合、 `T` は `shared_range_iterator<_typeof(*p)>` である。
 
 [heading Example]
     BOOST_FOREACH (char ch, std::string("dangling")|identities) {
@@ -1088,7 +1075,7 @@ and the iterators manage the allocation.
 [section single]
 
 [heading Description]
-`single` makes a _random_access_ _range_ which delivers a range presentation of one object.
+`single` はあるオブジェクトの range 表現となる _random_access_ _range_ を作る。
 
 [heading Header]
 * `<pstade/oven/single.hpp>`
@@ -1108,8 +1095,7 @@ and the iterators manage the allocation.
     ]
 ]
 
-[note As the semantics implies, the iterators are valid as long as `x` is not destructed.
-      If you want the iterators to manage the base object lifetime, use _oven_shared_single_.]
+[note セマンティクスがほのめかすように、 iterator は `x` が破棄されるまで有効である。もし基となったオブジェクトの有効期間を管理する iterator が必要なら、 _oven_shared_single_ を利用する。]
 
 [heading Example]
     BOOST_CHECK( equals(single('a'), std::string("a")) );
@@ -1125,7 +1111,7 @@ and the iterators manage the allocation.
 [section shared_single]
 
 [heading Description]
-`shared_single`, given a pointer to a heap allocated object, delivers a range presentation of the pointee.
+`shared_single` はヒープにアロケートされたオブジェクトへのポインタを基に、 pointee の range 表現を提供する。
 
 [heading Header]
 * `<pstade/oven/shared_single.hpp>`
@@ -1146,7 +1132,7 @@ and the iterators manage the allocation.
 ]
 
 [heading Preconditions]
-* `boost::shared_ptr<_typeof(*p)>(p)` is a valid expression.
+* `boost::shared_ptr<_typeof(*p)>(p)` は有効な式である。
 
 [heading Example]
     boost::result_of<T_shared_single(char *)>::type
@@ -1166,7 +1152,7 @@ and the iterators manage the allocation.
 [section stream_lines]
 
 [heading Description]
-`stream_lines` makes a `std::string` _single_pass_ _range_ from `std::cout` etc.
+`stream_lines` は `std::cout` などから `std::string` の _single_pass_ _range_ を作る。
 
 [heading Header]
 * `<pstade/oven/stream_lines.hpp>`
@@ -1175,7 +1161,7 @@ and the iterators manage the allocation.
 * _static_function_object_
 
 [heading Notation]
-* `DefaultA` is `std::allocator<_typeof(s)::char_type>`.
+* `DefaultA` は `std::allocator<_typeof(s)::char_type>` である。
 
 [heading Valid expressions]
 [table 
@@ -1186,7 +1172,7 @@ and the iterators manage the allocation.
     [
         [`X_stream_lines<A = DefaultA>`]
         [
-            A _major_function_object_ type
+            _major_function_object_ 型
         ]
     ]
     [
@@ -1204,7 +1190,7 @@ and the iterators manage the allocation.
 ]
 
 [heading Preconditions]
-* `T` is `hamigaki::istream_line_iterator<_typeof(s)::char_type, _typeof(s)::traits_type, A>` suct that `T(s)` is a valid expression.
+* `T(s)` が有効な式の場合、 `T` は `hamigaki::istream_line_iterator<_typeof(s)::char_type, _typeof(s)::traits_type, A>` である。
 
 [heading Example]
 
@@ -1220,7 +1206,7 @@ and the iterators manage the allocation.
 [section stream_read]
 
 [heading Description]
-`stream_read` makes a _single_pass_ _range_ from `std::cout` etc.
+`stream_read` は `std::cout` などから _single_pass_ _range_ を作る。
 
 [heading Header]
 * `<pstade/oven/stream_read.hpp>`
@@ -1234,7 +1220,7 @@ and the iterators manage the allocation.
     [
         [`X_stream_read<V, D = std::ptrdiff_t>`]
         [
-            A _major_function_object_ type
+            _major_function_object_ 型
         ]
     ]
     [
@@ -1251,10 +1237,10 @@ and the iterators manage the allocation.
     ]
 ]
 
-[important Notice that `stream_read<V>(s)` is qualified with `oven::` to avoid unintentional ADL.]
+[important 予期しない ADL を回避するために、 `stream_read<V>(s)` は `oven::` で修飾されている事に注意。]
 
 [heading Preconditions]
-* `T` is `std::istream_iterator<V, _typeof(s)::char_type, _typeof(s)::traits_type, D>` suct that `T(s)` is a valid expression.
+* `T(s)` が有効な式の場合、 `T` は `std::istream_iterator<V, _typeof(s)::char_type, _typeof(s)::traits_type, D>` である。
 
 [heading Example]
     std::string src("hello,stream_read!");
@@ -1307,8 +1293,8 @@ and the iterators manage the allocation.
 ]
 
 [heading Preconditions]
-* `T` is `std::istreambuf_iterator<_typeof(s)::char_type, _typeof(s)::traits_type>` such that `T(s)` is a valid expression.
-* `U` is `std::istreambuf_iterator<_typeof(*p)::char_type, _typeof(*p)::traits_type>` such that `U(p)` is a valid expression.
+* `T(s)` が有効な式の場合、 `T` は `std::istreambuf_iterator<_typeof(s)::char_type, _typeof(s)::traits_type>` である。
+* `U(p)` が有効な式の場合、 `U` は `std::istreambuf_iterator<_typeof(*p)::char_type, _typeof(*p)::traits_type>` である。
 
 [endsect]
 
@@ -1318,7 +1304,7 @@ and the iterators manage the allocation.
 [section unfold]
 
 [heading Description]
-`unfold` makes a range from a seed.
+`unfold` はシードから range を作る。
 
 [heading Header]
 * `<pstade/oven/unfold.hpp>`
@@ -1334,19 +1320,19 @@ and the iterators manage the allocation.
     ]
     [
         [`unfold(z, f, g)`]
-        [
-            The longest _forward_ `{f(z),f(g(z)),f(g(g(z))),f(g(g(g(z)))),...}` such that `f(...)` is not /uninitialized/.
-        ]
-    ]
+		[
+            `f(...)` が /uninitialized/ でない場合、最長の _forward_ `{f(z),f(g(z)),f(g(g(z))),f(g(g(g(z)))),...}` を生成する。
+		]
+	]
 ]
 
-[note `z` is copied, meaning that it is not referenced from Oven later.]
+[note `z` はコピーされる。このため、以降これらは Oven から参照されない。]
 
 [heading Preconditions]
-* `z`, `f(...)` and `g` is _assignable_, _copy_constructible_ and _default_constructible_.
-* `f` is a unary _stoppable_generator_.
-* `g` is a _function_object_ such that `z1 = g(z1)` is well-formed, where `_typeof(z) z1 = z`.
-* `f` and `g` is a [@http://planetmath.org/encyclopedia/Mapping.html mapping], meaning that `a == b` implies `f(a) == f(b)`.
+* `z`, `f(...)` および `g` は _assignable_, _copy_constructible_ and _default_constructible_ である。
+* `f` は unary _stoppable_generator_ である。
+* `_typeof(z) z1 = z` のとき `z1 = g(z1)` が適格である場合、 `g` は _function_object_ である。
+* `f` および `g` は [@http://planetmath.org/encyclopedia/Mapping.html mapping]。 つまり `a == b` ならば `f(a) == f(b)` である。
 
 [heading Example]
     boost::optional<int> mod(int i)
