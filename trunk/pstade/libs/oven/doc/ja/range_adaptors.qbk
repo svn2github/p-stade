@@ -468,7 +468,7 @@ Rangeアダプタは、とくに明記しない限りは以下の要件を満た
 [section converted]
 
 [heading Description]
-`converted` changes range referents to specified type.
+`converted` は、Rangeの参照から指定された型へ変換する。
 
 [heading Header]
 * `<pstade/oven/converted.hpp>`
@@ -477,7 +477,7 @@ Rangeアダプタは、とくに明記しない限りは以下の要件を満た
 * ...
 
 [heading Notation]
-* `f_` is an imaginary _function_object_ which behaves as if it were `v -> boost::implicit_cast<To>(v)`.
+* `f_` は、 `v -> boost::implicit_cast<To>(v)` のように振舞う _function_object_ である。
 
 [heading Valid expressions]
 [table 
@@ -488,7 +488,7 @@ Rangeアダプタは、とくに明記しない限りは以下の要件を満た
     [
         [`X_make_converted<To>`]
         [
-            A _major_function_object_ type
+            _major_function_object_ 型
         ]
     ]
     [
@@ -518,7 +518,7 @@ Rangeアダプタは、とくに明記しない限りは以下の要件を満た
 ]
 
 [heading Preconditions]
-* The corresponding semantics is a valid expression.
+* 対応するセマンティクスは有効な式である。
 
 
 [heading Example]
@@ -535,7 +535,7 @@ Rangeアダプタは、とくに明記しない限りは以下の要件を満た
 [section copied_to]
 
 [heading Description]
-`copied_to` makes a side-effect that copies the base range to an _output_iterator_.
+`copied_to` は、ベースとなるRange _output_iterator_ へコピーする副作用を作る。
 
 [heading Header]
 * `<pstade/oven/copied_to.hpp>`
@@ -561,10 +561,10 @@ Rangeアダプタは、とくに明記しない限りは以下の要件を満た
 * `std::copy(_begin(_fwdrng), _end(_fwdrng), _outit)`
 
 [heading Preconditions]
-* `std::copy(_begin(_fwdrng), _end(_fwdrng), _outit)` is a valid expression.
+* `std::copy(_begin(_fwdrng), _end(_fwdrng), _outit)` は有効な式である。
 
 [heading Complexity]
-* Depends on the `std::copy`.
+* `std::copy` に依存する。
 
 [heading Example]
 
@@ -579,7 +579,7 @@ Rangeアダプタは、とくに明記しない限りは以下の要件を満た
 [section cycled]
 
 [heading Description]
-`cycled` creates a circular range from the base range.
+`cycled` は、ベースとなるRangeから循環Rangeを作成する。
 
 [heading Header]
 * `<pstade/oven/cycled.hpp>`
@@ -588,7 +588,7 @@ Rangeアダプタは、とくに明記しない限りは以下の要件を満た
 * _pipable_adaptor_
 
 [heading Notation]
-* `{a1,...,aN}` is `_rng`.
+* `{a1,...,aN}` は `_rng` である。
 
 [heading Valid expressions]
 [table 
@@ -599,16 +599,16 @@ Rangeアダプタは、とくに明記しない限りは以下の要件を満た
     [
         [`_rng|cycled(c)`]
         [
-            A non-_swappable_ `{a1,...,aN,a1,...,aN,...,a1,...,aN}`, where `a1,...,aN` appears `c` times.
+            `a1,...,aN` が `c` 回現れる non-_swappable_ `{a1,...,aN,a1,...,aN,...,a1,...,aN}`。
         ]
     ]
 ]
 
 [heading Invariants]
-* `_rng|cycled(c)` is _lvalue_ if and only if `_rng` is _constant_.
+*  `_rng` が _constant_ である場合に限り、 `_rng|cycled(c)` は _lvalue_ である。
 
 [heading Preconditions]
-* `_typeof(c)` is convertible to `boost::range_difference<_typeof(_rng)>::type`.
+* `_typeof(c)` は `boost::range_difference<_typeof(_rng)>::type` に変換可能である。
 * `0 <= c`
 
 [heading Example]
