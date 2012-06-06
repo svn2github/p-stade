@@ -39,7 +39,7 @@ namespace is_nullary_callable_detail {
         static std::false_type check(...) ;
 
     public :
-        static bool const value = boost::mpl::identity<decltype( check( value<T>() ) )>::type::value ;
+        static bool const value = boost::mpl::identity<decltype( check( is_nullary_callable_detail::value<T>() ) )>::type::value ;
     };
 
 }
