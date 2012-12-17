@@ -35,7 +35,7 @@
 #endif
 
 
-#if defined(BOOST_HAS_RVALUE_REFS) && !defined(PSTADE_EGG_DISABLE_RVALUE_REFS)
+#if !defined(BOOST_NO_RVALUE_REFERENCES) && !defined(PSTADE_EGG_DISABLE_RVALUE_REFS)
     #define PSTADE_EGG_HAS_RVALUE_REFS
 #endif
 
