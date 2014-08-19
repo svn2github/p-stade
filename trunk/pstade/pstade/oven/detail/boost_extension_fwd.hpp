@@ -32,11 +32,19 @@ namespace boost {
     template< class Range >
     struct range_iterator;
 #else
+    #if BOOST_VERSION >= 105600
+    template< class Range, typename Enabler >
+    #else
     template< class Range >
-    struct range_mutable_iterator;
+    #endif
+     struct range_mutable_iterator;
 #endif
 
+#if BOOST_VERSION >= 105600
+    template< class Range, typename Enabler >
+#else
     template< class Range >
+#endif
     struct range_const_iterator;
 
     template< class Range >

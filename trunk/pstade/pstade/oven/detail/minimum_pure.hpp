@@ -19,6 +19,15 @@
 namespace pstade { namespace oven { namespace detail {
 
 
+#if BOOST_VERSION >= 105600
+template< class T1, class T2 >
+struct minimum_pure :
+    boost::iterators::detail::minimum_category<
+        typename boost::iterators::detail::pure_traversal_tag<T1>::type,
+        typename boost::iterators::detail::pure_traversal_tag<T2>::type
+    >
+{ };
+#else
 template< class T1, class T2 >
 struct minimum_pure :
     boost::detail::minimum_category<
@@ -26,7 +35,7 @@ struct minimum_pure :
         typename boost::detail::pure_traversal_tag<T2>::type
     >
 { };
-
+#endif
 
 } } } // namespace pstade::oven::detail
 
