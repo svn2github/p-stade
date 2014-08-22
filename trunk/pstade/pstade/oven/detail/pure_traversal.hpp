@@ -26,15 +26,9 @@ namespace pstade { namespace oven { namespace detail {
 
 template< class Iterator >
 struct pure_traversal :
-#if BOOST_VERSION >= 105600
-    boost::iterators::detail::pure_traversal_tag<
-        typename boost::iterator_traversal<Iterator>::type
-    >
-#else
     boost::detail::pure_traversal_tag<
         typename boost::iterator_traversal<Iterator>::type
     >
-#endif
 { };
 
 

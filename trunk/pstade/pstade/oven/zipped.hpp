@@ -34,11 +34,7 @@ namespace pstade { namespace oven {
 namespace zipped_detail {
 
 
-#if BOOST_VERSION >= 105600
-    using boost::iterators::detail::tuple_impl_specific::tuple_meta_transform;
-#else
     using boost::detail::tuple_impl_specific::tuple_meta_transform;
-#endif
     namespace mpl = boost::mpl;
     namespace tuples = boost::tuples;
     namespace here = zipped_detail;

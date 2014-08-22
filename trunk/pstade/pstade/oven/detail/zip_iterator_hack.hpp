@@ -26,27 +26,6 @@
 
 namespace pstade { namespace oven { namespace detail {
 
-
-#if BOOST_VERSION >= 105600
-    template< class IteratorTuple >
-    struct minimum_traversal_category_in_iterator_tuple
-    {
-        typedef typename
-            boost::iterators::detail::tuple_impl_specific::tuple_meta_transform<
-                IteratorTuple,
-                pure_traversal<boost::mpl::_1> // modified from boost::iterator_traversal<>
-            >::type
-        tuple_of_traversal_tags;
-
-        typedef typename
-            boost::iterators::detail::tuple_impl_specific::tuple_meta_accumulate<
-                tuple_of_traversal_tags,
-                boost::iterators::detail::minimum_category<>,
-                boost::random_access_traversal_tag
-            >::type
-        type;
-    };
-#else
     template< class IteratorTuple >
     struct minimum_traversal_category_in_iterator_tuple
     {
@@ -65,7 +44,6 @@ namespace pstade { namespace oven { namespace detail {
             >::type
         type;
     };
-#endif
 
 } } } // namespace pstade::oven::detail
 
